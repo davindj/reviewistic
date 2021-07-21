@@ -101,12 +101,13 @@
 		B926619726A6A7DF00ACC9F2 /* team8_business */ = {
 			isa = PBXGroup;
 			children = (
-				B926619826A6A7DF00ACC9F2 /* AppDelegate.swift */,
-				B926619A26A6A7DF00ACC9F2 /* SceneDelegate.swift */,
-				B926619C26A6A7DF00ACC9F2 /* ViewController.swift */,
-				B926619E26A6A7DF00ACC9F2 /* Main.storyboard */,
+				D7C8E93426A7F9DD00956846 /* Shared */,
+				D7C8E93026A7F8BD00956846 /* Model */,
+				D7C8E93126A7F8CA00956846 /* ViewModel */,
+				D7C8E92F26A7F8B400956846 /* View */,
+				D7C8E93226A7F8D800956846 /* Controller */,
+				D7C8E93326A7F9AE00956846 /* Storyboard */,
 				B92661A426A6A7DF00ACC9F2 /* Assets.xcassets */,
-				B92661A626A6A7DF00ACC9F2 /* LaunchScreen.storyboard */,
 				B92661A926A6A7DF00ACC9F2 /* Info.plist */,
 				B92661A126A6A7DF00ACC9F2 /* team8_business.xcdatamodeld */,
 			);
@@ -129,6 +130,53 @@
 				B92661BF26A6A7DF00ACC9F2 /* Info.plist */,
 			);
 			path = team8_businessUITests;
+			sourceTree = "<group>";
+		};
+		D7C8E92F26A7F8B400956846 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D7C8E93026A7F8BD00956846 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D7C8E93126A7F8CA00956846 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D7C8E93226A7F8D800956846 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B926619C26A6A7DF00ACC9F2 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D7C8E93326A7F9AE00956846 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				B926619E26A6A7DF00ACC9F2 /* Main.storyboard */,
+				B92661A626A6A7DF00ACC9F2 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		D7C8E93426A7F9DD00956846 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				B926619826A6A7DF00ACC9F2 /* AppDelegate.swift */,
+				B926619A26A6A7DF00ACC9F2 /* SceneDelegate.swift */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
