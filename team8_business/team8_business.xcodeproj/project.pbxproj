@@ -16,6 +16,7 @@
 		B92661A826A6A7DF00ACC9F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B92661A626A6A7DF00ACC9F2 /* LaunchScreen.storyboard */; };
 		B92661B326A6A7DF00ACC9F2 /* team8_businessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92661B226A6A7DF00ACC9F2 /* team8_businessTests.swift */; };
 		B92661BE26A6A7DF00ACC9F2 /* team8_businessUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92661BD26A6A7DF00ACC9F2 /* team8_businessUITests.swift */; };
+		B92661D826A8235E00ACC9F2 /* TransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92661D726A8235E00ACC9F2 /* TransactionModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		B92661B926A6A7DF00ACC9F2 /* team8_businessUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = team8_businessUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B92661BD26A6A7DF00ACC9F2 /* team8_businessUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = team8_businessUITests.swift; sourceTree = "<group>"; };
 		B92661BF26A6A7DF00ACC9F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B92661D726A8235E00ACC9F2 /* TransactionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,10 +103,8 @@
 		B926619726A6A7DF00ACC9F2 /* team8_business */ = {
 			isa = PBXGroup;
 			children = (
+				B92661D626A8234D00ACC9F2 /* Model */,
 				D7C8E93426A7F9DD00956846 /* Shared */,
-				D7C8E93026A7F8BD00956846 /* Model */,
-				D7C8E93126A7F8CA00956846 /* ViewModel */,
-				D7C8E92F26A7F8B400956846 /* View */,
 				D7C8E93226A7F8D800956846 /* Controller */,
 				D7C8E93326A7F9AE00956846 /* Storyboard */,
 				B92661A426A6A7DF00ACC9F2 /* Assets.xcassets */,
@@ -132,25 +132,12 @@
 			path = team8_businessUITests;
 			sourceTree = "<group>";
 		};
-		D7C8E92F26A7F8B400956846 /* View */ = {
+		B92661D626A8234D00ACC9F2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		D7C8E93026A7F8BD00956846 /* Model */ = {
-			isa = PBXGroup;
-			children = (
+				B92661D726A8235E00ACC9F2 /* TransactionModel.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		D7C8E93126A7F8CA00956846 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		D7C8E93226A7F8D800956846 /* Controller */ = {
@@ -309,6 +296,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B92661D826A8235E00ACC9F2 /* TransactionModel.swift in Sources */,
 				B926619D26A6A7DF00ACC9F2 /* ViewController.swift in Sources */,
 				B92661A326A6A7DF00ACC9F2 /* team8_business.xcdatamodeld in Sources */,
 				B926619926A6A7DF00ACC9F2 /* AppDelegate.swift in Sources */,
