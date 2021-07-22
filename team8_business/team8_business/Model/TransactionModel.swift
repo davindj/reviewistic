@@ -13,7 +13,7 @@ class Transaction: Codable {
    let Rating: Int
     
     static func callData(response: @escaping ([Record])->Void ) {
-        let url = URL(string: "https://api.airtable.com/v0/appP7dMHeW4puOorW/Table%201?api_key=keys9Q3knWNrVr89B")
+        let url = URL(string: "https://api.airtable.com/v0/appP7dMHeW4puOorW/Review?api_key=keys9Q3knWNrVr89B")
         //var recResponse.records
         
         //let request = URLRequest(url: url!)
@@ -26,7 +26,10 @@ class Transaction: Codable {
                 let decoder = JSONDecoder()
                 let recResponse = try decoder.decode(Records.self, from: jsonData)
                 
-                response(recResponse.records)
+                DispatchQueue.main.async {
+                    response(recResponse.records)
+                }
+                
                 //panggil data disini
             } catch let jsonError as NSError {
                 print("JSON decode failed: \(jsonError)")
