@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ReviewVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var transaksi:[Record] = []
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
