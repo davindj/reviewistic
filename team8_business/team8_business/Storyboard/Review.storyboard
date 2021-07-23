@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--ReviewVC-->
         <scene sceneID="sFc-eB-OAu">
             <objects>
-                <viewController id="1iv-ST-ggV" customClass="ViewController" customModule="team8_business" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="1iv-ST-ggV" customClass="ReviewVC" customModule="team8_business" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iHq-9P-rEs">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
