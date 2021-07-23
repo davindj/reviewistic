@@ -11,6 +11,7 @@ class Transaction: Codable {
    let NomorTransaksi: String
    let Review: String
    let Rating: Int
+   let id_toko: Int
     
     static func callData(response: @escaping ([Record])->Void ) {
         let url = URL(string: "https://api.airtable.com/v0/appP7dMHeW4puOorW/Review?api_key=keys9Q3knWNrVr89B")
