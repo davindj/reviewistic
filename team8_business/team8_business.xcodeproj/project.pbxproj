@@ -19,6 +19,8 @@
 		B92661D826A8235E00ACC9F2 /* TransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92661D726A8235E00ACC9F2 /* TransactionModel.swift */; };
 		D7447E5826A9447E0082412B /* TransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7447E5726A9447E0082412B /* TransactionViewController.swift */; };
 		D7447E5A26A9453F0082412B /* DetailTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7447E5926A9453F0082412B /* DetailTransactionViewController.swift */; };
+		D79FD2D826AA7FDD00A079F2 /* Transaction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D79FD2D726AA7FDD00A079F2 /* Transaction.storyboard */; };
+		D79FD2DD26AA8A2900A079F2 /* TransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79FD2DC26AA8A2900A079F2 /* TransactionViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,9 +56,11 @@
 		B92661B926A6A7DF00ACC9F2 /* team8_businessUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = team8_businessUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B92661BD26A6A7DF00ACC9F2 /* team8_businessUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = team8_businessUITests.swift; sourceTree = "<group>"; };
 		B92661BF26A6A7DF00ACC9F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B92661D726A8235E00ACC9F2 /* TransactionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionModel.swift; sourceTree = "<group>"; };
 		D7447E5726A9447E0082412B /* TransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewController.swift; sourceTree = "<group>"; };
 		D7447E5926A9453F0082412B /* DetailTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTransactionViewController.swift; sourceTree = "<group>"; };
-		B92661D726A8235E00ACC9F2 /* TransactionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionModel.swift; sourceTree = "<group>"; };
+		D79FD2D726AA7FDD00A079F2 /* Transaction.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Transaction.storyboard; sourceTree = "<group>"; };
+		D79FD2DC26AA8A2900A079F2 /* TransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +111,7 @@
 		B926619726A6A7DF00ACC9F2 /* team8_business */ = {
 			isa = PBXGroup;
 			children = (
+				D79FD2DB26AA8A0700A079F2 /* ViewModel */,
 				B92661D626A8234D00ACC9F2 /* Model */,
 				D7C8E93426A7F9DD00956846 /* Shared */,
 				D7C8E93226A7F8D800956846 /* Controller */,
@@ -144,6 +149,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		D79FD2DB26AA8A0700A079F2 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D79FD2DC26AA8A2900A079F2 /* TransactionViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		D7C8E93226A7F8D800956846 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -159,6 +172,7 @@
 			children = (
 				114F27D726A97EDA00462A4C /* Main.storyboard */,
 				B92661A626A6A7DF00ACC9F2 /* LaunchScreen.storyboard */,
+				D79FD2D726AA7FDD00A079F2 /* Transaction.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -278,6 +292,7 @@
 				114F27D826A97EDA00462A4C /* Main.storyboard in Resources */,
 				B92661A826A6A7DF00ACC9F2 /* LaunchScreen.storyboard in Resources */,
 				B92661A526A6A7DF00ACC9F2 /* Assets.xcassets in Resources */,
+				D79FD2D826AA7FDD00A079F2 /* Transaction.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,6 +319,7 @@
 			files = (
 				B92661D826A8235E00ACC9F2 /* TransactionModel.swift in Sources */,
 				D7447E5A26A9453F0082412B /* DetailTransactionViewController.swift in Sources */,
+				D79FD2DD26AA8A2900A079F2 /* TransactionViewModel.swift in Sources */,
 				D7447E5826A9447E0082412B /* TransactionViewController.swift in Sources */,
 				B926619D26A6A7DF00ACC9F2 /* ViewController.swift in Sources */,
 				B92661A326A6A7DF00ACC9F2 /* team8_business.xcdatamodeld in Sources */,

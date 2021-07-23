@@ -12,18 +12,18 @@ struct TempTransaction {
 }
 
 class TransactionViewController: UITableViewController {
-    var transactions: [TempTransaction] = []
+    var transactions: [TransactionViewModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = "Transactions"
+        title = "Transactions"
+        navigationController?.navigationBar.prefersLargeTitles = true
         
-        transactions += [
-            TempTransaction(id: "1"),
-            TempTransaction(id: "2"),
-            TempTransaction(id: "3"),
-        ]
+        Transaction.callData{ data in
+            self.transactions = data.map{ TransactionViewModel(transaction: $0) }
+            self.tableView.reloadData()
+        }
     }
 
     // MARK: - Table view data source
@@ -34,15 +34,16 @@ class TransactionViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "transaction", for: indexPath)
         let transaction = transactions[indexPath.row]
-        cell.textLabel?.text = transaction.id
+        cell.textLabel?.text = transaction.noTransaction
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let transaction = transactions[indexPath.row]
-        let vc = DetailTransactionViewController()
-        vc.transaction = TempTransaction(id: "wkwkw")
-        navigationController?.pushViewController(vc, animated: true)
+        if let vc = self.storyboard?.instantiateViewController(identifier: "DetailTransaction") as? DetailTransactionViewController {
+            vc.transaction = transaction
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
 
 }
