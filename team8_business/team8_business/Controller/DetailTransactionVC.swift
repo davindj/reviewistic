@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DetailTransactionViewController: UIViewController {
+class DetailTransactionVC: UIViewController {
     // Component
     @IBOutlet var noTransLabel: UILabel!
     @IBOutlet var reviewResultLabel: UILabel!

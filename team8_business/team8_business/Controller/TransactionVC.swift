@@ -11,7 +11,7 @@ struct TempTransaction {
     let id: String
 }
 
-class TransactionViewController: UITableViewController {
+class TransactionVC: UITableViewController {
     var transactions: [TransactionViewModel] = []
     
     override func viewDidLoad() {
@@ -40,7 +40,7 @@ class TransactionViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let transaction = transactions[indexPath.row]
-        if let vc = self.storyboard?.instantiateViewController(identifier: "DetailTransaction") as? DetailTransactionViewController {
+        if let vc = self.storyboard?.instantiateViewController(identifier: "DetailTransaction") as? DetailTransactionVC {
             vc.transaction = transaction
             navigationController?.pushViewController(vc, animated: true)
         }
