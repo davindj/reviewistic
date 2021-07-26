@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		114F27D826A97EDA00462A4C /* Review.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 114F27D726A97EDA00462A4C /* Review.storyboard */; };
+		4C77DA4B26ABEA3F0041450D /* Voucher.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C77DA4A26ABEA3F0041450D /* Voucher.storyboard */; };
 		B926619926A6A7DF00ACC9F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B926619826A6A7DF00ACC9F2 /* AppDelegate.swift */; };
 		B926619B26A6A7DF00ACC9F2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B926619A26A6A7DF00ACC9F2 /* SceneDelegate.swift */; };
 		B926619D26A6A7DF00ACC9F2 /* ReviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B926619C26A6A7DF00ACC9F2 /* ReviewVC.swift */; };
@@ -43,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		114F27D726A97EDA00462A4C /* Review.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Review.storyboard; sourceTree = "<group>"; };
+		4C77DA4A26ABEA3F0041450D /* Voucher.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Voucher.storyboard; sourceTree = "<group>"; };
 		B926619526A6A7DF00ACC9F2 /* team8_business.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = team8_business.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B926619826A6A7DF00ACC9F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B926619A26A6A7DF00ACC9F2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				B92661A626A6A7DF00ACC9F2 /* LaunchScreen.storyboard */,
 				D79FD2D726AA7FDD00A079F2 /* Transaction.storyboard */,
 				D7AE047726AAA7360024F018 /* Main.storyboard */,
+				4C77DA4A26ABEA3F0041450D /* Voucher.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				B92661A826A6A7DF00ACC9F2 /* LaunchScreen.storyboard in Resources */,
 				B92661A526A6A7DF00ACC9F2 /* Assets.xcassets in Resources */,
 				D79FD2D826AA7FDD00A079F2 /* Transaction.storyboard in Resources */,
+				4C77DA4B26ABEA3F0041450D /* Voucher.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
