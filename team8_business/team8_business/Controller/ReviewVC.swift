@@ -95,11 +95,9 @@ class ReviewVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         
         Transaction.callData { r in
-            
             self.transaksi = r.filter{$0.fields.status == 2}
-            print(self.transaksi[0].id)
-            self.table_view.reloadData()
-           
+            self.kategoriID = "KategoriAll"
+            self.filter()
         }
         
         table_view.delegate=self
