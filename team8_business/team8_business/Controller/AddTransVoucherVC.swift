@@ -10,7 +10,7 @@ import UIKit
 class AddTransVoucherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet var tableView: UITableView!
     
-    var vouchers: [TempVoucher] = []
+    var vouchers: [VoucherViewModel] = []
     var selectedIdx: Int = -1
 
     override func viewDidLoad() {
@@ -19,11 +19,10 @@ class AddTransVoucherVC: UIViewController, UITableViewDelegate, UITableViewDataS
         navigationItem.title = "Generate Voucher"
         
         // Get All voucher
-        vouchers += [
-            TempVoucher(id: "Voucher 1"),
-            TempVoucher(id: "Voucher 2"),
-            TempVoucher(id: "Voucher 3")
-        ]
+        Voucher.listVoucherToko(id_toko: "1"){ vouchers in
+            self.vouchers = vouchers.map{ VoucherViewModel(recordVoucher: $0) }
+            self.tableView.reloadData()
+        }
         
         // Set Table View
         tableView.delegate=self
@@ -37,9 +36,8 @@ class AddTransVoucherVC: UIViewController, UITableViewDelegate, UITableViewDataS
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "voucher", for: indexPath)
         let voucher = vouchers[indexPath.row]
-        let isSelected = indexPath.row == selectedIdx
-        cell.textLabel?.text = voucher.id
-        cell.accessoryType = isSelected ? .checkmark : .none
+        cell.textLabel?.text = voucher.name
+        cell.accessoryType = voucher.accesoryType
         return cell
     }
     
@@ -53,7 +51,9 @@ class AddTransVoucherVC: UIViewController, UITableViewDelegate, UITableViewDataS
         updatedIdx.append(newIdx)
         if oldIdx.row >= 0 {
             updatedIdx.append(oldIdx)
+            vouchers[oldIdx.row].isSelected = false
         }
+        vouchers[newIdx.row].isSelected = true
         tableView.reloadRows(at: updatedIdx, with: .automatic)
     }
 }
