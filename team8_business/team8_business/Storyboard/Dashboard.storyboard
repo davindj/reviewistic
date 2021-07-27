@@ -102,8 +102,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="card" destination="uyI-DY-wnV" id="4iT-dh-5bG"/>
-                                            <outlet property="lblID" destination="H0h-DK-wJ1" id="bAs-0B-OhH"/>
+                                            <outlet property="lblNomorTransaksi" destination="H0h-DK-wJ1" id="7ck-Qx-OMm"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

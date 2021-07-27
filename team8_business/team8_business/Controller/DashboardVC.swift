@@ -38,7 +38,7 @@ class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "DashboardTC", for: indexPath) as! DashboardTC
         
-        cell.lblID.text = trans[indexPath.row].fields.keterangan
+        cell.lblNomorTransaksi.text = trans[indexPath.row].fields.keterangan
         
         return cell
     }
