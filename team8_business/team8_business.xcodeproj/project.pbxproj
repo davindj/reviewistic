@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		114F27D826A97EDA00462A4C /* Review.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 114F27D726A97EDA00462A4C /* Review.storyboard */; };
 		4C77DA4B26ABEA3F0041450D /* Voucher.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C77DA4A26ABEA3F0041450D /* Voucher.storyboard */; };
+		4C77DA4F26AEA58C0041450D /* VoucherVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C77DA4E26AEA58C0041450D /* VoucherVC.swift */; };
 		B926619926A6A7DF00ACC9F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B926619826A6A7DF00ACC9F2 /* AppDelegate.swift */; };
 		B926619B26A6A7DF00ACC9F2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B926619A26A6A7DF00ACC9F2 /* SceneDelegate.swift */; };
 		B926619D26A6A7DF00ACC9F2 /* ReviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B926619C26A6A7DF00ACC9F2 /* ReviewVC.swift */; };
@@ -45,6 +46,7 @@
 /* Begin PBXFileReference section */
 		114F27D726A97EDA00462A4C /* Review.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Review.storyboard; sourceTree = "<group>"; };
 		4C77DA4A26ABEA3F0041450D /* Voucher.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Voucher.storyboard; sourceTree = "<group>"; };
+		4C77DA4E26AEA58C0041450D /* VoucherVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoucherVC.swift; sourceTree = "<group>"; };
 		B926619526A6A7DF00ACC9F2 /* team8_business.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = team8_business.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B926619826A6A7DF00ACC9F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B926619A26A6A7DF00ACC9F2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 			children = (
 				D7447E5726A9447E0082412B /* TransactionVC.swift */,
 				D7447E5926A9453F0082412B /* DetailTransactionVC.swift */,
+				4C77DA4E26AEA58C0041450D /* VoucherVC.swift */,
 				B926619C26A6A7DF00ACC9F2 /* ReviewVC.swift */,
 			);
 			path = Controller;
@@ -328,6 +331,7 @@
 				B92661D826A8235E00ACC9F2 /* TransactionModel.swift in Sources */,
 				D7447E5A26A9453F0082412B /* DetailTransactionVC.swift in Sources */,
 				D79FD2DD26AA8A2900A079F2 /* TransactionViewModel.swift in Sources */,
+				4C77DA4F26AEA58C0041450D /* VoucherVC.swift in Sources */,
 				D7447E5826A9447E0082412B /* TransactionVC.swift in Sources */,
 				B926619D26A6A7DF00ACC9F2 /* ReviewVC.swift in Sources */,
 				B926619D26A6A7DF00ACC9F2 /* ReviewVC.swift in Sources */,
