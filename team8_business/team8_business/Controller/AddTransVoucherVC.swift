@@ -57,7 +57,3 @@ class AddTransVoucherVC: UIViewController, UITableViewDelegate, UITableViewDataS
         tableView.reloadRows(at: updatedIdx, with: .automatic)
     }
 }
-
-struct TempVoucher {
-    let id: String
-}
