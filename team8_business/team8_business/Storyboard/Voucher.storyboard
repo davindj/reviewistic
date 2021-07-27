@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0u9-Ai-8NY">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1287" y="-36"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="UKj-0a-esZ">
+            <objects>
+                <navigationController id="0u9-Ai-8NY" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vpk-LR-QPo">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="KXS-Kh-IGB" kind="relationship" relationship="rootViewController" id="GQm-Pv-EsC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fuq-jb-bNe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-719" y="-36"/>
+        </scene>
+        <!--Voucher-->
+        <scene sceneID="JHj-p1-yCW">
+            <objects>
+                <tableViewController id="KXS-Kh-IGB" customClass="VoucherVC" customModule="team8_business" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="3Kq-ZP-4OW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="119" id="L1f-oM-LkJ" customClass="VoucherVC" customModule="team8_business" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="24.5" width="414" height="119"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="L1f-oM-LkJ" id="AC7-Gf-Cr2">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="119"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rBm-DX-wHi">
+                                            <rect key="frame" x="8" y="8" width="398" height="103"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NamaVoucher" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hja-1w-rIK">
+                                                    <rect key="frame" x="8" y="8" width="107" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Keterangan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0jB-NZ-QWK">
+                                                    <rect key="frame" x="8" y="39" width="88" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ExpDate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YPh-0P-lF3">
+                                                    <rect key="frame" x="326" y="8" width="64" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstItem="0jB-NZ-QWK" firstAttribute="top" secondItem="hja-1w-rIK" secondAttribute="bottom" constant="10" id="1Wt-k1-3sv"/>
+                                                <constraint firstItem="YPh-0P-lF3" firstAttribute="top" secondItem="rBm-DX-wHi" secondAttribute="top" constant="8" id="G3n-o4-zrO"/>
+                                                <constraint firstAttribute="trailing" secondItem="YPh-0P-lF3" secondAttribute="trailing" constant="8" id="Q7n-NI-PEw"/>
+                                                <constraint firstItem="hja-1w-rIK" firstAttribute="leading" secondItem="rBm-DX-wHi" secondAttribute="leading" constant="8" id="hdS-H2-jwb"/>
+                                                <constraint firstItem="hja-1w-rIK" firstAttribute="top" secondItem="rBm-DX-wHi" secondAttribute="top" constant="8" id="kRk-85-Uke"/>
+                                                <constraint firstItem="0jB-NZ-QWK" firstAttribute="leading" secondItem="rBm-DX-wHi" secondAttribute="leading" constant="8" id="kTx-t2-4c8"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                    <constraints>
+                                        <constraint firstItem="rBm-DX-wHi" firstAttribute="leading" secondItem="AC7-Gf-Cr2" secondAttribute="leading" constant="8" id="KOV-xM-bYw"/>
+                                        <constraint firstAttribute="bottom" secondItem="rBm-DX-wHi" secondAttribute="bottom" constant="8" id="Yoa-1t-8Wg"/>
+                                        <constraint firstAttribute="trailing" secondItem="rBm-DX-wHi" secondAttribute="trailing" constant="8" id="cIa-Cw-rlu"/>
+                                        <constraint firstItem="rBm-DX-wHi" firstAttribute="top" secondItem="AC7-Gf-Cr2" secondAttribute="top" constant="8" id="pxI-Uy-vFk"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="ExpDate" destination="YPh-0P-lF3" id="g0n-q9-gb1"/>
+                                    <outlet property="Keterangan" destination="0jB-NZ-QWK" id="E5N-c0-2zM"/>
+                                    <outlet property="NamaVoucher" destination="hja-1w-rIK" id="mul-ue-VYT"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="KXS-Kh-IGB" id="P4j-1c-ZZT"/>
+                            <outlet property="delegate" destination="KXS-Kh-IGB" id="jBH-7h-h8R"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Voucher" id="BOd-5I-C0M">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="9A1-QX-ytm">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Btr-IW-3Vg">
+                                <rect key="frame" x="348" y="0.0" width="46" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <state key="normal" title="+"/>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bvb-R1-dfm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="140.57971014492756" y="-36.160714285714285"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
