@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="v6k-mJ-Hyb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DKW-YJ-8b1">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -72,6 +72,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JBQ-GE-C2o">
+                                <rect key="frame" x="343" y="194" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="Ggh-Zv-sA9" kind="presentation" id="dSz-hC-o1a"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="VmW-M9-vTe"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -81,10 +88,13 @@
                             <constraint firstItem="LrJ-3K-tkS" firstAttribute="top" secondItem="P5x-3C-e6L" secondAttribute="bottom" constant="120" id="Okl-ZG-oeO"/>
                             <constraint firstItem="gN1-Mq-HgD" firstAttribute="leading" secondItem="LrJ-3K-tkS" secondAttribute="leading" id="YVA-M7-YGT"/>
                             <constraint firstItem="P5x-3C-e6L" firstAttribute="top" secondItem="VmW-M9-vTe" secondAttribute="top" id="b2n-f3-qne"/>
+                            <constraint firstItem="JBQ-GE-C2o" firstAttribute="centerY" secondItem="LrJ-3K-tkS" secondAttribute="centerY" id="bmn-T7-uyI"/>
+                            <constraint firstItem="VmW-M9-vTe" firstAttribute="trailing" secondItem="JBQ-GE-C2o" secondAttribute="trailing" constant="25" id="gk6-4Y-m4k"/>
                             <constraint firstItem="gN1-Mq-HgD" firstAttribute="top" secondItem="LrJ-3K-tkS" secondAttribute="bottom" constant="23" id="sow-1b-8oN"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="barcodeBtn" destination="JBQ-GE-C2o" id="iBu-0e-6aF"/>
                         <outlet property="noTransLabel" destination="P5x-3C-e6L" id="yes-Os-SsW"/>
                         <outlet property="reviewResultLabel" destination="gN1-Mq-HgD" id="PcI-0S-NkJ"/>
                     </connections>
@@ -93,11 +103,13 @@
             </objects>
             <point key="canvasLocation" x="1784.057971014493" y="4.6875"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Item-->
         <scene sceneID="oH2-Xm-8p9">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="v6k-mJ-Hyb" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" image="square.and.arrow.down" catalog="system" id="Q1f-ve-6Fn"/>
                     <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="AfV-Eq-ybj">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -111,8 +123,19 @@
             </objects>
             <point key="canvasLocation" x="-52.173913043478265" y="4.6875"/>
         </scene>
+        <!--ModalVoucher-->
+        <scene sceneID="XfD-gA-XTn">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ModalVoucher" id="Ggh-Zv-sA9" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="mCG-Ty-N7u"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UwI-j2-KeC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2320" y="-151"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="square.and.arrow.down" catalog="system" width="121" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
