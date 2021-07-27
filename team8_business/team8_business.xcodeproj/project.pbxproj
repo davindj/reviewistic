@@ -17,6 +17,11 @@
 		B92661B326A6A7DF00ACC9F2 /* team8_businessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92661B226A6A7DF00ACC9F2 /* team8_businessTests.swift */; };
 		B92661BE26A6A7DF00ACC9F2 /* team8_businessUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92661BD26A6A7DF00ACC9F2 /* team8_businessUITests.swift */; };
 		B92661D826A8235E00ACC9F2 /* TransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92661D726A8235E00ACC9F2 /* TransactionModel.swift */; };
+		B95F5C5426AAB0A7005DF1FA /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B95F5C5326AAB0A7005DF1FA /* Dashboard.storyboard */; };
+		B95F5C5926AD1A4A005DF1FA /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95F5C5826AD1A4A005DF1FA /* DashboardVC.swift */; };
+		B95F5C5E26AE7F1A005DF1FA /* DashboardTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95F5C5D26AE7F1A005DF1FA /* DashboardTC.swift */; };
+		B95F5C6326AEA6B3005DF1FA /* ProdukModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95F5C6226AEA6B3005DF1FA /* ProdukModel.swift */; };
+		B95F5C6826AEAD15005DF1FA /* VoucherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95F5C6726AEAD15005DF1FA /* VoucherModel.swift */; };
 		D7447E5826A9447E0082412B /* TransactionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7447E5726A9447E0082412B /* TransactionVC.swift */; };
 		D7447E5A26A9453F0082412B /* DetailTransactionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7447E5926A9453F0082412B /* DetailTransactionVC.swift */; };
 		D79FD2D826AA7FDD00A079F2 /* Transaction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D79FD2D726AA7FDD00A079F2 /* Transaction.storyboard */; };
@@ -58,6 +63,11 @@
 		B92661BD26A6A7DF00ACC9F2 /* team8_businessUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = team8_businessUITests.swift; sourceTree = "<group>"; };
 		B92661BF26A6A7DF00ACC9F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B92661D726A8235E00ACC9F2 /* TransactionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionModel.swift; sourceTree = "<group>"; };
+		B95F5C5326AAB0A7005DF1FA /* Dashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
+		B95F5C5826AD1A4A005DF1FA /* DashboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardVC.swift; sourceTree = "<group>"; };
+		B95F5C5D26AE7F1A005DF1FA /* DashboardTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTC.swift; sourceTree = "<group>"; };
+		B95F5C6226AEA6B3005DF1FA /* ProdukModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProdukModel.swift; sourceTree = "<group>"; };
+		B95F5C6726AEAD15005DF1FA /* VoucherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoucherModel.swift; sourceTree = "<group>"; };
 		D7447E5726A9447E0082412B /* TransactionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionVC.swift; sourceTree = "<group>"; };
 		D7447E5926A9453F0082412B /* DetailTransactionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTransactionVC.swift; sourceTree = "<group>"; };
 		D79FD2D726AA7FDD00A079F2 /* Transaction.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Transaction.storyboard; sourceTree = "<group>"; };
@@ -147,6 +157,8 @@
 			isa = PBXGroup;
 			children = (
 				B92661D726A8235E00ACC9F2 /* TransactionModel.swift */,
+				B95F5C6226AEA6B3005DF1FA /* ProdukModel.swift */,
+				B95F5C6726AEAD15005DF1FA /* VoucherModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -165,6 +177,8 @@
 				D7447E5726A9447E0082412B /* TransactionVC.swift */,
 				D7447E5926A9453F0082412B /* DetailTransactionVC.swift */,
 				B926619C26A6A7DF00ACC9F2 /* ReviewVC.swift */,
+				B95F5C5826AD1A4A005DF1FA /* DashboardVC.swift */,
+				B95F5C5D26AE7F1A005DF1FA /* DashboardTC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -176,6 +190,7 @@
 				B92661A626A6A7DF00ACC9F2 /* LaunchScreen.storyboard */,
 				D79FD2D726AA7FDD00A079F2 /* Transaction.storyboard */,
 				D7AE047726AAA7360024F018 /* Main.storyboard */,
+				B95F5C5326AAB0A7005DF1FA /* Dashboard.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -293,6 +308,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				114F27D826A97EDA00462A4C /* Review.storyboard in Resources */,
+				B95F5C5426AAB0A7005DF1FA /* Dashboard.storyboard in Resources */,
 				D7AE047826AAA7360024F018 /* Main.storyboard in Resources */,
 				B92661A826A6A7DF00ACC9F2 /* LaunchScreen.storyboard in Resources */,
 				B92661A526A6A7DF00ACC9F2 /* Assets.xcassets in Resources */,
@@ -322,13 +338,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				B92661D826A8235E00ACC9F2 /* TransactionModel.swift in Sources */,
+				B95F5C6826AEAD15005DF1FA /* VoucherModel.swift in Sources */,
+				B95F5C5926AD1A4A005DF1FA /* DashboardVC.swift in Sources */,
 				D7447E5A26A9453F0082412B /* DetailTransactionVC.swift in Sources */,
 				D79FD2DD26AA8A2900A079F2 /* TransactionViewModel.swift in Sources */,
 				D7447E5826A9447E0082412B /* TransactionVC.swift in Sources */,
 				B926619D26A6A7DF00ACC9F2 /* ReviewVC.swift in Sources */,
 				B926619D26A6A7DF00ACC9F2 /* ReviewVC.swift in Sources */,
 				B92661A326A6A7DF00ACC9F2 /* team8_business.xcdatamodeld in Sources */,
+				B95F5C5E26AE7F1A005DF1FA /* DashboardTC.swift in Sources */,
 				B926619926A6A7DF00ACC9F2 /* AppDelegate.swift in Sources */,
+				B95F5C6326AEA6B3005DF1FA /* ProdukModel.swift in Sources */,
 				B926619B26A6A7DF00ACC9F2 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

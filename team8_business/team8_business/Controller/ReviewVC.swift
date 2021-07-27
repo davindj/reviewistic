@@ -8,7 +8,9 @@
 import UIKit
 
 class ReviewVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
     var transaksi:[Record] = []
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return transaksi.count
@@ -21,7 +23,7 @@ class ReviewVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         cell.transaksiID.text = transaksi[indexPath.row].fields.NomorTransaksi
         cell.komentar.text = transaksi[indexPath.row].fields.Review
-        cell.rating.text = String(transaksi[indexPath.row].fields.Rating)
+        cell.rating.text = String(transaksi[indexPath.row].fields.RatingPrice)
         cell.tanggal.text = transaksi[indexPath.row].createdTime
         return cell
         
