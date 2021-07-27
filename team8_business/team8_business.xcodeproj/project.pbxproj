@@ -17,11 +17,15 @@
 		B92661B326A6A7DF00ACC9F2 /* team8_businessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92661B226A6A7DF00ACC9F2 /* team8_businessTests.swift */; };
 		B92661BE26A6A7DF00ACC9F2 /* team8_businessUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92661BD26A6A7DF00ACC9F2 /* team8_businessUITests.swift */; };
 		B92661D826A8235E00ACC9F2 /* TransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92661D726A8235E00ACC9F2 /* TransactionModel.swift */; };
+		D7244B8526AEAEE7000D7447 /* AddTransVoucherVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7244B8426AEAEE7000D7447 /* AddTransVoucherVC.swift */; };
+		D7244B8726AEAEF7000D7447 /* AddVoucherVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7244B8626AEAEF7000D7447 /* AddVoucherVC.swift */; };
 		D7447E5826A9447E0082412B /* TransactionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7447E5726A9447E0082412B /* TransactionVC.swift */; };
 		D7447E5A26A9453F0082412B /* DetailTransactionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7447E5926A9453F0082412B /* DetailTransactionVC.swift */; };
 		D79FD2D826AA7FDD00A079F2 /* Transaction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D79FD2D726AA7FDD00A079F2 /* Transaction.storyboard */; };
 		D79FD2DD26AA8A2900A079F2 /* TransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79FD2DC26AA8A2900A079F2 /* TransactionViewModel.swift */; };
 		D7AE047826AAA7360024F018 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7AE047726AAA7360024F018 /* Main.storyboard */; };
+		D7C445EC26AEA9670013DA28 /* ModalTransVoucher.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7C445EB26AEA9670013DA28 /* ModalTransVoucher.storyboard */; };
+		D7C445EE26AEA96F0013DA28 /* ModalVoucher.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7C445ED26AEA96F0013DA28 /* ModalVoucher.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,11 +62,15 @@
 		B92661BD26A6A7DF00ACC9F2 /* team8_businessUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = team8_businessUITests.swift; sourceTree = "<group>"; };
 		B92661BF26A6A7DF00ACC9F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B92661D726A8235E00ACC9F2 /* TransactionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionModel.swift; sourceTree = "<group>"; };
+		D7244B8426AEAEE7000D7447 /* AddTransVoucherVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransVoucherVC.swift; sourceTree = "<group>"; };
+		D7244B8626AEAEF7000D7447 /* AddVoucherVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVoucherVC.swift; sourceTree = "<group>"; };
 		D7447E5726A9447E0082412B /* TransactionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionVC.swift; sourceTree = "<group>"; };
 		D7447E5926A9453F0082412B /* DetailTransactionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTransactionVC.swift; sourceTree = "<group>"; };
 		D79FD2D726AA7FDD00A079F2 /* Transaction.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Transaction.storyboard; sourceTree = "<group>"; };
 		D79FD2DC26AA8A2900A079F2 /* TransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewModel.swift; sourceTree = "<group>"; };
 		D7AE047726AAA7360024F018 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		D7C445EB26AEA9670013DA28 /* ModalTransVoucher.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ModalTransVoucher.storyboard; sourceTree = "<group>"; };
+		D7C445ED26AEA96F0013DA28 /* ModalVoucher.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ModalVoucher.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +173,8 @@
 				D7447E5726A9447E0082412B /* TransactionVC.swift */,
 				D7447E5926A9453F0082412B /* DetailTransactionVC.swift */,
 				B926619C26A6A7DF00ACC9F2 /* ReviewVC.swift */,
+				D7244B8426AEAEE7000D7447 /* AddTransVoucherVC.swift */,
+				D7244B8626AEAEF7000D7447 /* AddVoucherVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -176,6 +186,8 @@
 				B92661A626A6A7DF00ACC9F2 /* LaunchScreen.storyboard */,
 				D79FD2D726AA7FDD00A079F2 /* Transaction.storyboard */,
 				D7AE047726AAA7360024F018 /* Main.storyboard */,
+				D7C445EB26AEA9670013DA28 /* ModalTransVoucher.storyboard */,
+				D7C445ED26AEA96F0013DA28 /* ModalVoucher.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -297,6 +309,8 @@
 				B92661A826A6A7DF00ACC9F2 /* LaunchScreen.storyboard in Resources */,
 				B92661A526A6A7DF00ACC9F2 /* Assets.xcassets in Resources */,
 				D79FD2D826AA7FDD00A079F2 /* Transaction.storyboard in Resources */,
+				D7C445EE26AEA96F0013DA28 /* ModalVoucher.storyboard in Resources */,
+				D7C445EC26AEA9670013DA28 /* ModalTransVoucher.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,6 +343,8 @@
 				B926619D26A6A7DF00ACC9F2 /* ReviewVC.swift in Sources */,
 				B92661A326A6A7DF00ACC9F2 /* team8_business.xcdatamodeld in Sources */,
 				B926619926A6A7DF00ACC9F2 /* AppDelegate.swift in Sources */,
+				D7244B8526AEAEE7000D7447 /* AddTransVoucherVC.swift in Sources */,
+				D7244B8726AEAEF7000D7447 /* AddVoucherVC.swift in Sources */,
 				B926619B26A6A7DF00ACC9F2 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

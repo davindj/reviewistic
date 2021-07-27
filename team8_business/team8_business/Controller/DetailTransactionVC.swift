@@ -11,6 +11,7 @@ class DetailTransactionVC: UIViewController {
     // Component
     @IBOutlet var noTransLabel: UILabel!
     @IBOutlet var reviewResultLabel: UILabel!
+    @IBOutlet var barcodeBtn: UIButton!
     
     // Parameter
     var transaction: TransactionViewModel?
@@ -18,7 +19,7 @@ class DetailTransactionVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Transaction Detail"
+        navigationItem.title = "Transaction Detail"
         navigationItem.largeTitleDisplayMode = .always
 
         if let trans = transaction {
