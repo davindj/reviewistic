@@ -8,12 +8,15 @@
 import Foundation
 
 class Transaction: Codable {
-   let NomorTransaksi: String
-   let Review: String
-   let RatingPrice: Int
-   let RatingProduk: Int
-   let id_toko: Int
-   let RatingService: Int
+    var NomorTransaksi: String = ""
+    let Review: String
+        
+    let RatingPrice: Int
+    let RatingProduk: Int
+    let RatingService: Int
+    let status: Int
+    let id_toko: Int
+    
     
     static func callData(response: @escaping ([Record])->Void ) {
         let url = URL(string: "https://api.airtable.com/v0/appP7dMHeW4puOorW/Review?api_key=keys9Q3knWNrVr89B")
@@ -81,9 +84,19 @@ class Record: Codable {
    let id: String
    let fields: Transaction
    let createdTime : String
+    
+    var avgrate: Double{
+        let array = [fields.RatingService,fields.RatingProduk,fields.RatingPrice]
+        let average = array.reduce(0.0) {
+            return $0 + Double($1)/Double(array.count)
+        }
+        return average
+    }
+    
 }
 
 struct Records: Codable {
+    
    var records: [Record]
     
     init() {
