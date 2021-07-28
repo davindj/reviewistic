@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SwiftUI
 
 
 class ReviewVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -14,11 +13,14 @@ class ReviewVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var ratingsegmen: UISegmentedControl!
     @IBOutlet weak var KriteriaSegmen: UISegmentedControl!
+//    let date = Calendar.current.date(byAdding: .day, value: -1, to: deadline.date)!
+//    let dateComponents = Calendar.current.dateComponents([.year,.month,.day,.hour,.minute,], from: date)
     
-    let calender = Calendar.current
+    
    
     var transaksi:[Record] = []
     var filtereddata: [Record] = []
+    let cellSpacingHeight: CGFloat = 10
     
     
     var rating = 0
@@ -28,15 +30,17 @@ class ReviewVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
       
-        
-            return filtereddata.count
+        return 1
       
-        
-        
     }
     
-    
-    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        
+            return filtereddata.count
+    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return cellSpacingHeight
+    }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -44,13 +48,15 @@ class ReviewVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         if kategoriID == "KategoriAll"{
             
             let cell_all = tableView.dequeueReusableCell(withIdentifier: "transaksiCellAll", for: indexPath) as! transaksi_cell_all
-            
             let transAll = filtereddata[indexPath.row]
+         
+           
+            
             cell_all.transaksiIDAll.text = transAll.fields.NomorTransaksi
             cell_all.RatingPrice.text = String( transAll.fields.RatingPrice)
             cell_all.RatingProduk.text = String( transAll.fields.RatingProduk)
             cell_all.RatingService.text = String( transAll.fields.RatingService)
-            cell_all.tanggalAll.text = transAll.createdTime
+            cell_all.tanggalAll.text = String( transAll.date)
             cell_all.AvgRating.text = String(transAll.avgrate)
             cell_all.komentarAll.text = transAll.fields.Review
             return cell_all
@@ -102,7 +108,7 @@ class ReviewVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         table_view.delegate=self
         table_view.dataSource=self
-       
+        
         // Do any additional setup after loading the view.
     }
 
@@ -190,6 +196,12 @@ class transaksi_cell: UITableViewCell {
     @IBOutlet weak var komentar: UILabel!
     @IBOutlet weak var rating: UILabel!
     @IBOutlet weak var tanggal: UILabel!
+    @IBOutlet weak var Celltransaksi: UIView!
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        Celltransaksi.layer.cornerRadius = 10
+    }
+   
 }
 class transaksi_cell_all: UITableViewCell {
     @IBOutlet weak var transaksiIDAll: UILabel!
@@ -206,7 +218,8 @@ class transaksi_cell_all: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         kotak1.layer.cornerRadius = 5
-        
+        kotak2.layer.cornerRadius = 5
+        kotak3.layer.cornerRadius = 5
     }
 
     }

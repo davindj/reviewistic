@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		114F27D826A97EDA00462A4C /* Review.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 114F27D726A97EDA00462A4C /* Review.storyboard */; };
+		11AD602026B01CDF003D2F84 /* Dailys.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11AD601F26B01CDF003D2F84 /* Dailys.storyboard */; };
+		11AD602626B06D21003D2F84 /* DailysVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AD602526B06D21003D2F84 /* DailysVC.swift */; };
 		4C77DA4B26ABEA3F0041450D /* Voucher.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C77DA4A26ABEA3F0041450D /* Voucher.storyboard */; };
 		4C77DA4F26AEA58C0041450D /* VoucherVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C77DA4E26AEA58C0041450D /* VoucherVC.swift */; };
 		B926619926A6A7DF00ACC9F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B926619826A6A7DF00ACC9F2 /* AppDelegate.swift */; };
@@ -60,6 +62,8 @@
 
 /* Begin PBXFileReference section */
 		114F27D726A97EDA00462A4C /* Review.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Review.storyboard; sourceTree = "<group>"; };
+		11AD601F26B01CDF003D2F84 /* Dailys.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dailys.storyboard; sourceTree = "<group>"; };
+		11AD602526B06D21003D2F84 /* DailysVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailysVC.swift; sourceTree = "<group>"; };
 		4C77DA4A26ABEA3F0041450D /* Voucher.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Voucher.storyboard; sourceTree = "<group>"; };
 		4C77DA4E26AEA58C0041450D /* VoucherVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoucherVC.swift; sourceTree = "<group>"; };
 		B926619526A6A7DF00ACC9F2 /* team8_business.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = team8_business.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -214,6 +218,7 @@
 			children = (
 				D7447E5726A9447E0082412B /* TransactionVC.swift */,
 				D7447E5926A9453F0082412B /* DetailTransactionVC.swift */,
+				11AD602526B06D21003D2F84 /* DailysVC.swift */,
 				4C77DA4E26AEA58C0041450D /* VoucherVC.swift */,
 				B926619C26A6A7DF00ACC9F2 /* ReviewVC.swift */,
 				D7244B8426AEAEE7000D7447 /* AddTransVoucherVC.swift */,
@@ -229,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				114F27D726A97EDA00462A4C /* Review.storyboard */,
+				11AD601F26B01CDF003D2F84 /* Dailys.storyboard */,
 				B92661A626A6A7DF00ACC9F2 /* LaunchScreen.storyboard */,
 				D79FD2D726AA7FDD00A079F2 /* Transaction.storyboard */,
 				D7AE047726AAA7360024F018 /* Main.storyboard */,
@@ -362,6 +368,7 @@
 				D79FD2D826AA7FDD00A079F2 /* Transaction.storyboard in Resources */,
 				4C77DA4B26ABEA3F0041450D /* Voucher.storyboard in Resources */,
 				D7C445EE26AEA96F0013DA28 /* ModalVoucher.storyboard in Resources */,
+				11AD602026B01CDF003D2F84 /* Dailys.storyboard in Resources */,
 				D7C445EC26AEA9670013DA28 /* ModalTransVoucher.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -390,6 +397,7 @@
 				D74EA49226B0095200B1E914 /* UserDefaults.swift in Sources */,
 				B92661D826A8235E00ACC9F2 /* TransactionModel.swift in Sources */,
 				B95F5C6826AEAD15005DF1FA /* VoucherModel.swift in Sources */,
+				11AD602626B06D21003D2F84 /* DailysVC.swift in Sources */,
 				B95F5C5926AD1A4A005DF1FA /* DashboardVC.swift in Sources */,
 				D7447E5A26A9453F0082412B /* DetailTransactionVC.swift in Sources */,
 				B95F5C7326AFDF17005DF1FA /* DashboardTC.swift in Sources */,
@@ -576,7 +584,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SNDZ43L8ZN;
+				DEVELOPMENT_TEAM = H3B9F3PTRH;
 				INFOPLIST_FILE = team8_business/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -595,7 +603,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SNDZ43L8ZN;
+				DEVELOPMENT_TEAM = H3B9F3PTRH;
 				INFOPLIST_FILE = team8_business/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
