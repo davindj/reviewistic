@@ -12,6 +12,7 @@ class AddTransVoucherVC: UIViewController, UITableViewDelegate, UITableViewDataS
     
     var vouchers: [VoucherViewModel] = []
     var selectedIdx: Int = -1
+    var successCallback: (()->Void)!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,6 +91,7 @@ class AddTransVoucherVC: UIViewController, UITableViewDelegate, UITableViewDataS
         print("Update airtable...")
         //
         print("Show barcode...")
+        successCallback()
     }
     
     // MARK: Helper Function

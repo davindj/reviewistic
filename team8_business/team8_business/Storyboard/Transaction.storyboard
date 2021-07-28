@@ -73,14 +73,19 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JBQ-GE-C2o">
-                                <rect key="frame" x="297" y="194" width="92" height="30"/>
+                                <rect key="frame" x="229" y="194" width="160" height="30"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="JcS-Ya-m3Y"/>
-                                    <constraint firstAttribute="width" constant="92" id="xEs-29-TEG"/>
+                                    <constraint firstAttribute="width" constant="160" id="xEs-29-TEG"/>
                                 </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Generate Barcode"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="10"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="Ggh-Zv-sA9" kind="presentation" id="dSz-hC-o1a"/>
+                                    <action selector="barcodeBtnTapped:" destination="DKW-YJ-8b1" eventType="touchUpInside" id="oe0-uP-yPg"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -127,21 +132,14 @@
             </objects>
             <point key="canvasLocation" x="-52.173913043478265" y="4.6875"/>
         </scene>
-        <!--ModalTransVoucher-->
-        <scene sceneID="XfD-gA-XTn">
-            <objects>
-                <viewControllerPlaceholder storyboardName="ModalTransVoucher" id="Ggh-Zv-sA9" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="mCG-Ty-N7u"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UwI-j2-KeC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2320" y="-151"/>
-        </scene>
     </scenes>
     <resources>
         <image name="square.and.arrow.down" catalog="system" width="121" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

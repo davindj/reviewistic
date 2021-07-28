@@ -14,17 +14,35 @@ class DetailTransactionVC: UIViewController {
     @IBOutlet var barcodeBtn: UIButton!
     
     // Parameter
-    var transaction: TransactionViewModel?
+    var transaction: Record!
+    
+    private var transactionVM: TransactionViewModel! {
+        didSet{
+            noTransLabel.text = transactionVM.noTransactionDetail
+            reviewResultLabel.text = transactionVM.review
+            
+            // Barcode btn style
+            barcodeBtn.setTitle(transactionVM.btnText, for: .normal)
+            barcodeBtn.backgroundColor = transactionVM.btnColor
+            barcodeBtn.tintColor = .white
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationItem.title = "Transaction Detail"
         navigationItem.largeTitleDisplayMode = .always
-
-        if let trans = transaction {
-            noTransLabel.text = trans.noTransactionDetail
-            reviewResultLabel.text = trans.review
+        
+        transactionVM = TransactionViewModel(transaction: transaction)
+    }
+    @IBAction func barcodeBtnTapped(_ sender: Any) {
+        if transactionVM.status == .BarcodeNotGenerated{
+            self.present(UIStoryboard.instantiateModalPromo{
+                self.transactionVM.status = .BarcodeGenerated
+            }, animated: true)
+        }else{
+            self.present(UIStoryboard.instantiateModalBarcode(transaction: transactionVM),animated: true)
         }
     }
 }
