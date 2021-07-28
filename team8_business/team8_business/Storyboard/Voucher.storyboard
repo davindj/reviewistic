@@ -48,7 +48,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="119" id="L1f-oM-LkJ" customClass="VoucherVC" customModule="team8_business" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableviewvouchercell" rowHeight="119" id="L1f-oM-LkJ" customClass="tableviewVoucherCell" customModule="team8_business">
                                 <rect key="frame" x="0.0" y="24.5" width="414" height="119"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="L1f-oM-LkJ" id="AC7-Gf-Cr2">
@@ -99,7 +99,7 @@
                                 <connections>
                                     <outlet property="ExpDate" destination="YPh-0P-lF3" id="g0n-q9-gb1"/>
                                     <outlet property="Keterangan" destination="0jB-NZ-QWK" id="E5N-c0-2zM"/>
-                                    <outlet property="NamaVoucher" destination="hja-1w-rIK" id="mul-ue-VYT"/>
+                                    <outlet property="NamaVoucher" destination="hja-1w-rIK" id="jxl-aM-qgs"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -118,6 +118,9 @@
                             </button>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableviewControllerVoucher" destination="3Kq-ZP-4OW" id="aAW-Wn-9qm"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bvb-R1-dfm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

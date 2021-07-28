@@ -6,15 +6,27 @@
 //
 
 import UIKit
+import SwiftUI
 
-class VoucherVC: UITableViewController {
+class VoucherVC: UITableViewController{
+        
+    @IBOutlet var tableviewControllerVoucher: UITableView!
     
-    @IBOutlet weak var NamaVoucher: UILabel!
-    @IBOutlet weak var Keterangan: UILabel!
-    @IBOutlet weak var ExpDate: UILabel!
+    var listVoucher:[RecordVoucher] = []
+    var filteredData: [RecordVoucher] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        Voucher.listVoucherToko(id_toko: "2") { r in
+            self.listVoucher = r
+            print(self.listVoucher)
+            self.tableviewControllerVoucher.reloadData()
+        }
+        tableviewControllerVoucher.dataSource = self       
+        tableviewControllerVoucher.delegate = self
+        
+        tableviewControllerVoucher.reloadData()
         
         
         // Uncomment the following line to preserve selection between presentations
@@ -28,12 +40,13 @@ class VoucherVC: UITableViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        print(self.listVoucher.count)
+        return listVoucher.count
     }
     //  override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath ) -> [UITableViewRowAction]? {
     // #warning Incomplete implementation, return the number of rows
@@ -45,15 +58,20 @@ class VoucherVC: UITableViewController {
     //  return [deleteAction]
     // }
     
-    /*
+    
      override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-     let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-     
-     // Configure the cell...
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "tableviewvouchercell", for: indexPath) as! tableviewVoucherCell
+        let voucherAll = listVoucher[indexPath.row]
+        
+        cell.NamaVoucher.text = voucherAll.fields.nama
+        cell.Keterangan.text = voucherAll.fields.keterangan
+        cell.ExpDate.text = voucherAll.fields.exp_date
+        // Configure the cell...
      
      return cell
      }
-     */
+
     
     /*
      // Override to support conditional editing of the table view.
@@ -71,7 +89,7 @@ class VoucherVC: UITableViewController {
      tableView.deleteRows(at: [indexPath], with: .fade)
      } else if editingStyle == .insert {
      // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }    
+     }
      }
      */
     
@@ -100,4 +118,9 @@ class VoucherVC: UITableViewController {
      }
      */
     
+}
+class tableviewVoucherCell: UITableViewCell{
+    @IBOutlet weak var NamaVoucher: UILabel!
+    @IBOutlet weak var Keterangan: UILabel!
+    @IBOutlet weak var ExpDate: UILabel!
 }
