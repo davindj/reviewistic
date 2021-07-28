@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		114F27D826A97EDA00462A4C /* Review.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 114F27D726A97EDA00462A4C /* Review.storyboard */; };
+		11AD602026B01CDF003D2F84 /* Dailys.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11AD601F26B01CDF003D2F84 /* Dailys.storyboard */; };
+		11AD602626B06D21003D2F84 /* DailysVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AD602526B06D21003D2F84 /* DailysVC.swift */; };
 		B926619926A6A7DF00ACC9F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B926619826A6A7DF00ACC9F2 /* AppDelegate.swift */; };
 		B926619B26A6A7DF00ACC9F2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B926619A26A6A7DF00ACC9F2 /* SceneDelegate.swift */; };
 		B926619D26A6A7DF00ACC9F2 /* ReviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B926619C26A6A7DF00ACC9F2 /* ReviewVC.swift */; };
@@ -17,13 +19,12 @@
 		B92661B326A6A7DF00ACC9F2 /* team8_businessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92661B226A6A7DF00ACC9F2 /* team8_businessTests.swift */; };
 		B92661BE26A6A7DF00ACC9F2 /* team8_businessUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92661BD26A6A7DF00ACC9F2 /* team8_businessUITests.swift */; };
 		B92661D826A8235E00ACC9F2 /* TransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92661D726A8235E00ACC9F2 /* TransactionModel.swift */; };
-		D7244B8526AEAEE7000D7447 /* AddTransVoucherVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7244B8426AEAEE7000D7447 /* AddTransVoucherVC.swift */; };
-		D7244B8726AEAEF7000D7447 /* AddVoucherVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7244B8626AEAEF7000D7447 /* AddVoucherVC.swift */; };
 		B95F5C5426AAB0A7005DF1FA /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B95F5C5326AAB0A7005DF1FA /* Dashboard.storyboard */; };
 		B95F5C5926AD1A4A005DF1FA /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95F5C5826AD1A4A005DF1FA /* DashboardVC.swift */; };
-		B95F5C6326AEA6B3005DF1FA /* ProdukModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95F5C6226AEA6B3005DF1FA /* ProdukModel.swift */; };
 		B95F5C6826AEAD15005DF1FA /* VoucherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95F5C6726AEAD15005DF1FA /* VoucherModel.swift */; };
 		B95F5C7326AFDF17005DF1FA /* DashboardTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95F5C7226AFDF17005DF1FA /* DashboardTC.swift */; };
+		D7244B8526AEAEE7000D7447 /* AddTransVoucherVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7244B8426AEAEE7000D7447 /* AddTransVoucherVC.swift */; };
+		D7244B8726AEAEF7000D7447 /* AddVoucherVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7244B8626AEAEF7000D7447 /* AddVoucherVC.swift */; };
 		D7447E5826A9447E0082412B /* TransactionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7447E5726A9447E0082412B /* TransactionVC.swift */; };
 		D7447E5A26A9453F0082412B /* DetailTransactionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7447E5926A9453F0082412B /* DetailTransactionVC.swift */; };
 		D79FD2D826AA7FDD00A079F2 /* Transaction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D79FD2D726AA7FDD00A079F2 /* Transaction.storyboard */; };
@@ -52,6 +53,8 @@
 
 /* Begin PBXFileReference section */
 		114F27D726A97EDA00462A4C /* Review.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Review.storyboard; sourceTree = "<group>"; };
+		11AD601F26B01CDF003D2F84 /* Dailys.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dailys.storyboard; sourceTree = "<group>"; };
+		11AD602526B06D21003D2F84 /* DailysVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailysVC.swift; sourceTree = "<group>"; };
 		B926619526A6A7DF00ACC9F2 /* team8_business.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = team8_business.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B926619826A6A7DF00ACC9F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B926619A26A6A7DF00ACC9F2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,13 +70,13 @@
 		B92661BD26A6A7DF00ACC9F2 /* team8_businessUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = team8_businessUITests.swift; sourceTree = "<group>"; };
 		B92661BF26A6A7DF00ACC9F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B92661D726A8235E00ACC9F2 /* TransactionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionModel.swift; sourceTree = "<group>"; };
-		D7244B8426AEAEE7000D7447 /* AddTransVoucherVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransVoucherVC.swift; sourceTree = "<group>"; };
-		D7244B8626AEAEF7000D7447 /* AddVoucherVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVoucherVC.swift; sourceTree = "<group>"; };
 		B95F5C5326AAB0A7005DF1FA /* Dashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
 		B95F5C5826AD1A4A005DF1FA /* DashboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardVC.swift; sourceTree = "<group>"; };
 		B95F5C6226AEA6B3005DF1FA /* ProdukModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProdukModel.swift; sourceTree = "<group>"; };
 		B95F5C6726AEAD15005DF1FA /* VoucherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoucherModel.swift; sourceTree = "<group>"; };
 		B95F5C7226AFDF17005DF1FA /* DashboardTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTC.swift; sourceTree = "<group>"; };
+		D7244B8426AEAEE7000D7447 /* AddTransVoucherVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransVoucherVC.swift; sourceTree = "<group>"; };
+		D7244B8626AEAEF7000D7447 /* AddVoucherVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVoucherVC.swift; sourceTree = "<group>"; };
 		D7447E5726A9447E0082412B /* TransactionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionVC.swift; sourceTree = "<group>"; };
 		D7447E5926A9453F0082412B /* DetailTransactionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTransactionVC.swift; sourceTree = "<group>"; };
 		D79FD2D726AA7FDD00A079F2 /* Transaction.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Transaction.storyboard; sourceTree = "<group>"; };
@@ -184,6 +187,7 @@
 			children = (
 				D7447E5726A9447E0082412B /* TransactionVC.swift */,
 				D7447E5926A9453F0082412B /* DetailTransactionVC.swift */,
+				11AD602526B06D21003D2F84 /* DailysVC.swift */,
 				B926619C26A6A7DF00ACC9F2 /* ReviewVC.swift */,
 				D7244B8426AEAEE7000D7447 /* AddTransVoucherVC.swift */,
 				D7244B8626AEAEF7000D7447 /* AddVoucherVC.swift */,
@@ -197,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				114F27D726A97EDA00462A4C /* Review.storyboard */,
+				11AD601F26B01CDF003D2F84 /* Dailys.storyboard */,
 				B92661A626A6A7DF00ACC9F2 /* LaunchScreen.storyboard */,
 				D79FD2D726AA7FDD00A079F2 /* Transaction.storyboard */,
 				D7AE047726AAA7360024F018 /* Main.storyboard */,
@@ -326,6 +331,7 @@
 				B92661A526A6A7DF00ACC9F2 /* Assets.xcassets in Resources */,
 				D79FD2D826AA7FDD00A079F2 /* Transaction.storyboard in Resources */,
 				D7C445EE26AEA96F0013DA28 /* ModalVoucher.storyboard in Resources */,
+				11AD602026B01CDF003D2F84 /* Dailys.storyboard in Resources */,
 				D7C445EC26AEA9670013DA28 /* ModalTransVoucher.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -353,6 +359,7 @@
 			files = (
 				B92661D826A8235E00ACC9F2 /* TransactionModel.swift in Sources */,
 				B95F5C6826AEAD15005DF1FA /* VoucherModel.swift in Sources */,
+				11AD602626B06D21003D2F84 /* DailysVC.swift in Sources */,
 				B95F5C5926AD1A4A005DF1FA /* DashboardVC.swift in Sources */,
 				D7447E5A26A9453F0082412B /* DetailTransactionVC.swift in Sources */,
 				B95F5C7326AFDF17005DF1FA /* DashboardTC.swift in Sources */,
