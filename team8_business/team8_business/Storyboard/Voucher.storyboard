@@ -90,10 +90,14 @@
                                     </subviews>
                                     <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                     <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="rBm-DX-wHi" secondAttribute="trailing" constant="8" id="Guf-aO-69L"/>
                                         <constraint firstItem="rBm-DX-wHi" firstAttribute="leading" secondItem="AC7-Gf-Cr2" secondAttribute="leading" constant="8" id="KOV-xM-bYw"/>
+                                        <constraint firstAttribute="bottom" secondItem="rBm-DX-wHi" secondAttribute="bottom" constant="8" id="Lqe-J1-RyK"/>
+                                        <constraint firstItem="rBm-DX-wHi" firstAttribute="leading" secondItem="AC7-Gf-Cr2" secondAttribute="leading" constant="8" id="Qlz-tL-I4a"/>
                                         <constraint firstAttribute="bottom" secondItem="rBm-DX-wHi" secondAttribute="bottom" constant="8" id="Yoa-1t-8Wg"/>
                                         <constraint firstAttribute="trailing" secondItem="rBm-DX-wHi" secondAttribute="trailing" constant="8" id="cIa-Cw-rlu"/>
                                         <constraint firstItem="rBm-DX-wHi" firstAttribute="top" secondItem="AC7-Gf-Cr2" secondAttribute="top" constant="8" id="pxI-Uy-vFk"/>
+                                        <constraint firstItem="rBm-DX-wHi" firstAttribute="top" secondItem="AC7-Gf-Cr2" secondAttribute="top" constant="8" id="ta6-Sy-8CG"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>

@@ -64,6 +64,7 @@ class VoucherVC: UITableViewController{
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableviewvouchercell", for: indexPath) as! tableviewVoucherCell
         let voucherAll = listVoucher[indexPath.row]
         
+    
         cell.NamaVoucher.text = voucherAll.fields.nama
         cell.Keterangan.text = voucherAll.fields.keterangan
         cell.ExpDate.text = voucherAll.fields.exp_date
