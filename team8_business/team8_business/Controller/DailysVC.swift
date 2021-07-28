@@ -12,12 +12,20 @@ class DailysVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
     @IBOutlet weak var Progressviewb1: UIProgressView!
     @IBOutlet weak var Progressviewb2: UIProgressView!
     @IBOutlet weak var Progressviewb3: UIProgressView!
-    
     @IBOutlet weak var Progressviewb4: UIProgressView!
     @IBOutlet weak var Progressviewb5: UIProgressView!
+    @IBOutlet weak var Labelb1: UILabel!
+    @IBOutlet weak var Labelb2: UILabel!
+    @IBOutlet weak var Labelb3: UILabel!
+    @IBOutlet weak var Labelb4: UILabel!
+    @IBOutlet weak var Labelb5: UILabel!
     @IBOutlet weak var ratingsegmen : UISegmentedControl!
+    @IBOutlet weak var Avg: UILabel!
+    @IBOutlet weak var avgRateImg: UIImageView!
+    @IBOutlet weak var totalrate: UILabel!
     var transaksi:[Record] = []
     var filtereddata: [Record] = []
+    
     var rating = 0
     var kategoriID = ""
 
@@ -50,14 +58,64 @@ class DailysVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
     @IBOutlet weak var tableViewDailys:UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+      
         Transaction.callData{r in
             self.transaksi = r.filter{$0.fields.status == 2}
+           
+            //bintang1
+            let totalbintang = self.transaksi.count
+            let bintang1 = self.transaksi.filter{$0.fields.RatingPrice == 1}.count
+            let avgb1 = Float(bintang1)/Float(totalbintang)
+            self.Progressviewb1.setProgress(avgb1, animated: true)
+            self.Labelb1.text = String( self.transaksi.filter{$0.fields.RatingPrice == 1}.count)
+            //bintang2
+            let bintang2 = self.transaksi.filter{$0.fields.RatingPrice == 2}.count
+            let avgb2 = Float(bintang2)/Float(totalbintang)
+            self.Progressviewb2.setProgress(avgb2, animated: true)
+            self.Labelb2.text = String( self.transaksi.filter{$0.fields.RatingPrice == 2}.count)
+            //bintang3
+            let bintang3 = self.transaksi.filter{$0.fields.RatingPrice == 3}.count
+            let avgb3 = Float(bintang3)/Float(totalbintang)
+            self.Progressviewb3.setProgress(avgb3, animated: true)
+            self.Labelb3.text = String( self.transaksi.filter{$0.fields.RatingPrice == 3}.count)
+            //bintang4
+            let bintang4 = self.transaksi.filter{$0.fields.RatingPrice == 4}.count
+            let avgb4 = Float(bintang4)/Float(totalbintang)
+            self.Progressviewb4.setProgress(avgb4, animated: true)
+            self.Labelb4.text = String( self.transaksi.filter{$0.fields.RatingPrice == 4}.count)
+            //bintang5
+            let bintang5 = self.transaksi.filter{$0.fields.RatingPrice == 5}.count
+            let avgb5 = Float(bintang5)/Float(totalbintang)
+            self.Progressviewb5.setProgress(avgb5, animated: true)
+            self.Labelb5.text = String( self.transaksi.filter{$0.fields.RatingPrice == 5}.count)
+            //AVG
+            let avgrate = Float(bintang1+bintang2*2+bintang3*3+bintang4*4+bintang5*5)/Float(totalbintang)
+            self.Avg.text = "\(String(format: "%.01f", avgrate)) / 5"
+            //image rate
+            let idxImage: Int = Int(avgrate * 2) - 2
+            let imageName: String = [
+                "bintang1",
+                "1 setengah",
+                "Bintang2",
+                "2 setengah",
+                "Bintang3",
+                "3 setengah",
+                "Bintang4",
+                "4 setengah",
+                "Bintang5"
+            ][idxImage]
+            let img = UIImage(named: imageName)
+            self.avgRateImg.image = img
+            // total
+            self.totalrate.text = "\(String(totalbintang)) Ratings"
         }
 //
         tableViewDailys.delegate=self
         tableViewDailys.dataSource=self
 
+        Progressviewb1.setProgress(0.2, animated: true)
     }
+   
     
 
     @IBAction func didChangeSegment(_ sender: Any) {
@@ -66,7 +124,6 @@ class DailysVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
               rating = 5
               filter()
           case 1:
-              print("case1")
               rating = 4
               filter()
           case 2:
