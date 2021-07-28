@@ -17,7 +17,7 @@ class TransactionVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Transactions"
+        navigationItem.title = "Transactions"
         navigationController?.navigationBar.prefersLargeTitles = true
         
         Transaction.callData{ data in

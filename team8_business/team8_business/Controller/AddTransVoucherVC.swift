@@ -30,30 +30,45 @@ class AddTransVoucherVC: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return vouchers.count
+        return vouchers.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "voucher", for: indexPath)
-        let voucher = vouchers[indexPath.row]
-        cell.textLabel?.text = voucher.name
-        cell.accessoryType = voucher.accesoryType
+        
+        if isCreateVoucherRow(idxRow: indexPath.row){
+            cell.imageView?.image = UIImage(systemName: "plus")
+            cell.textLabel?.text = "Create Voucher"
+        }else{
+            cell.imageView?.image = nil
+            let voucher = vouchers[indexPath.row]
+            cell.textLabel?.text = voucher.name
+            cell.accessoryType = voucher.accesoryType
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let oldIdx = IndexPath(row: selectedIdx, section: 0)
-        let newIdx = indexPath
-        selectedIdx = indexPath.row
-        
-        // Update Display
-        var updatedIdx = [IndexPath]()
-        updatedIdx.append(newIdx)
-        if oldIdx.row >= 0 {
-            updatedIdx.append(oldIdx)
-            vouchers[oldIdx.row].isSelected = false
+        if isCreateVoucherRow(idxRow: indexPath.row){ // Jika Cell Create Voucher
+            let storyboard = UIStoryboard(name: "ModalVoucher", bundle: nil)
+            let vc = storyboard.instantiateInitialViewController()!
+            self.present(vc, animated: true)
+        }else{ // Jika Cell Voucher
+            let oldIdx = IndexPath(row: selectedIdx, section: 0)
+            let newIdx = indexPath
+            selectedIdx = indexPath.row
+            // Update Display
+            var updatedIdx = [IndexPath]()
+            updatedIdx.append(newIdx)
+            if oldIdx.row >= 0 {
+                updatedIdx.append(oldIdx)
+                vouchers[oldIdx.row].isSelected = false
+            }
+            vouchers[newIdx.row].isSelected = true
+            tableView.reloadRows(at: updatedIdx, with: .automatic)
         }
-        vouchers[newIdx.row].isSelected = true
-        tableView.reloadRows(at: updatedIdx, with: .automatic)
     }
+    
+    // MARK: Helper Function
+    func isCreateVoucherRow(idxRow: Int)->Bool{ idxRow == vouchers.count }
 }
