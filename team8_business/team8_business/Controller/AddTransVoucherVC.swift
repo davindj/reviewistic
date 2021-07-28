@@ -20,7 +20,7 @@ class AddTransVoucherVC: UIViewController, UITableViewDelegate, UITableViewDataS
         
         // Get All voucher
         Voucher.listVoucherToko(id_toko: "1"){ vouchers in
-            self.vouchers = vouchers.map{ VoucherViewModel(recordVoucher: $0) }
+            self.vouchers = vouchers.map{ VoucherViewModel(voucher: $0.fields) }
             self.tableView.reloadData()
         }
         
@@ -50,23 +50,31 @@ class AddTransVoucherVC: UIViewController, UITableViewDelegate, UITableViewDataS
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if isCreateVoucherRow(idxRow: indexPath.row){ // Jika Cell Create Voucher
-            let storyboard = UIStoryboard(name: "ModalVoucher", bundle: nil)
-            let vc = storyboard.instantiateInitialViewController()!
+            let vc = UIStoryboard.instantiateModalVoucher{ voucher in
+                self.vouchers.append(VoucherViewModel(voucher: voucher))
+                let insIdx = IndexPath(row: self.vouchers.count-1, section: 0)
+                self.tableView.insertRows(at: [insIdx], with: .automatic)
+            }
             self.present(vc, animated: true)
         }else{ // Jika Cell Voucher
-            let oldIdx = IndexPath(row: selectedIdx, section: 0)
-            let newIdx = indexPath
-            selectedIdx = indexPath.row
+            let oldIdx = selectedIdx
+            let newIdx = indexPath.row
+            selectedIdx = newIdx
             // Update Display
-            var updatedIdx = [IndexPath]()
+            var updatedIdx = [Int]()
             updatedIdx.append(newIdx)
-            if oldIdx.row >= 0 {
+            if oldIdx >= 0 { //Jika old idx valid, maka udpate juga old idx
                 updatedIdx.append(oldIdx)
-                vouchers[oldIdx.row].isSelected = false
+                vouchers[oldIdx].isSelected = false
             }
-            vouchers[newIdx.row].isSelected = true
-            tableView.reloadRows(at: updatedIdx, with: .automatic)
+            vouchers[newIdx].isSelected = true
+            self.reloadTableViewAtRows(rows: updatedIdx)
         }
+    }
+    
+    func reloadTableViewAtRows(rows: [Int]){
+        let indexPaths = rows.map{ IndexPath(row: $0, section: 0) }
+        tableView.reloadRows(at: indexPaths, with: .automatic)
     }
     
     // MARK: Helper Function

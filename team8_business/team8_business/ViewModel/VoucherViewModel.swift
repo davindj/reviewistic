@@ -12,8 +12,8 @@ struct VoucherViewModel {
     private let voucher: Voucher
     var isSelected: Bool
     
-    init(recordVoucher: RecordVoucher){
-        self.voucher = recordVoucher.fields
+    init(voucher: Voucher){
+        self.voucher = voucher
         self.isSelected = false
     }
     

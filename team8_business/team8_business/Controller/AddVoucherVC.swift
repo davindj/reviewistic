@@ -8,10 +8,55 @@
 import UIKit
 
 class AddVoucherVC: UIViewController {
+    @IBOutlet var nameLabel: UITextField!
+    @IBOutlet var dateLabel: UIDatePicker!
+    @IBOutlet var descriptionLabel: UITextField!
+    @IBOutlet var createButton: UIButton!
+    
+    var successCallback: ((Voucher)->Void)!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         navigationItem.title = "Create Voucher"
+    }
+    
+    @IBAction func createButtonTapped(_ sender: Any) {
+        print("Oi masuk")
+        // Validate Form
+        let date = dateLabel.date.toString(format: "")
+        let name = nameLabel.text!
+        let desc = descriptionLabel.text!
+        
+        if name.isEmpty || desc.isEmpty{ // Ada Field kosong
+            showAlert(title: "Missing Field", message: "Please fill all fields")
+            return
+        }
+        
+        // Success
+        // Insert ke AirTable
+        let idToko = try! UserDefaults.standard.getUserId()
+        Voucher.insVoucher(nama: name, exp_date: date, keterangan: desc, id_toko: idToko){ isSuccess in
+            if !isSuccess{
+                self.showAlert(title: "Something went wrong", message: "Please try again later")
+                return
+            }
+            // TODO get real id-voucher
+            let newVoucher = Voucher(Id_Voucher: UUID().uuidString,
+                                     Nama: name,
+                                     Exp_Date: date,
+                                     Keterangan: desc,
+                                     Id_Toko: idToko)
+            
+            self.dismiss(animated: true){
+                self.successCallback(newVoucher)
+            }
+        }
+    }
+    
+    func showAlert(title: String, message: String){
+        let ac = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "Ok", style: .default))
+        self.present(ac, animated: true)
     }
 }

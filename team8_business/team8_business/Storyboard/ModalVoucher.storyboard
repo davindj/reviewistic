@@ -39,7 +39,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="This Voucher is for one buy one voucher for product A" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E9k-YL-fms">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Buy 1 get 1 free product A" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E9k-YL-fms">
                                 <rect key="frame" x="20" y="295" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -58,6 +58,9 @@
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Create Voucher"/>
+                                <connections>
+                                    <action selector="createButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Moe-Xq-XLn"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
@@ -84,6 +87,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="eB1-Jd-ZgL"/>
+                    <connections>
+                        <outlet property="createButton" destination="RjF-Yy-ZX1" id="Iry-lw-9Mx"/>
+                        <outlet property="dateLabel" destination="meK-Wu-wFv" id="Glg-IJ-ewD"/>
+                        <outlet property="descriptionLabel" destination="E9k-YL-fms" id="EyL-va-QUe"/>
+                        <outlet property="nameLabel" destination="OwP-hS-pGO" id="dg7-KG-R2R"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
