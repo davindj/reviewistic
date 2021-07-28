@@ -27,6 +27,7 @@
 		D7244B8726AEAEF7000D7447 /* AddVoucherVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7244B8626AEAEF7000D7447 /* AddVoucherVC.swift */; };
 		D7447E5826A9447E0082412B /* TransactionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7447E5726A9447E0082412B /* TransactionVC.swift */; };
 		D7447E5A26A9453F0082412B /* DetailTransactionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7447E5926A9453F0082412B /* DetailTransactionVC.swift */; };
+		D74EA48F26B0003600B1E914 /* VoucherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74EA48E26B0003600B1E914 /* VoucherViewModel.swift */; };
 		D74EA49226B0095200B1E914 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74EA49126B0095200B1E914 /* UserDefaults.swift */; };
 		D79FD2D826AA7FDD00A079F2 /* Transaction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D79FD2D726AA7FDD00A079F2 /* Transaction.storyboard */; };
 		D79FD2DD26AA8A2900A079F2 /* TransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79FD2DC26AA8A2900A079F2 /* TransactionViewModel.swift */; };
@@ -80,6 +81,7 @@
 		D7244B8626AEAEF7000D7447 /* AddVoucherVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVoucherVC.swift; sourceTree = "<group>"; };
 		D7447E5726A9447E0082412B /* TransactionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionVC.swift; sourceTree = "<group>"; };
 		D7447E5926A9453F0082412B /* DetailTransactionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTransactionVC.swift; sourceTree = "<group>"; };
+		D74EA48E26B0003600B1E914 /* VoucherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoucherViewModel.swift; sourceTree = "<group>"; };
 		D74EA49126B0095200B1E914 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		D79FD2D726AA7FDD00A079F2 /* Transaction.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Transaction.storyboard; sourceTree = "<group>"; };
 		D79FD2DC26AA8A2900A079F2 /* TransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewModel.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				D79FD2DC26AA8A2900A079F2 /* TransactionViewModel.swift */,
+				D74EA48E26B0003600B1E914 /* VoucherViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 				4C77DA4F26AEA58C0041450D /* VoucherVC.swift in Sources */,
 				D7447E5826A9447E0082412B /* TransactionVC.swift in Sources */,
 				B926619D26A6A7DF00ACC9F2 /* ReviewVC.swift in Sources */,
+				D74EA48F26B0003600B1E914 /* VoucherViewModel.swift in Sources */,
 				B926619D26A6A7DF00ACC9F2 /* ReviewVC.swift in Sources */,
 				B92661A326A6A7DF00ACC9F2 /* team8_business.xcdatamodeld in Sources */,
 				B926619926A6A7DF00ACC9F2 /* AppDelegate.swift in Sources */,

@@ -123,10 +123,10 @@
             </objects>
             <point key="canvasLocation" x="-52.173913043478265" y="4.6875"/>
         </scene>
-        <!--ModalVoucher-->
+        <!--ModalTransVoucher-->
         <scene sceneID="XfD-gA-XTn">
             <objects>
-                <viewControllerPlaceholder storyboardName="ModalVoucher" id="Ggh-Zv-sA9" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="ModalTransVoucher" id="Ggh-Zv-sA9" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="mCG-Ty-N7u"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UwI-j2-KeC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
