@@ -9,14 +9,14 @@ import Foundation
 import UIKit
 
 struct VoucherViewModel {
-    private let voucher: Voucher
+    private let recVoucher: RecordVoucher
     var isSelected: Bool
     
-    init(voucher: Voucher){
-        self.voucher = voucher
+    init(recordVoucher: RecordVoucher){
+        self.recVoucher = recordVoucher
         self.isSelected = false
     }
     
-    var name: String{ voucher.nama }
+    var name: String{ recVoucher.fields.nama }
     var accesoryType: UITableViewCell.AccessoryType { isSelected ? .checkmark : .none }
 }

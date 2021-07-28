@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 extension UIStoryboard{
-    static func instantiateModalVoucher(successCallback: @escaping (Voucher) -> Void) -> UINavigationController{
+    static func instantiateModalVoucher(successCallback: @escaping (RecordVoucher) -> Void) -> UINavigationController{
         let storyboard = UIStoryboard(name: "ModalVoucher", bundle: nil)
         let nvc = storyboard.instantiateInitialViewController() as! UINavigationController
         let vc = nvc.visibleViewController as! AddVoucherVC

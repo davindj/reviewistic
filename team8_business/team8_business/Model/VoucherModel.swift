@@ -101,12 +101,11 @@ class Voucher: Codable {
             }
             do {
                 let decoder = JSONDecoder()
-                let recResponse = try decoder.decode(RecordsVoucher.self, from: dat)
+                let recResponse = try decoder.decode(RecordVoucher.self, from: dat)
                 
                 DispatchQueue.main.async {
-                    response(recResponse.records[0])
+                    response(recResponse)
                 }
-                
             }
             catch let jsonError as NSError {
                 print("JSON decode failed: \(jsonError)")

@@ -21,7 +21,7 @@ class AddTransVoucherVC: UIViewController, UITableViewDelegate, UITableViewDataS
         
         // Get All voucher
         Voucher.listVoucherToko(id_toko: "1"){ vouchers in
-            self.vouchers = vouchers.map{ VoucherViewModel(voucher: $0.fields) }
+            self.vouchers = vouchers.map{ VoucherViewModel(recordVoucher: $0) }
             self.tableView.reloadData()
         }
         
@@ -51,8 +51,8 @@ class AddTransVoucherVC: UIViewController, UITableViewDelegate, UITableViewDataS
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if isCreateVoucherRow(idxRow: indexPath.row){ // Jika Cell Create Voucher
-            let vc = UIStoryboard.instantiateModalVoucher{ voucher in
-                self.vouchers.append(VoucherViewModel(voucher: voucher))
+            let vc = UIStoryboard.instantiateModalVoucher{ recordVoucher in
+                self.vouchers.append(VoucherViewModel(recordVoucher: recordVoucher))
                 let insIdx = IndexPath(row: self.vouchers.count-1, section: 0)
                 self.tableView.insertRows(at: [insIdx], with: .automatic)
             }
