@@ -15,6 +15,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // Setup tokoId
+        do { // Jika user ditemukan
+            try UserDefaults.standard.getUserId()
+        } catch { // Jika user tidak ditemukan
+            UserDefaults.standard.setUserId(userId: "1")
+        }
+        
         return true
     }
 
