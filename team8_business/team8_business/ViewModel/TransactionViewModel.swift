@@ -14,6 +14,7 @@ struct TransactionViewModel {
         self.transaction = transaction
     }
     
+    var idTrans: String { transaction.fields.NomorTransaksi }
     var noTransactionDetail: String { "Order Number \(self.noTransaction)" }
     var noTransaction: String { "#\(transaction.fields.NomorTransaksi)" }
     var review: String { transaction.fields.Review }

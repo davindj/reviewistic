@@ -24,7 +24,7 @@ class AddVoucherVC: UIViewController {
     @IBAction func createButtonTapped(_ sender: Any) {
         print("Oi masuk")
         // Validate Form
-        let date = dateLabel.date.toString(format: "")
+        let date = dateLabel.date.toString(format: "yyyy-MM-dd")
         let name = nameLabel.text!
         let desc = descriptionLabel.text!
         
