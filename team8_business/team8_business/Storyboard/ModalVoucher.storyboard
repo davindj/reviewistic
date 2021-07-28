@@ -51,13 +51,16 @@
                                 </constraints>
                             </datePicker>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RjF-Yy-ZX1">
-                                <rect key="frame" x="20" y="369" width="374" height="30"/>
+                                <rect key="frame" x="20" y="369" width="374" height="40"/>
                                 <color key="backgroundColor" red="0.36183978719999998" green="0.48921112210000001" blue="0.95992916819999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="xji-NP-JhX"/>
+                                    <constraint firstAttribute="height" constant="40" id="xji-NP-JhX"/>
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Create Voucher"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="10"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="createButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Moe-Xq-XLn"/>
                                 </connections>

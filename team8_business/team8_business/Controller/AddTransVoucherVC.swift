@@ -16,7 +16,7 @@ class AddTransVoucherVC: UIViewController, UITableViewDelegate, UITableViewDataS
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationItem.title = "Generate Voucher"
+        navigationItem.title = "Generate Barcode"
         
         // Get All voucher
         Voucher.listVoucherToko(id_toko: "1"){ vouchers in
@@ -75,6 +75,21 @@ class AddTransVoucherVC: UIViewController, UITableViewDelegate, UITableViewDataS
     func reloadTableViewAtRows(rows: [Int]){
         let indexPaths = rows.map{ IndexPath(row: $0, section: 0) }
         tableView.reloadRows(at: indexPaths, with: .automatic)
+    }
+    
+    @IBAction func generateBtnTapped(_ sender: Any) {
+        let isValidIdx = selectedIdx >= 0
+        if !isValidIdx {
+            let ac = UIAlertController(title: "No Selected Voucher", message: "Please select voucher first!", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "Ok", style: .default))
+            self.present(ac, animated: true)
+            return
+        }
+        // jika valid
+        // Update Airtable
+        print("Update airtable...")
+        //
+        print("Show barcode...")
     }
     
     // MARK: Helper Function
