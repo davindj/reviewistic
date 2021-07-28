@@ -85,11 +85,12 @@ class Record: Codable {
    let fields: Transaction
    let createdTime : String
    var date: String{
-        let index = createdTime.index(createdTime.startIndex, offsetBy: 10)
-        let mySubstring = createdTime.prefix(upTo: index)
-        
-    return String(mySubstring)
+            let index = createdTime.index(createdTime.startIndex, offsetBy: 10)
+            let mySubstring = createdTime.prefix(upTo: index)
+            
+        return String(mySubstring)
     }
+    
     
     var avgrate: Double{
         let array = [fields.RatingService,fields.RatingProduk,fields.RatingPrice]
