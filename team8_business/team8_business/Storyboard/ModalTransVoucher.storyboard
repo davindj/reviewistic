@@ -66,7 +66,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="ist-IX-Zo3"/>
                     <connections>
-                        <outlet property="tableView" destination="z15-nc-69j" id="HIc-Ex-b6F"/>
+                        <outlet property="tableView" destination="z15-nc-69j" id="EfC-q3-Lfq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -76,6 +76,7 @@
         <!--Navigation Controller-->
         <scene sceneID="zCA-NR-Luv">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ud4-aU-twK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="duc-UY-WoH" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="p7m-x4-gyO">
@@ -87,7 +88,6 @@
                         <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="sbh-x5-sYa"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ud4-aU-twK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="12.723214285714285"/>
         </scene>
