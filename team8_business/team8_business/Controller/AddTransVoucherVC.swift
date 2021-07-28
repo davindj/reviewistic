@@ -16,11 +16,11 @@ class AddTransVoucherVC: UIViewController, UITableViewDelegate, UITableViewDataS
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationItem.title = "Generate Voucher"
+        navigationItem.title = "Generate Barcode"
         
         // Get All voucher
         Voucher.listVoucherToko(id_toko: "1"){ vouchers in
-            self.vouchers = vouchers.map{ VoucherViewModel(recordVoucher: $0) }
+            self.vouchers = vouchers.map{ VoucherViewModel(voucher: $0.fields) }
             self.tableView.reloadData()
         }
         
@@ -30,30 +30,68 @@ class AddTransVoucherVC: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return vouchers.count
+        return vouchers.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "voucher", for: indexPath)
-        let voucher = vouchers[indexPath.row]
-        cell.textLabel?.text = voucher.name
-        cell.accessoryType = voucher.accesoryType
+        
+        if isCreateVoucherRow(idxRow: indexPath.row){
+            cell.imageView?.image = UIImage(systemName: "plus")
+            cell.textLabel?.text = "Create Voucher"
+        }else{
+            cell.imageView?.image = nil
+            let voucher = vouchers[indexPath.row]
+            cell.textLabel?.text = voucher.name
+            cell.accessoryType = voucher.accesoryType
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let oldIdx = IndexPath(row: selectedIdx, section: 0)
-        let newIdx = indexPath
-        selectedIdx = indexPath.row
-        
-        // Update Display
-        var updatedIdx = [IndexPath]()
-        updatedIdx.append(newIdx)
-        if oldIdx.row >= 0 {
-            updatedIdx.append(oldIdx)
-            vouchers[oldIdx.row].isSelected = false
+        if isCreateVoucherRow(idxRow: indexPath.row){ // Jika Cell Create Voucher
+            let vc = UIStoryboard.instantiateModalVoucher{ voucher in
+                self.vouchers.append(VoucherViewModel(voucher: voucher))
+                let insIdx = IndexPath(row: self.vouchers.count-1, section: 0)
+                self.tableView.insertRows(at: [insIdx], with: .automatic)
+            }
+            self.present(vc, animated: true)
+        }else{ // Jika Cell Voucher
+            let oldIdx = selectedIdx
+            let newIdx = indexPath.row
+            selectedIdx = newIdx
+            // Update Display
+            var updatedIdx = [Int]()
+            updatedIdx.append(newIdx)
+            if oldIdx >= 0 { //Jika old idx valid, maka udpate juga old idx
+                updatedIdx.append(oldIdx)
+                vouchers[oldIdx].isSelected = false
+            }
+            vouchers[newIdx].isSelected = true
+            self.reloadTableViewAtRows(rows: updatedIdx)
         }
-        vouchers[newIdx.row].isSelected = true
-        tableView.reloadRows(at: updatedIdx, with: .automatic)
     }
+    
+    func reloadTableViewAtRows(rows: [Int]){
+        let indexPaths = rows.map{ IndexPath(row: $0, section: 0) }
+        tableView.reloadRows(at: indexPaths, with: .automatic)
+    }
+    
+    @IBAction func generateBtnTapped(_ sender: Any) {
+        let isValidIdx = selectedIdx >= 0
+        if !isValidIdx {
+            let ac = UIAlertController(title: "No Selected Voucher", message: "Please select voucher first!", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "Ok", style: .default))
+            self.present(ac, animated: true)
+            return
+        }
+        // jika valid
+        // Update Airtable
+        print("Update airtable...")
+        //
+        print("Show barcode...")
+    }
+    
+    // MARK: Helper Function
+    func isCreateVoucherRow(idxRow: Int)->Bool{ idxRow == vouchers.count }
 }

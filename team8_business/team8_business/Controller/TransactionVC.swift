@@ -17,12 +17,19 @@ class TransactionVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Transactions"
+        navigationItem.title = "Transactions"
         navigationController?.navigationBar.prefersLargeTitles = true
         
         Transaction.callData{ data in
-            self.transactions = data.map{ TransactionViewModel(transaction: $0) }
-            self.tableView.reloadData()
+            do{
+                let toko_id = try UserDefaults.standard.getUserId()
+                print(toko_id)
+                self.transactions = data.filter{ "\($0.fields.id_toko)" == toko_id }
+                                        .map{ TransactionViewModel(transaction: $0) }
+                self.tableView.reloadData()
+            }catch{ // Ketika toko tidak ditemukan
+                print("Error unhandled")
+            }
         }
     }
 

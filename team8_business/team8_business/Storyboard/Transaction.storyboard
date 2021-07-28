@@ -73,8 +73,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JBQ-GE-C2o">
-                                <rect key="frame" x="343" y="194" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <rect key="frame" x="297" y="194" width="92" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="JcS-Ya-m3Y"/>
+                                    <constraint firstAttribute="width" constant="92" id="xEs-29-TEG"/>
+                                </constraints>
+                                <state key="normal" title="Generate Barcode"/>
                                 <connections>
                                     <segue destination="Ggh-Zv-sA9" kind="presentation" id="dSz-hC-o1a"/>
                                 </connections>
@@ -103,11 +107,11 @@
             </objects>
             <point key="canvasLocation" x="1784.057971014493" y="4.6875"/>
         </scene>
-        <!--Item-->
+        <!--Transaction-->
         <scene sceneID="oH2-Xm-8p9">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="v6k-mJ-Hyb" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="square.and.arrow.down" catalog="system" id="Q1f-ve-6Fn"/>
+                    <tabBarItem key="tabBarItem" title="Transaction" image="square.and.arrow.down" catalog="system" id="Q1f-ve-6Fn"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="AfV-Eq-ybj">
