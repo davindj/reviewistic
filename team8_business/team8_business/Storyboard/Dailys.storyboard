@@ -54,7 +54,7 @@
                                 </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="250" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ugL-18-zH6">
-                                <rect key="frame" x="10" y="235" width="394" height="661"/>
+                                <rect key="frame" x="10" y="235" width="394" height="627"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="transaksiCellDailys" rowHeight="159" id="z3c-Vq-FGV" customClass="tableviewcell" customModule="team8_business" customModuleProvider="target">
@@ -213,17 +213,17 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="ugL-18-zH6" firstAttribute="top" secondItem="mPT-V4-z6R" secondAttribute="bottom" constant="10" id="2kg-iC-AQF"/>
                             <constraint firstItem="mPT-V4-z6R" firstAttribute="top" secondItem="PTU-Z1-z68" secondAttribute="bottom" constant="30" id="79b-ul-bu0"/>
+                            <constraint firstItem="ugL-18-zH6" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="DcL-Wj-RCs"/>
                             <constraint firstItem="0h9-Hn-iLV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="PTU-Z1-z68" secondAttribute="trailing" constant="20" id="Exc-ic-Reu"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="mPT-V4-z6R" secondAttribute="trailing" constant="20" id="Gee-EK-n1q"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="0h9-Hn-iLV" secondAttribute="trailing" constant="20" id="Kbx-Ko-v2q"/>
                             <constraint firstItem="PTU-Z1-z68" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="MsR-hM-Mu6"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ugL-18-zH6" secondAttribute="trailing" constant="10" id="NBB-d5-zL4"/>
-                            <constraint firstAttribute="bottom" secondItem="ugL-18-zH6" secondAttribute="bottom" id="OCR-TD-euT"/>
                             <constraint firstItem="0h9-Hn-iLV" firstAttribute="leading" secondItem="PTU-Z1-z68" secondAttribute="trailing" constant="20" id="VU3-2u-Bgp"/>
-                            <constraint firstItem="ugL-18-zH6" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="aXk-Sv-KFA"/>
                             <constraint firstItem="PTU-Z1-z68" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="35" id="anb-SJ-KwK"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="ugL-18-zH6" secondAttribute="bottom" id="jrd-Vo-CGH"/>
+                            <constraint firstItem="ugL-18-zH6" firstAttribute="top" secondItem="mPT-V4-z6R" secondAttribute="bottom" constant="10" id="lcv-CI-u90"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ugL-18-zH6" secondAttribute="trailing" constant="10" id="p97-G9-4fV"/>
                             <constraint firstItem="0h9-Hn-iLV" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="pk7-TL-YS1"/>
                             <constraint firstItem="mPT-V4-z6R" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="qQM-d3-EEi"/>
                         </constraints>
