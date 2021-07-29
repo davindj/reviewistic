@@ -214,18 +214,18 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="mPT-V4-z6R" firstAttribute="top" secondItem="PTU-Z1-z68" secondAttribute="bottom" constant="30" id="79b-ul-bu0"/>
-                            <constraint firstItem="ugL-18-zH6" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="DcL-Wj-RCs"/>
                             <constraint firstItem="0h9-Hn-iLV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="PTU-Z1-z68" secondAttribute="trailing" constant="20" id="Exc-ic-Reu"/>
+                            <constraint firstItem="ugL-18-zH6" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="F9I-CC-eyP"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="mPT-V4-z6R" secondAttribute="trailing" constant="20" id="Gee-EK-n1q"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="0h9-Hn-iLV" secondAttribute="trailing" constant="20" id="Kbx-Ko-v2q"/>
                             <constraint firstItem="PTU-Z1-z68" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="MsR-hM-Mu6"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ugL-18-zH6" secondAttribute="trailing" constant="10" id="RQh-DG-zd8"/>
                             <constraint firstItem="0h9-Hn-iLV" firstAttribute="leading" secondItem="PTU-Z1-z68" secondAttribute="trailing" constant="20" id="VU3-2u-Bgp"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="ugL-18-zH6" secondAttribute="bottom" id="a7u-uJ-ZGs"/>
                             <constraint firstItem="PTU-Z1-z68" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="35" id="anb-SJ-KwK"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="ugL-18-zH6" secondAttribute="bottom" id="jrd-Vo-CGH"/>
-                            <constraint firstItem="ugL-18-zH6" firstAttribute="top" secondItem="mPT-V4-z6R" secondAttribute="bottom" constant="10" id="lcv-CI-u90"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ugL-18-zH6" secondAttribute="trailing" constant="10" id="p97-G9-4fV"/>
                             <constraint firstItem="0h9-Hn-iLV" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="pk7-TL-YS1"/>
                             <constraint firstItem="mPT-V4-z6R" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="qQM-d3-EEi"/>
+                            <constraint firstItem="ugL-18-zH6" firstAttribute="top" secondItem="mPT-V4-z6R" secondAttribute="bottom" constant="10" id="scZ-C5-ayY"/>
                         </constraints>
                     </view>
                     <connections>
