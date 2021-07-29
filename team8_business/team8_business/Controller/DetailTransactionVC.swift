@@ -18,7 +18,7 @@ class DetailTransactionVC: UIViewController, UITableViewDelegate, UITableViewDat
     var transactionVM: TransactionViewModel!
     
     // Variables
-    var products: [ProductViewModel] = []
+    var products: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
