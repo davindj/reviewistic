@@ -20,7 +20,6 @@ class VoucherVC: UITableViewController{
         
         Voucher.listVoucherToko(id_toko: "2") { r in
             self.listVoucher = r
-            print(self.listVoucher)
             self.tableviewControllerVoucher.reloadData()
         }
         tableviewControllerVoucher.dataSource = self       
