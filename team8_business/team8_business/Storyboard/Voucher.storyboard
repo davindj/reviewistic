@@ -8,6 +8,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--ModalVoucher-->
+        <scene sceneID="Spf-Vq-Gzz">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="moda" storyboardName="ModalVoucher" id="Nog-QU-oDV" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="TGD-uf-mgx"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FJx-ec-kmE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="776" y="-36"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
@@ -43,20 +53,20 @@
         <scene sceneID="JHj-p1-yCW">
             <objects>
                 <tableViewController id="KXS-Kh-IGB" customClass="VoucherVC" customModule="team8_business" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="3Kq-ZP-4OW">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" sectionHeaderHeight="28" sectionFooterHeight="28" id="3Kq-ZP-4OW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="119" id="L1f-oM-LkJ" customClass="VoucherVC" customModule="team8_business" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="24.5" width="414" height="119"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableviewvouchercell" rowHeight="80" id="L1f-oM-LkJ" customClass="tableviewVoucherCell" customModule="team8_business">
+                                <rect key="frame" x="0.0" y="24.5" width="414" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="L1f-oM-LkJ" id="AC7-Gf-Cr2">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="119"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rBm-DX-wHi">
-                                            <rect key="frame" x="8" y="8" width="398" height="103"/>
+                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rBm-DX-wHi">
+                                            <rect key="frame" x="8" y="8" width="398" height="62"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NamaVoucher" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hja-1w-rIK">
                                                     <rect key="frame" x="8" y="8" width="107" height="21"/>
@@ -77,7 +87,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <color key="backgroundColor" systemColor="systemGray5Color"/>
                                             <constraints>
                                                 <constraint firstItem="0jB-NZ-QWK" firstAttribute="top" secondItem="hja-1w-rIK" secondAttribute="bottom" constant="10" id="1Wt-k1-3sv"/>
                                                 <constraint firstItem="YPh-0P-lF3" firstAttribute="top" secondItem="rBm-DX-wHi" secondAttribute="top" constant="8" id="G3n-o4-zrO"/>
@@ -88,18 +98,22 @@
                                             </constraints>
                                         </view>
                                     </subviews>
-                                    <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                     <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="rBm-DX-wHi" secondAttribute="trailing" constant="8" id="Guf-aO-69L"/>
                                         <constraint firstItem="rBm-DX-wHi" firstAttribute="leading" secondItem="AC7-Gf-Cr2" secondAttribute="leading" constant="8" id="KOV-xM-bYw"/>
+                                        <constraint firstAttribute="bottom" secondItem="rBm-DX-wHi" secondAttribute="bottom" constant="8" id="Lqe-J1-RyK"/>
+                                        <constraint firstItem="rBm-DX-wHi" firstAttribute="leading" secondItem="AC7-Gf-Cr2" secondAttribute="leading" constant="8" id="Qlz-tL-I4a"/>
                                         <constraint firstAttribute="bottom" secondItem="rBm-DX-wHi" secondAttribute="bottom" constant="8" id="Yoa-1t-8Wg"/>
                                         <constraint firstAttribute="trailing" secondItem="rBm-DX-wHi" secondAttribute="trailing" constant="8" id="cIa-Cw-rlu"/>
                                         <constraint firstItem="rBm-DX-wHi" firstAttribute="top" secondItem="AC7-Gf-Cr2" secondAttribute="top" constant="8" id="pxI-Uy-vFk"/>
+                                        <constraint firstItem="rBm-DX-wHi" firstAttribute="top" secondItem="AC7-Gf-Cr2" secondAttribute="top" constant="8" id="ta6-Sy-8CG"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="ExpDate" destination="YPh-0P-lF3" id="g0n-q9-gb1"/>
                                     <outlet property="Keterangan" destination="0jB-NZ-QWK" id="E5N-c0-2zM"/>
-                                    <outlet property="NamaVoucher" destination="hja-1w-rIK" id="mul-ue-VYT"/>
+                                    <outlet property="NamaVoucher" destination="hja-1w-rIK" id="jxl-aM-qgs"/>
+                                    <outlet property="viewcell" destination="rBm-DX-wHi" id="ev1-qL-tGM"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -109,27 +123,38 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Voucher" id="BOd-5I-C0M">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="9A1-QX-ytm">
+                        <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" style="plain" id="9A1-QX-ytm">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Btr-IW-3Vg">
                                 <rect key="frame" x="348" y="0.0" width="46" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <state key="normal" title="+"/>
+                                <connections>
+                                    <segue destination="Nog-QU-oDV" kind="show" id="rWU-wD-315"/>
+                                </connections>
                             </button>
+                            <connections>
+                                <action selector="addVoucher:" destination="ZSG-8C-OdL" id="KU5-ZN-3Ls"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableviewControllerVoucher" destination="3Kq-ZP-4OW" id="aAW-Wn-9qm"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bvb-R1-dfm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="ZSG-8C-OdL" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="140.57971014492756" y="-36.160714285714285"/>
         </scene>
     </scenes>
     <resources>
-        <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
