@@ -13,7 +13,7 @@ class AddVoucherVC: UIViewController {
     @IBOutlet var descriptionLabel: UITextField!
     @IBOutlet var createButton: UIButton!
     
-    var successCallback: ((Voucher)->Void)!
+    var successCallback: ((RecordVoucher)->Void)!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,20 +36,14 @@ class AddVoucherVC: UIViewController {
         // Success
         // Insert ke AirTable
         let idToko = try! UserDefaults.standard.getUserId()
-        Voucher.insVoucher(nama: name, exp_date: date, keterangan: desc, id_toko: idToko){ isSuccess in
-            if !isSuccess{
-                self.showAlert(title: "Something went wrong", message: "Please try again later")
-                return
-            }
-            // TODO get real id-voucher
-            let newVoucher = Voucher(Id_Voucher: UUID().uuidString,
-                                     Nama: name,
-                                     Exp_Date: date,
-                                     Keterangan: desc,
-                                     Id_Toko: idToko)
+        Voucher.insVoucher(nama: name, exp_date: date, keterangan: desc, id_toko: idToko){ recVoucher in
+//            if !isSuccess{
+//                self.showAlert(title: "Something went wrong", message: "Please try again later")
+//                return
+//            }
             
             self.dismiss(animated: true){
-                self.successCallback(newVoucher)
+                self.successCallback(recVoucher)
             }
         }
     }

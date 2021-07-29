@@ -74,7 +74,7 @@ class Voucher: Codable {
         dataTask.resume()
     }
     
-    static func insVoucher(nama: String, exp_date: String, keterangan:String, id_toko:String, response: @escaping (Bool)->Void ) {
+    static func insVoucher(nama: String, exp_date: String, keterangan:String, id_toko:String, response: @escaping (RecordVoucher)->Void ) {
         // prepare json data
         let uuid = UUID().uuidString
         let json = [ "fields": ["id_voucher":uuid, "nama":nama, "exp_date": exp_date, "keterangan": keterangan, "id_toko": id_toko]]
@@ -95,14 +95,20 @@ class Voucher: Codable {
         request.httpBody = jsonData
 
         let task = URLSession.shared.dataTask(with: request) { data, _, _ in
-            guard data != nil else {
+            guard let dat = data else {
                 print("fail1")
                 return
             }
             do {
+                let decoder = JSONDecoder()
+                let recResponse = try decoder.decode(RecordVoucher.self, from: dat)
+                
                 DispatchQueue.main.async {
-                    response(true)
+                    response(recResponse)
                 }
+            }
+            catch let jsonError as NSError {
+                print("JSON decode failed: \(jsonError)")
             }
             
         }

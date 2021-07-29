@@ -33,10 +33,12 @@
             </objects>
             <point key="canvasLocation" x="1287" y="-36"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Promos-->
         <scene sceneID="UKj-0a-esZ">
             <objects>
                 <navigationController id="0u9-Ai-8NY" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Promos" image="tag.fill" catalog="system" id="sHJ-Ao-CRP"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="vpk-LR-QPo">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -150,6 +152,7 @@
     </scenes>
     <resources>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="tag.fill" catalog="system" width="128" height="119"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

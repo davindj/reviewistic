@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--DailysVC-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" customClass="DailysVC" customModule="team8_business" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="PTU-Z1-z68">
+                                <rect key="frame" x="35" y="64" width="125" height="100"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating Avg" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S2l-rz-riq">
+                                        <rect key="frame" x="0.0" y="0.0" width="125" height="27.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="black" pointSize="23"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wMv-SK-afa">
+                                        <rect key="frame" x="0.0" y="33.5" width="125" height="44.5"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uES-kK-du8">
+                                        <rect key="frame" x="0.0" y="84" width="125" height="16"/>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="13"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="eov-qB-Rz9"/>
+                                    <constraint firstAttribute="width" constant="125" id="pnT-10-JG9"/>
+                                </constraints>
+                            </stackView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="mPT-V4-z6R">
+                                <rect key="frame" x="20" y="194" width="374" height="32"/>
+                                <segments>
+                                    <segment title="5 ★"/>
+                                    <segment title="4 ★"/>
+                                    <segment title="3 ★"/>
+                                    <segment title="2 ★"/>
+                                    <segment title="1 ★"/>
+                                </segments>
+                                <connections>
+                                    <action selector="didChangeSegment:" destination="Y6W-OH-hqX" eventType="valueChanged" id="oyE-si-aFT"/>
+                                </connections>
+                            </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="250" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ugL-18-zH6">
+                                <rect key="frame" x="10" y="235" width="394" height="627"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="transaksiCellDailys" rowHeight="159" id="z3c-Vq-FGV" customClass="tableviewcell" customModule="team8_business" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="24.5" width="394" height="159"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="z3c-Vq-FGV" id="nEm-LK-Ok8">
+                                            <rect key="frame" x="0.0" y="0.0" width="394" height="159"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transaksi ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GHn-30-L8t">
+                                                    <rect key="frame" x="30" y="21" width="92.5" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Komentar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PbL-3m-KZX">
+                                                    <rect key="frame" x="30" y="51.5" width="334" height="69"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="69" id="Rar-ZZ-1BA"/>
+                                                        <constraint firstAttribute="width" constant="334" id="loO-4f-Mdq"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <color key="highlightedColor" systemColor="systemGray4Color"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tanggal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nKA-Kx-MXO">
+                                                    <rect key="frame" x="304" y="130.5" width="60" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nnb-jW-pRo">
+                                                    <rect key="frame" x="335" y="10" width="49" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="nKA-Kx-MXO" secondAttribute="trailing" constant="10" id="Lsc-YG-uzE"/>
+                                                <constraint firstAttribute="trailing" secondItem="nnb-jW-pRo" secondAttribute="trailing" constant="10" id="UsG-aK-Ruo"/>
+                                                <constraint firstItem="GHn-30-L8t" firstAttribute="leading" secondItem="nEm-LK-Ok8" secondAttribute="leadingMargin" constant="10" id="VSa-Lv-8aG"/>
+                                                <constraint firstItem="nnb-jW-pRo" firstAttribute="top" secondItem="nEm-LK-Ok8" secondAttribute="top" constant="10" id="cIh-VQ-3er"/>
+                                                <constraint firstItem="PbL-3m-KZX" firstAttribute="leading" secondItem="nEm-LK-Ok8" secondAttribute="leadingMargin" constant="10" id="e0B-TL-5Ze"/>
+                                                <constraint firstItem="PbL-3m-KZX" firstAttribute="top" secondItem="GHn-30-L8t" secondAttribute="bottom" constant="10" id="ecN-NN-Zvy"/>
+                                                <constraint firstItem="GHn-30-L8t" firstAttribute="top" secondItem="nEm-LK-Ok8" secondAttribute="topMargin" constant="10" id="gRH-G7-eeQ"/>
+                                                <constraint firstItem="nKA-Kx-MXO" firstAttribute="top" secondItem="PbL-3m-KZX" secondAttribute="bottom" constant="10" id="tDh-c1-9XB"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="Celltransaksi" destination="nEm-LK-Ok8" id="DoE-Yz-yYp"/>
+                                            <outlet property="TransaksiID" destination="GHn-30-L8t" id="e6U-Cn-a1c"/>
+                                            <outlet property="komentar" destination="PbL-3m-KZX" id="TCt-VS-O6l"/>
+                                            <outlet property="rating" destination="nnb-jW-pRo" id="UYy-Kl-vgd"/>
+                                            <outlet property="tanggal" destination="nKA-Kx-MXO" id="AjZ-cu-TbE"/>
+                                            <outlet property="transaksiID" destination="GHn-30-L8t" id="GoN-zF-dpg"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="0h9-Hn-iLV">
+                                <rect key="frame" x="180" y="64" width="214" height="80"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="Kke-zL-bi5">
+                                        <rect key="frame" x="0.0" y="0.0" width="214" height="12"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bintang1" translatesAutoresizingMaskIntoConstraints="NO" id="RTZ-s9-kFk">
+                                                <rect key="frame" x="0.0" y="0.0" width="72" height="12"/>
+                                            </imageView>
+                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7F3-7v-DbW">
+                                                <rect key="frame" x="79" y="4" width="101.5" height="4"/>
+                                            </progressView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WKe-YU-R6j">
+                                                <rect key="frame" x="187.5" y="0.0" width="26.5" height="12"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="Ccb-ue-yau">
+                                        <rect key="frame" x="0.0" y="17" width="214" height="12"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Bintang2" translatesAutoresizingMaskIntoConstraints="NO" id="PQ4-QU-T4X">
+                                                <rect key="frame" x="0.0" y="0.0" width="72" height="12"/>
+                                            </imageView>
+                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dnj-Ql-mlq">
+                                                <rect key="frame" x="79" y="4" width="101.5" height="4"/>
+                                            </progressView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hfZ-16-vP1">
+                                                <rect key="frame" x="187.5" y="0.0" width="26.5" height="12"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="mMe-hh-kgq">
+                                        <rect key="frame" x="0.0" y="34" width="214" height="12"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Bintang3" translatesAutoresizingMaskIntoConstraints="NO" id="DgU-B7-CN4">
+                                                <rect key="frame" x="0.0" y="0.0" width="71" height="12"/>
+                                            </imageView>
+                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9JV-ua-li9">
+                                                <rect key="frame" x="78" y="4" width="102.5" height="4"/>
+                                            </progressView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Xc-XH-P04">
+                                                <rect key="frame" x="187.5" y="0.0" width="26.5" height="12"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="kqQ-Hq-uIx">
+                                        <rect key="frame" x="0.0" y="51" width="214" height="12"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Bintang4" translatesAutoresizingMaskIntoConstraints="NO" id="YiL-aN-p91">
+                                                <rect key="frame" x="0.0" y="0.0" width="73" height="12"/>
+                                            </imageView>
+                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wMU-Ga-kvM">
+                                                <rect key="frame" x="80" y="4" width="100.5" height="4"/>
+                                            </progressView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XrI-CQ-AKE">
+                                                <rect key="frame" x="187.5" y="0.0" width="26.5" height="12"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="gic-Ca-FSa">
+                                        <rect key="frame" x="0.0" y="68" width="214" height="12"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Bintang5" translatesAutoresizingMaskIntoConstraints="NO" id="agi-aL-VKh">
+                                                <rect key="frame" x="0.0" y="0.0" width="73" height="12"/>
+                                            </imageView>
+                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="F5y-zM-aOK">
+                                                <rect key="frame" x="80" y="4" width="100.5" height="4"/>
+                                            </progressView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m2p-Se-jrY">
+                                                <rect key="frame" x="187.5" y="0.0" width="26.5" height="12"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="Goh-JP-EfT"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="mPT-V4-z6R" firstAttribute="top" secondItem="PTU-Z1-z68" secondAttribute="bottom" constant="30" id="79b-ul-bu0"/>
+                            <constraint firstItem="0h9-Hn-iLV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="PTU-Z1-z68" secondAttribute="trailing" constant="20" id="Exc-ic-Reu"/>
+                            <constraint firstItem="ugL-18-zH6" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="F9I-CC-eyP"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="mPT-V4-z6R" secondAttribute="trailing" constant="20" id="Gee-EK-n1q"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="0h9-Hn-iLV" secondAttribute="trailing" constant="20" id="Kbx-Ko-v2q"/>
+                            <constraint firstItem="PTU-Z1-z68" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="MsR-hM-Mu6"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ugL-18-zH6" secondAttribute="trailing" constant="10" id="RQh-DG-zd8"/>
+                            <constraint firstItem="0h9-Hn-iLV" firstAttribute="leading" secondItem="PTU-Z1-z68" secondAttribute="trailing" constant="20" id="VU3-2u-Bgp"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="ugL-18-zH6" secondAttribute="bottom" id="a7u-uJ-ZGs"/>
+                            <constraint firstItem="PTU-Z1-z68" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="35" id="anb-SJ-KwK"/>
+                            <constraint firstItem="0h9-Hn-iLV" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="pk7-TL-YS1"/>
+                            <constraint firstItem="mPT-V4-z6R" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="qQM-d3-EEi"/>
+                            <constraint firstItem="ugL-18-zH6" firstAttribute="top" secondItem="mPT-V4-z6R" secondAttribute="bottom" constant="10" id="scZ-C5-ayY"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="Avg" destination="S2l-rz-riq" id="27d-hy-zfx"/>
+                        <outlet property="Labelb1" destination="WKe-YU-R6j" id="Ywf-M8-jDZ"/>
+                        <outlet property="Labelb2" destination="hfZ-16-vP1" id="drx-b4-XhR"/>
+                        <outlet property="Labelb3" destination="7Xc-XH-P04" id="Dbn-eM-h28"/>
+                        <outlet property="Labelb4" destination="XrI-CQ-AKE" id="lIi-kU-gWf"/>
+                        <outlet property="Labelb5" destination="m2p-Se-jrY" id="JiM-yn-GSh"/>
+                        <outlet property="Progressviewb1" destination="7F3-7v-DbW" id="Lhy-eb-jgq"/>
+                        <outlet property="Progressviewb2" destination="dnj-Ql-mlq" id="081-Wk-JhZ"/>
+                        <outlet property="Progressviewb3" destination="9JV-ua-li9" id="Qja-TQ-76V"/>
+                        <outlet property="Progressviewb4" destination="wMU-Ga-kvM" id="vZg-rV-W6N"/>
+                        <outlet property="Progressviewb5" destination="F5y-zM-aOK" id="0k2-be-doD"/>
+                        <outlet property="avgRateImg" destination="wMv-SK-afa" id="WRP-XX-deq"/>
+                        <outlet property="ratingsegmen" destination="mPT-V4-z6R" id="ptq-Jc-eGT"/>
+                        <outlet property="tableViewDailys" destination="ugL-18-zH6" id="6dJ-rR-6vv"/>
+                        <outlet property="totalrate" destination="uES-kK-du8" id="hFP-9I-Uxi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="100.00000000000001" y="40.848214285714285"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Bintang2" width="72" height="12"/>
+        <image name="Bintang3" width="71" height="12"/>
+        <image name="Bintang4" width="73" height="12"/>
+        <image name="Bintang5" width="73" height="12"/>
+        <image name="bintang1" width="72" height="12"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

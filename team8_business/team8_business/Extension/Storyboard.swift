@@ -9,11 +9,28 @@ import Foundation
 import UIKit
 
 extension UIStoryboard{
-    static func instantiateModalVoucher(successCallback: @escaping (Voucher) -> Void) -> UINavigationController{
+    static func instantiateModalVoucher(successCallback: @escaping (RecordVoucher) -> Void) -> UINavigationController{
         let storyboard = UIStoryboard(name: "ModalVoucher", bundle: nil)
         let nvc = storyboard.instantiateInitialViewController() as! UINavigationController
         let vc = nvc.visibleViewController as! AddVoucherVC
         vc.successCallback = successCallback
+        return nvc
+    }
+    
+    static func instantiateModalPromo(transaction: TransactionViewModel, successCallback: @escaping () -> Void) -> UINavigationController{
+        let storyboard = UIStoryboard(name: "ModalTransVoucher", bundle: nil)
+        let nvc = storyboard.instantiateInitialViewController() as! UINavigationController
+        let vc = nvc.visibleViewController as! AddTransVoucherVC
+        vc.successCallback = successCallback
+        vc.transaction = transaction
+        return nvc
+    }
+    
+    static func instantiateModalBarcode(transaction: TransactionViewModel) -> UINavigationController{
+        let storyboard = UIStoryboard(name: "ModalBarcode", bundle: nil)
+        let nvc = storyboard.instantiateInitialViewController() as! UINavigationController
+        let vc = nvc.visibleViewController as! BarcodeVC
+        vc.transaction = transaction
         return nvc
     }
 }
