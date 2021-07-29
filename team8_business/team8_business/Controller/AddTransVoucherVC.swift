@@ -10,6 +10,7 @@ import UIKit
 class AddTransVoucherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet var tableView: UITableView!
     
+    var transaction: TransactionViewModel!
     var vouchers: [VoucherViewModel] = []
     var selectedIdx: Int = -1
     var successCallback: (()->Void)!
@@ -88,10 +89,15 @@ class AddTransVoucherVC: UIViewController, UITableViewDelegate, UITableViewDataS
         }
         // jika valid
         // Update Airtable
-        print("Update airtable...")
-        //
-        print("Show barcode...")
-        successCallback()
+        let voucher = vouchers[selectedIdx]
+        Transaction.updateReviewStatus(airtableid: transaction.transObj.id,
+                                       voucherid: voucher.recVoucher.id,
+                                       status: 2)
+        { isSuccess in
+            self.dismiss(animated: true){
+                self.successCallback()
+            }
+        }
     }
     
     // MARK: Helper Function

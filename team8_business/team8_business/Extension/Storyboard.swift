@@ -17,11 +17,12 @@ extension UIStoryboard{
         return nvc
     }
     
-    static func instantiateModalPromo(successCallback: @escaping () -> Void) -> UINavigationController{
+    static func instantiateModalPromo(transaction: TransactionViewModel, successCallback: @escaping () -> Void) -> UINavigationController{
         let storyboard = UIStoryboard(name: "ModalTransVoucher", bundle: nil)
         let nvc = storyboard.instantiateInitialViewController() as! UINavigationController
         let vc = nvc.visibleViewController as! AddTransVoucherVC
         vc.successCallback = successCallback
+        vc.transaction = transaction
         return nvc
     }
     

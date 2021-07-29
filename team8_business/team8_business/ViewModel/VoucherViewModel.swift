@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 struct VoucherViewModel {
-    private let recVoucher: RecordVoucher
+    let recVoucher: RecordVoucher
     var isSelected: Bool
     
     init(recordVoucher: RecordVoucher){
