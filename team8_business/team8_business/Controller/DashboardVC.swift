@@ -109,7 +109,7 @@ class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         return cell
     }
     @IBAction func seeAllClick(_ sender: Any) {
-        performSegue(withIdentifier: "addProjectSegue", sender: self)
+//        performSegue(withIdentifier: "addProjectSegue", sender: self)
     }
     
 }
