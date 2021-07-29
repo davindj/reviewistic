@@ -217,15 +217,6 @@ class DailysVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
         
     }
  
-    @IBAction func Pricebtn(_ sender: Any) {
-        kategoriID = "RatingPrice"
-       viewDidLoad()
-    }
-    
-    @IBAction func produkbtn(_ sender: Any) {
-        kategoriID = "RatingProduk"
-        viewDidLoad()
-    }
     
     @IBAction func didChangeSegment(_ sender: Any) {
       switch ratingsegmen.selectedSegmentIndex {
