@@ -70,3 +70,16 @@ class DetailTransactionVC: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
 }
+
+class ProductCell: UITableViewCell {
+    @IBOutlet var prdLabel: UILabel!
+    @IBOutlet var prcLabel: UILabel!
+    @IBOutlet var qtyLabel: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+//        kotak1.layer.cornerRadius = 5
+//        kotak2.layer.cornerRadius = 5
+//        kotak3.layer.cornerRadius = 5
+    }
+}

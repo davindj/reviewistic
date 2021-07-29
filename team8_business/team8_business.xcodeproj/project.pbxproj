@@ -197,7 +197,6 @@
 				B92661D726A8235E00ACC9F2 /* TransactionModel.swift */,
 				B95F5C6226AEA6B3005DF1FA /* ProdukModel.swift */,
 				B95F5C6726AEAD15005DF1FA /* VoucherModel.swift */,
-				D722EF3426B1D64700EE7150 /* ProductViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -227,6 +226,7 @@
 			children = (
 				D79FD2DC26AA8A2900A079F2 /* TransactionViewModel.swift */,
 				D74EA48E26B0003600B1E914 /* VoucherViewModel.swift */,
+				D722EF3426B1D64700EE7150 /* ProductViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
