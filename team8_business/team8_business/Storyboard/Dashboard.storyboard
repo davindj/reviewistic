@@ -59,6 +59,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="URH-yi-yLL">
                                 <rect key="frame" x="336" y="354" width="47" height="30"/>
                                 <state key="normal" title="See All"/>
+                                <connections>
+                                    <action selector="seeAllClick:" destination="enI-NO-502" eventType="touchUpInside" id="z5D-or-LBZ"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="300" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="j4F-UV-PgK">
                                 <rect key="frame" x="20" y="409" width="374" height="453"/>
