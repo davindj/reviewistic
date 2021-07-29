@@ -15,20 +15,9 @@ class DetailTransactionVC: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet var tableView: UITableView!
     
     // Parameter
-    var transaction: Record!
+    var transactionVM: TransactionViewModel!
     
     // Variables
-    private var transactionVM: TransactionViewModel! {
-        didSet{
-            noTransLabel.text = transactionVM.noTransactionDetail
-            reviewResultLabel.text = transactionVM.review
-            
-            // Barcode btn style
-            barcodeBtn.setTitle(transactionVM.btnText, for: .normal)
-            barcodeBtn.backgroundColor = transactionVM.btnColor
-            barcodeBtn.tintColor = .white
-        }
-    }
     var products: [ProductViewModel] = []
     
     override func viewDidLoad() {
@@ -36,15 +25,16 @@ class DetailTransactionVC: UIViewController, UITableViewDelegate, UITableViewDat
         
         navigationItem.title = "Transaction Detail"
         navigationItem.largeTitleDisplayMode = .always
-        
-        transactionVM = TransactionViewModel(transaction: transaction)
-        
+                
         // Load Product...
-        Produk.listProdukTransaksi(nomorTransaksi: transaction.id){ products in
+        Produk.listProdukTransaksi(nomorTransaksi: transactionVM.transObj.id){ products in
             print(products)
             print(products[0])
             print(products.count)
         }
+        
+        // Reload button
+        updateBtnDisplay()
     }
     
     // Override
@@ -58,10 +48,21 @@ class DetailTransactionVC: UIViewController, UITableViewDelegate, UITableViewDat
         return cell
     }
     
+    func updateBtnDisplay(){
+        noTransLabel.text = transactionVM.noTransactionDetail
+        reviewResultLabel.text = transactionVM.review
+        
+        // Barcode btn style
+        barcodeBtn.setTitle(transactionVM.btnText, for: .normal)
+        barcodeBtn.backgroundColor = transactionVM.btnColor
+        barcodeBtn.tintColor = .white
+    }
+    
     @IBAction func barcodeBtnTapped(_ sender: Any) {
         if transactionVM.status == .BarcodeNotGenerated{
             self.present(UIStoryboard.instantiateModalPromo(transaction: transactionVM){
                 self.transactionVM.status = .BarcodeGenerated
+                self.updateBtnDisplay()
                 self.present(UIStoryboard.instantiateModalBarcode(transaction: self.transactionVM),animated: true)
             }, animated: true)
         }else{

@@ -15,7 +15,7 @@ enum TransactionStatus{
     case Unknown
 }
 
-struct TransactionViewModel {
+class TransactionViewModel {
     let transObj: Record
     var status: TransactionStatus
     

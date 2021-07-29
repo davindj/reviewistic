@@ -47,7 +47,7 @@ class TransactionVC: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let transaction = transactions[indexPath.row]
         if let vc = self.storyboard?.instantiateViewController(identifier: "DetailTransaction") as? DetailTransactionVC {
-            vc.transaction = transaction.transObj
+            vc.transactionVM = transaction
             navigationController?.pushViewController(vc, animated: true)
         }
     }
