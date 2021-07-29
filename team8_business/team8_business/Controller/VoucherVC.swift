@@ -44,19 +44,18 @@ class VoucherVC: UITableViewController{
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        print(self.listVoucher.count)
+
         return listVoucher.count
     }
-    //  override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath ) -> [UITableViewRowAction]? {
-    // #warning Incomplete implementation, return the number of rows
-    //   let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (ACTION,indexPath) in
-    //delete variable promo
-    //self.rowVoucher.remove(at: indexPath.row)
-    // Self.tableView.deleteRows(at: [indexPath], with: .fade)
-    //  }
-    //  return [deleteAction]
-    // }
+      override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath ) -> [UITableViewRowAction]? {
+            // #warning Incomplete implementation, return the number of rows
+            let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+            //delete variable promo
+            self.listVoucher.remove(at: indexPath.row)
+            self.tableView.deleteRows(at: [indexPath], with: .fade)
+      }
+     return [deleteAction]
+    }
     
     
      override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -70,6 +69,8 @@ class VoucherVC: UITableViewController{
         cell.ExpDate.text = voucherAll.fields.exp_date
         // Configure the cell...
      
+        
+        cell.viewcell.layer.cornerRadius = 10
      return cell
      }
 
@@ -120,8 +121,11 @@ class VoucherVC: UITableViewController{
      */
     
 }
+
+
 class tableviewVoucherCell: UITableViewCell{
     @IBOutlet weak var NamaVoucher: UILabel!
     @IBOutlet weak var Keterangan: UILabel!
     @IBOutlet weak var ExpDate: UILabel!
+    @IBOutlet weak var viewcell: UIView!
 }
