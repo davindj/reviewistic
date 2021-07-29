@@ -18,7 +18,7 @@ class DetailTransactionVC: UIViewController, UITableViewDelegate, UITableViewDat
     var transactionVM: TransactionViewModel!
     
     // Variables
-    var products: [String] = []
+    var products: [ProductViewModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,15 +26,22 @@ class DetailTransactionVC: UIViewController, UITableViewDelegate, UITableViewDat
         navigationItem.title = "Transaction Detail"
         navigationItem.largeTitleDisplayMode = .always
                 
-        // Load Product...
-        Produk.listProdukTransaksi(nomorTransaksi: transactionVM.transObj.id){ products in
-            print(products)
-            print(products[0])
-            print(products.count)
-        }
-        
         // Reload button
         updateBtnDisplay()
+        
+        // Setup Table
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        loadProducts()
+    }
+    
+    // Load Data
+    func loadProducts(){
+        Produk.listProdukTransaksi(nomorTransaksi: transactionVM.idTrans){ pr in
+            self.products = pr.map{ ProductViewModel(product: $0) }
+            self.tableView.reloadData()
+        }
     }
     
     // Override
@@ -43,8 +50,9 @@ class DetailTransactionVC: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "productCell", for: indexPath)
-        cell.textLabel?.text = "Hello World"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "productCell", for: indexPath) as! ProductCell
+        let viewModel = products[indexPath.row]
+        cell.viewModel = viewModel
         return cell
     }
     
@@ -76,10 +84,16 @@ class ProductCell: UITableViewCell {
     @IBOutlet var prcLabel: UILabel!
     @IBOutlet var qtyLabel: UILabel!
     
+    var viewModel: ProductViewModel?{
+        didSet{
+            guard let model = viewModel else { return }
+            prdLabel.text = model.name
+            prcLabel.text = model.price
+            qtyLabel.text = model.qty
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-//        kotak1.layer.cornerRadius = 5
-//        kotak2.layer.cornerRadius = 5
-//        kotak3.layer.cornerRadius = 5
     }
 }

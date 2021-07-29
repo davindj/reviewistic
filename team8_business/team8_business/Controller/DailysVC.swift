@@ -59,6 +59,9 @@ class DailysVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Navigation Item
+        self.navigationItem.title = kategoriID
+        
         Transaction.callData{r in
             self.transaksi = r.filter{$0.fields.status == 2}
 //

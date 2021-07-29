@@ -251,16 +251,16 @@
 		D7C8E93326A7F9AE00956846 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				114F27D726A97EDA00462A4C /* Review.storyboard */,
+				D7AE047726AAA7360024F018 /* Main.storyboard */,
 				11AD601F26B01CDF003D2F84 /* Dailys.storyboard */,
+				B95F5C5326AAB0A7005DF1FA /* Dashboard.storyboard */,
 				B92661A626A6A7DF00ACC9F2 /* LaunchScreen.storyboard */,
 				D79FD2D726AA7FDD00A079F2 /* Transaction.storyboard */,
-				D7AE047726AAA7360024F018 /* Main.storyboard */,
-				4C77DA4A26ABEA3F0041450D /* Voucher.storyboard */,
 				D7C445EB26AEA9670013DA28 /* ModalTransVoucher.storyboard */,
 				D7C445ED26AEA96F0013DA28 /* ModalVoucher.storyboard */,
 				D7ED5C6F26B12EBD00B7DF45 /* ModalBarcode.storyboard */,
-				B95F5C5326AAB0A7005DF1FA /* Dashboard.storyboard */,
+				114F27D726A97EDA00462A4C /* Review.storyboard */,
+				4C77DA4A26ABEA3F0041450D /* Voucher.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";

@@ -7,12 +7,14 @@
 
 import Foundation
 
-//struct ProductViewModel {
-//    var name: String
-//    var price: String
-//    var amount: String
-//    
-//    init(product: r){
-//        self.name = product.fields
-//    }
-//}
+struct ProductViewModel {
+    var name: String
+    var price: String
+    var qty: String
+    
+    init(product: RecordProduk){
+        self.name = product.fields.nama_produk
+        self.price = "Rp \(product.fields.harga_produk)"
+        self.qty = "\(product.fields.qty_produk) pcs"
+    }
+}

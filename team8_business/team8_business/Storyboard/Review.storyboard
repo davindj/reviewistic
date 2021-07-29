@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Jek-YN-HHb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1iv-ST-ggV">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="STh-lY-ySE">
-                                <rect key="frame" x="15" y="98" width="384" height="32"/>
+                                <rect key="frame" x="15" y="54" width="384" height="32"/>
                                 <segments>
                                     <segment title="All Reviews"/>
                                     <segment title="Price"/>
@@ -29,7 +29,7 @@
                                 </connections>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="JNf-d9-nh2">
-                                <rect key="frame" x="15" y="139" width="384" height="32"/>
+                                <rect key="frame" x="15" y="95" width="384" height="32"/>
                                 <segments>
                                     <segment title="5 ★"/>
                                     <segment title="4 ★"/>
@@ -42,7 +42,7 @@
                                 </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="19" sectionFooterHeight="28" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YdY-nQ-lZg" customClass="table_view">
-                                <rect key="frame" x="10" y="180" width="394" height="716"/>
+                                <rect key="frame" x="10" y="136" width="394" height="760"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="transaksicell" rowHeight="140" id="YQP-Pv-dna" customClass="transaksi_cell" customModule="team8_business" customModuleProvider="target">
@@ -297,24 +297,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t0P-Be-DbV" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="773.91304347826087" y="108.48214285714285"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="rtw-OX-eZL">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Jek-YN-HHb" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="U26-6a-XU7">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="1iv-ST-ggV" kind="relationship" relationship="rootViewController" id="wKg-dC-Lx9"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3m7-SY-ByA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-136.23188405797103" y="108.48214285714285"/>
         </scene>
     </scenes>
     <resources>

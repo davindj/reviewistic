@@ -10,6 +10,9 @@ import Foundation
 class Produk: Codable {
     let NomorTransaksi: String
     let id_produk: String
+    let nama_produk: String
+    let harga_produk: Int
+    let qty_produk: Int
     
     static func listProdukTransaksi(nomorTransaksi:String , response: @escaping ([RecordProduk])->Void ) {
         let url = URL(string: "https://api.airtable.com/v0/appP7dMHeW4puOorW/Transaksi?filterByFormula=NomorTransaksi="+nomorTransaksi+"&api_key=keys9Q3knWNrVr89B")

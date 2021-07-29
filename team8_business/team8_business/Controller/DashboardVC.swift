@@ -22,10 +22,27 @@ class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Navigation Item
+        navigationItem.title = "Reviews"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
+        // UIRefresher
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action:  #selector(refreshTrigger), for: .valueChanged)
+        tblLatest.refreshControl = refreshControl
+        
+        tblLatest.delegate=self
+        tblLatest.dataSource=self
+        
+        loadDataFromAPI{}
+    }
+    
+    func loadDataFromAPI(callback: @escaping()->Void){
         let today = Date()
         let formatter1 = DateFormatter()
         formatter1.dateFormat = "yyyy-MM-dd"
         print(formatter1.string(from: today))
+        
         var avgPriceRating :Int = 0
         var avgServiceRating :Int = 0
         var avgProdukRating :Int = 0
@@ -80,10 +97,9 @@ class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
                 self.lblServiceRating.text = "0⭐️"
                 self.lblProdukRating.text = "0⭐️"
             }
+            // Panggil Callback
+            callback()
         })
-        tblLatest.delegate=self
-        tblLatest.dataSource=self
-        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -108,8 +124,36 @@ class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         
         return cell
     }
+    
     @IBAction func seeAllClick(_ sender: Any) {
-//        performSegue(withIdentifier: "addProjectSegue", sender: self)
+        let storyboard = UIStoryboard(name: "Review", bundle: nil)
+        let vc = storyboard.instantiateInitialViewController() as! ReviewVC
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @IBAction func priceBtnTapped(_ sender: Any) {
+        navigateToDailys(category: "RatingPrice")
+    }
+    
+    @IBAction func serviceBtnTapped(_ sender: Any) {
+        navigateToDailys(category: "RatingService")
+    }
+    
+    @IBAction func productBtnTapped(_ sender: Any) {
+        navigateToDailys(category: "RatingProduk")
+    }
+    
+    @objc func refreshTrigger(){
+        loadDataFromAPI{
+            self.tblLatest.refreshControl?.endRefreshing()
+        }
+    }
+    
+    func navigateToDailys(category: String){
+        let storyboard = UIStoryboard(name: "Dailys", bundle: nil)
+        let vc = storyboard.instantiateInitialViewController() as! DailysVC
+        vc.kategoriID = category
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
 }

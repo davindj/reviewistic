@@ -44,13 +44,10 @@ class ReviewVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       
+        
         if kategoriID == "KategoriAll"{
-            
             let cell_all = tableView.dequeueReusableCell(withIdentifier: "transaksiCellAll", for: indexPath) as! transaksi_cell_all
             let transAll = filtereddata[indexPath.row]
-         
-           
             
             cell_all.transaksiIDAll.text = transAll.fields.NomorTransaksi
             cell_all.RatingPrice.text = String( transAll.fields.RatingPrice)
@@ -99,6 +96,8 @@ class ReviewVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         super.viewDidLoad()
         
+        // Navigation Item
+        self.navigationItem.title = "All Review"
         
         Transaction.callData { r in
             self.transaksi = r.filter{$0.fields.status == 2}
