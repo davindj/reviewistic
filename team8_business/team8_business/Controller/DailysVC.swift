@@ -27,12 +27,27 @@ class DailysVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
     var filtereddata: [Record] = []
     var kategoriID = ""
     var rating = 0
- 
+    let cellSpacingHeight: CGFloat = 10
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return filtereddata.count
+        tableView.separatorStyle = .none
+        return 1
     }
-
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        
+        return cellSpacingHeight
+    }
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+            let headerView = UIView()
+            headerView.backgroundColor = UIColor.clear
+            return headerView
+        }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        
+            return filtereddata.count
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "transaksiCellDailys", for: indexPath) as! tableviewcell
         
@@ -41,7 +56,7 @@ class DailysVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
         cell.transaksiID.text = trans.fields.NomorTransaksi
         cell.komentar.text = trans.fields.Review
         
-        cell.tanggal.text = trans.createdTime
+        cell.tanggal.text = trans.date
         if kategoriID == "RatingPrice" {
             cell.rating.text = String(trans.fields.RatingPrice)
         }
@@ -270,4 +285,9 @@ class tableviewcell: UITableViewCell {
     @IBOutlet weak var rating: UILabel!
     @IBOutlet weak var tanggal: UILabel!
     @IBOutlet weak var Celltransaksi: UIView!
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        Celltransaksi.layer.cornerRadius = 5
+        
+    }
 }
