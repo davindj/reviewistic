@@ -17,6 +17,7 @@ class DashboardTC: UITableViewCell{
     @IBOutlet weak var lblServiceR: UILabel!
     @IBOutlet weak var lblProductR: UILabel!
     @IBOutlet weak var box: UIView!
+    @IBOutlet weak var lblCreatedTime: UILabel!
     
     override func layoutSubviews() {
         super.layoutSubviews()
