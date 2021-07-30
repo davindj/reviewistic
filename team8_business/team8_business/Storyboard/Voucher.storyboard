@@ -8,16 +8,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--ModalVoucher-->
-        <scene sceneID="Spf-Vq-Gzz">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="moda" storyboardName="ModalVoucher" id="Nog-QU-oDV" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="TGD-uf-mgx"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FJx-ec-kmE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="776" y="-36"/>
-        </scene>
         <!--View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
@@ -67,8 +57,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rBm-DX-wHi">
-                                            <rect key="frame" x="8" y="8" width="398" height="62"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rBm-DX-wHi">
+                                            <rect key="frame" x="8" y="8" width="398" height="64"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NamaVoucher" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hja-1w-rIK">
                                                     <rect key="frame" x="8" y="8" width="107" height="21"/>
@@ -132,11 +122,11 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <state key="normal" title="+"/>
                                 <connections>
-                                    <segue destination="Nog-QU-oDV" kind="show" id="rWU-wD-315"/>
+                                    <action selector="tambahVoucher:" destination="KXS-Kh-IGB" eventType="touchUpInside" id="aAw-YL-26M"/>
                                 </connections>
                             </button>
                             <connections>
-                                <action selector="addVoucher:" destination="ZSG-8C-OdL" id="KU5-ZN-3Ls"/>
+                                <action selector="tambahVoucher:" destination="KXS-Kh-IGB" id="Fya-oH-h5E"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -145,7 +135,6 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bvb-R1-dfm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="ZSG-8C-OdL" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="140.57971014492756" y="-36.160714285714285"/>
         </scene>
