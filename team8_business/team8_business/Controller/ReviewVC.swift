@@ -29,7 +29,7 @@ class ReviewVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      
+        tableView.separatorStyle = .none
         return 1
       
     }
@@ -41,7 +41,11 @@ class ReviewVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return cellSpacingHeight
     }
-    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+            let headerView = UIView()
+            headerView.backgroundColor = UIColor.clear
+            return headerView
+        }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -54,7 +58,7 @@ class ReviewVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             cell_all.RatingProduk.text = String( transAll.fields.RatingProduk)
             cell_all.RatingService.text = String( transAll.fields.RatingService)
             cell_all.tanggalAll.text = String( transAll.date)
-            cell_all.AvgRating.text = String(transAll.avgrate)
+            cell_all.AvgRating.text = String(format: "%.01f", transAll.avgrate)
             cell_all.komentarAll.text = transAll.fields.Review
             return cell_all
         }
@@ -67,7 +71,7 @@ class ReviewVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             cell.transaksiID.text = trans.fields.NomorTransaksi
             cell.komentar.text = trans.fields.Review
             
-            cell.tanggal.text = trans.createdTime
+            cell.tanggal.text = trans.date
             if kategoriID == "RatingPrice" {
                 cell.rating.text = String(trans.fields.RatingPrice)
             }
@@ -99,15 +103,14 @@ class ReviewVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         // Navigation Item
         self.navigationItem.title = "All Review"
         
-        Transaction.callData { r in
-            self.transaksi = r.filter{$0.fields.status == 2}
-            self.kategoriID = "KategoriAll"
-            self.filter()
-        }
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action:  #selector(refreshTrigger), for: .valueChanged)
+        table_view.refreshControl = refreshControl
         
         table_view.delegate=self
         table_view.dataSource=self
         
+        loadDataFromAPI {}
         // Do any additional setup after loading the view.
     }
 
@@ -182,6 +185,21 @@ class ReviewVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         table_view.reloadData()
         
     }
+    func loadDataFromAPI(callback: @escaping()->Void){
+        Transaction.callData { r in
+            self.transaksi = r.filter{$0.fields.status == 2}
+            self.kategoriID = "KategoriAll"
+            self.filter()
+        }
+        callback()
+    }
+    
+    
+    @objc func refreshTrigger(){
+        loadDataFromAPI{
+            self.table_view.refreshControl?.endRefreshing()
+        }
+    }
    
    
     // 1. ambil data dari variable
@@ -204,23 +222,23 @@ class transaksi_cell: UITableViewCell {
 }
 class transaksi_cell_all: UITableViewCell {
     @IBOutlet weak var transaksiIDAll: UILabel!
-    @IBOutlet weak var kotak1: UIView!
+   
     @IBOutlet weak var komentarAll: UILabel!
-    @IBOutlet weak var kotak2: UIView!
-    @IBOutlet weak var kotak3: UIView!
+   
+    @IBOutlet weak var Stackview: UIStackView!
     @IBOutlet weak var RatingPrice: UILabel!
     @IBOutlet weak var RatingProduk: UILabel!
     @IBOutlet weak var RatingService: UILabel!
     @IBOutlet weak var tanggalAll: UILabel!
     @IBOutlet weak var AvgRating: UILabel!
+    @IBOutlet weak var Cellview: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        kotak1.layer.cornerRadius = 5
-        kotak2.layer.cornerRadius = 5
-        kotak3.layer.cornerRadius = 5
+       
+        Cellview.layer.cornerRadius = 10
+        Stackview.layer.cornerRadius = 5
     }
 
     }
-
 

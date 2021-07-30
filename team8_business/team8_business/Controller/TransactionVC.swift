@@ -20,6 +20,14 @@ class TransactionVC: UITableViewController {
         navigationItem.title = "Transactions"
         navigationController?.navigationBar.prefersLargeTitles = true
         
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action:  #selector(refreshTrigger), for: .valueChanged)
+        self.tableView.refreshControl = refreshControl
+        
+        loadDataFromAPI {}
+    }
+    
+    func loadDataFromAPI(callback: @escaping()->Void){
         Transaction.callData{ data in
             do{
                 let toko_id = try UserDefaults.standard.getUserId()
@@ -30,6 +38,14 @@ class TransactionVC: UITableViewController {
             }catch{ // Ketika toko tidak ditemukan
                 print("Error unhandled")
             }
+        }
+        callback()
+    }
+    
+    
+    @objc func refreshTrigger(){
+        loadDataFromAPI{
+            self.tableView.refreshControl?.endRefreshing()
         }
     }
 

@@ -21,7 +21,7 @@ class AddTransVoucherVC: UIViewController, UITableViewDelegate, UITableViewDataS
         navigationItem.title = "Generate Barcode"
         
         // Get All voucher
-        Voucher.listVoucherToko(id_toko: "1"){ vouchers in
+        Voucher.listVoucherToko(){ vouchers in
             self.vouchers = vouchers.map{ VoucherViewModel(recordVoucher: $0) }
             self.tableView.reloadData()
         }

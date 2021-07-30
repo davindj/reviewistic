@@ -22,10 +22,14 @@ class Voucher: Codable {
         id_toko = Id_Toko
     }
     
-    static func listVoucherToko(id_toko: String, response: @escaping ([RecordVoucher])->Void ) {
-        let url = URL(string: "https://api.airtable.com/v0/appP7dMHeW4puOorW/Voucher?filterByFormula=id_toko="+id_toko+"&api_key=keys9Q3knWNrVr89B")
-        //var recResponse.records
-        
+    static func listVoucherToko(response: @escaping ([RecordVoucher])->Void ) {
+        var url = URL(string:"")
+        do {
+            let toko_id = try UserDefaults.standard.getUserId()
+            url = URL(string: "https://api.airtable.com/v0/appP7dMHeW4puOorW/Voucher?filterByFormula=id_toko="+toko_id+"&api_key=keys9Q3knWNrVr89B")
+        } catch {
+            print(error)
+        }
         //let request = URLRequest(url: url!)
         let dataTask = URLSession.shared.dataTask(with: url!) {data, _, _ in
             guard let jsonData = data else {

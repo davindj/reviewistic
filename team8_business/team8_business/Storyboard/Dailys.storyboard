@@ -53,7 +53,7 @@
                                     <action selector="didChangeSegment:" destination="Y6W-OH-hqX" eventType="valueChanged" id="oyE-si-aFT"/>
                                 </connections>
                             </segmentedControl>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="250" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ugL-18-zH6">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ugL-18-zH6">
                                 <rect key="frame" x="10" y="235" width="394" height="627"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
@@ -65,15 +65,19 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transaksi ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GHn-30-L8t">
-                                                    <rect key="frame" x="30" y="21" width="92.5" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="30" y="21" width="90" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="He9-LD-OhA"/>
+                                                        <constraint firstAttribute="width" constant="90" id="RVj-WI-yed"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="black" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Komentar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PbL-3m-KZX">
-                                                    <rect key="frame" x="30" y="51.5" width="334" height="69"/>
+                                                    <rect key="frame" x="30" y="51" width="334" height="40"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="69" id="Rar-ZZ-1BA"/>
+                                                        <constraint firstAttribute="height" constant="40" id="Rar-ZZ-1BA"/>
                                                         <constraint firstAttribute="width" constant="334" id="loO-4f-Mdq"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -81,28 +85,39 @@
                                                     <color key="highlightedColor" systemColor="systemGray4Color"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tanggal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nKA-Kx-MXO">
-                                                    <rect key="frame" x="304" y="130.5" width="60" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="327" y="101" width="37" height="48"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="10"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nnb-jW-pRo">
-                                                    <rect key="frame" x="335" y="10" width="49" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="297" y="10" width="57" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="black" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BintangJomblo" translatesAutoresizingMaskIntoConstraints="NO" id="N2a-KW-89t">
+                                                    <rect key="frame" x="364" y="10" width="20" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="769-df-4hF"/>
+                                                        <constraint firstAttribute="width" constant="20" id="Uj4-bl-Bvh"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
-                                            <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                            <color key="backgroundColor" systemColor="systemGray6Color"/>
                                             <constraints>
+                                                <constraint firstItem="N2a-KW-89t" firstAttribute="top" secondItem="nEm-LK-Ok8" secondAttribute="top" constant="10" id="8jj-it-vc0"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="nKA-Kx-MXO" secondAttribute="trailing" constant="10" id="Lsc-YG-uzE"/>
-                                                <constraint firstAttribute="trailing" secondItem="nnb-jW-pRo" secondAttribute="trailing" constant="10" id="UsG-aK-Ruo"/>
+                                                <constraint firstAttribute="trailing" secondItem="N2a-KW-89t" secondAttribute="trailing" constant="10" id="SNe-Gv-EBK"/>
                                                 <constraint firstItem="GHn-30-L8t" firstAttribute="leading" secondItem="nEm-LK-Ok8" secondAttribute="leadingMargin" constant="10" id="VSa-Lv-8aG"/>
-                                                <constraint firstItem="nnb-jW-pRo" firstAttribute="top" secondItem="nEm-LK-Ok8" secondAttribute="top" constant="10" id="cIh-VQ-3er"/>
+                                                <constraint firstItem="N2a-KW-89t" firstAttribute="leading" secondItem="nnb-jW-pRo" secondAttribute="trailing" constant="10" id="WkM-65-bTz"/>
+                                                <constraint firstItem="nnb-jW-pRo" firstAttribute="top" secondItem="nEm-LK-Ok8" secondAttribute="top" constant="10" id="afR-jm-ANe"/>
                                                 <constraint firstItem="PbL-3m-KZX" firstAttribute="leading" secondItem="nEm-LK-Ok8" secondAttribute="leadingMargin" constant="10" id="e0B-TL-5Ze"/>
                                                 <constraint firstItem="PbL-3m-KZX" firstAttribute="top" secondItem="GHn-30-L8t" secondAttribute="bottom" constant="10" id="ecN-NN-Zvy"/>
                                                 <constraint firstItem="GHn-30-L8t" firstAttribute="top" secondItem="nEm-LK-Ok8" secondAttribute="topMargin" constant="10" id="gRH-G7-eeQ"/>
+                                                <constraint firstAttribute="trailing" secondItem="N2a-KW-89t" secondAttribute="trailing" constant="10" id="m9g-sk-DLg"/>
                                                 <constraint firstItem="nKA-Kx-MXO" firstAttribute="top" secondItem="PbL-3m-KZX" secondAttribute="bottom" constant="10" id="tDh-c1-9XB"/>
+                                                <constraint firstAttribute="bottom" secondItem="nKA-Kx-MXO" secondAttribute="bottom" constant="10" id="w4l-iL-du5"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -256,15 +271,16 @@
         <image name="Bintang3" width="71" height="12"/>
         <image name="Bintang4" width="73" height="12"/>
         <image name="Bintang5" width="73" height="12"/>
+        <image name="BintangJomblo" width="14" height="14"/>
         <image name="bintang1" width="72" height="12"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemGray2Color">
-            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemGray4Color">
             <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
