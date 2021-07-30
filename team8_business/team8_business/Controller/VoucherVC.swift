@@ -14,8 +14,14 @@ class VoucherVC: UITableViewController{
     
     var listVoucher:[RecordVoucher] = []
     var filteredData: [RecordVoucher] = []
+    var vouchers: [VoucherViewModel] = []
+    
+    var successCallback: ((RecordVoucher)->Void)!
     
     override func viewDidLoad() {
+        
+        navigationItem.title = "Promo"
+        navigationController?.navigationBar.prefersLargeTitles = true
         super.viewDidLoad()
         
         Voucher.listVoucherToko(id_toko: "2") { r in
@@ -46,15 +52,31 @@ class VoucherVC: UITableViewController{
 
         return listVoucher.count
     }
-      override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath ) -> [UITableViewRowAction]? {
-            // #warning Incomplete implementation, return the number of rows
-            let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
-            //delete variable promo
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+      let contextItem = UIContextualAction(style: .destructive, title: "Delete") {  (contextualAction, view, boolValue) in
+          //Code I want to do here
+        let alert = UIAlertController(title: "Do you want to Delete Promo ?", message: "", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Delete", comment: "Default action"), style: .default, handler: { _ in
             self.listVoucher.remove(at: indexPath.row)
             self.tableView.deleteRows(at: [indexPath], with: .fade)
+        NSLog("The \"OK\" alert occured.")
+        }))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "Default action"), style: .default, handler: { _ in
+            self.tableviewControllerVoucher.reloadData()
+        NSLog("Cancel delete promo")
+        }))
+        self.present(alert, animated: true, completion: nil)
+        
+        
+        
       }
-     return [deleteAction]
-    }
+      let swipeActions = UISwipeActionsConfiguration(actions: [contextItem])
+        
+        
+
+      return swipeActions
+  }
     
     
      override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -118,6 +140,16 @@ class VoucherVC: UITableViewController{
      // Pass the selected object to the new view controller.
      }
      */
+    
+    @IBAction func tambahVoucher(_ sender: Any) {
+        let vc1 = UIStoryboard.instantiateModalVoucher{ recordVouchervs in
+         // setelah tambah voucher
+            self.listVoucher.append(recordVouchervs)
+            self.tableviewControllerVoucher.reloadData()
+        }
+        self.present(vc1, animated: true)
+        print("masukoi")
+    }
     
 }
 
