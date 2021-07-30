@@ -72,9 +72,20 @@ class TransactionVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         return filteredTransactions.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "transaction", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "transaction", for: indexPath) as! TransactionCell
         let transaction = filteredTransactions[indexPath.row]
-        cell.textLabel?.text = transaction.noTransaction
+        cell.viewModel = transaction
+        cell.openModal = { transactionVM in
+            if transactionVM.status == .BarcodeNotGenerated{
+                self.present(UIStoryboard.instantiateModalPromo(transaction: transactionVM){
+                    transactionVM.status = .BarcodeGenerated
+                    cell.setup()
+                    self.present(UIStoryboard.instantiateModalBarcode(transaction: transactionVM),animated: true)
+                }, animated: true)
+            }else{
+                self.present(UIStoryboard.instantiateModalBarcode(transaction: transactionVM),animated: true)
+            }
+        }
         return cell
     }
     
@@ -86,4 +97,30 @@ class TransactionVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         }
     }
 
+}
+
+class TransactionCell: UITableViewCell{
+    @IBOutlet var transaksiLabel: UILabel!
+    @IBOutlet var modalBtn: UIButton!
+    
+    var openModal: ((TransactionViewModel)->Void)!
+    var viewModel: TransactionViewModel?{
+        didSet{
+            setup()
+        }
+    }
+    
+    func setup(){
+        guard let model = viewModel else { return }
+        transaksiLabel.text = model.noTransaction
+        modalBtn.setTitle(model.btnText, for: .normal)
+        modalBtn.backgroundColor = model.btnColor
+        modalBtn.tintColor = .white
+        modalBtn.layer.cornerRadius = 5
+    }
+    
+    @IBAction func btnTapped(_ sender: Any) {
+        guard let transactionVM = viewModel else { return }
+        openModal(transactionVM)
+    }
 }
