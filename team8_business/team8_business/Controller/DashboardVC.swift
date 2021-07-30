@@ -137,6 +137,17 @@ class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let record = latestReview[indexPath.row]
+        let transaction = TransactionViewModel(transaction: record)
+        
+        let storyboard = UIStoryboard(name: "Transaction", bundle: nil)
+        if let vc = storyboard.instantiateViewController(identifier: "DetailTransaction") as? DetailTransactionVC{
+            vc.transactionVM = transaction
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
     @IBAction func seeAllClick(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Review", bundle: nil)
         let vc = storyboard.instantiateInitialViewController() as! ReviewVC
