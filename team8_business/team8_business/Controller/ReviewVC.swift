@@ -90,6 +90,17 @@ class ReviewVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
         
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let record = filtereddata[indexPath.row]
+        let transaction = TransactionViewModel(transaction: record)
+        
+        let storyboard = UIStoryboard(name: "Transaction", bundle: nil)
+        if let vc = storyboard.instantiateViewController(identifier: "DetailTransaction") as? DetailTransactionVC{
+            vc.transactionVM = transaction
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
    
      
     
