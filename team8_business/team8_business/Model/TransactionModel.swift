@@ -19,7 +19,13 @@ class Transaction: Codable {
     
     
     static func callData(response: @escaping ([Record])->Void ) {
-        let url = URL(string: "https://api.airtable.com/v0/appP7dMHeW4puOorW/Review?api_key=keys9Q3knWNrVr89B")
+        var url = URL(string:"")
+        do {
+            let toko_id = try UserDefaults.standard.getUserId()
+            url = URL(string: "https://api.airtable.com/v0/appP7dMHeW4puOorW/Review?filterByFormula=id_toko="+toko_id+"&api_key=keys9Q3knWNrVr89B")
+        } catch {
+            print(error)
+        }
         //var recResponse.records
         
         //let request = URLRequest(url: url!)

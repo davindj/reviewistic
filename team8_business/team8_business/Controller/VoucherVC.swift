@@ -18,7 +18,7 @@ class VoucherVC: UITableViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Voucher.listVoucherToko(id_toko: "2") { r in
+        Voucher.listVoucherToko() { r in
             self.listVoucher = r
             print(self.listVoucher)
             self.tableviewControllerVoucher.reloadData()
