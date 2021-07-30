@@ -28,7 +28,7 @@ class DailysVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
     var kategoriID = ""
     var rating = 0
     let cellSpacingHeight: CGFloat = 10
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         tableView.separatorStyle = .none
         return 1
@@ -38,21 +38,21 @@ class DailysVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
         return cellSpacingHeight
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-            let headerView = UIView()
-            headerView.backgroundColor = UIColor.clear
-            return headerView
-        }
+        let headerView = UIView()
+        headerView.backgroundColor = UIColor.clear
+        return headerView
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
-            return filtereddata.count
+        return filtereddata.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "transaksiCellDailys", for: indexPath) as! tableviewcell
         
         
-        let trans = filtereddata[indexPath.row]
+        let trans = filtereddata[indexPath.section]
         cell.transaksiID.text = trans.fields.NomorTransaksi
         cell.komentar.text = trans.fields.Review
         
@@ -66,8 +66,19 @@ class DailysVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
         else if kategoriID == "RatingService"{
             cell.rating.text = String(trans.fields.RatingService)
         }
-       
-    return cell
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let record = filtereddata[indexPath.section]
+        let transaction = TransactionViewModel(transaction: record)
+        
+        let storyboard = UIStoryboard(name: "Transaction", bundle: nil)
+        if let vc = storyboard.instantiateViewController(identifier: "DetailTransaction") as? DetailTransactionVC{
+            vc.transactionVM = transaction
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     @IBOutlet weak var tableViewDailys:UITableView!
@@ -79,188 +90,183 @@ class DailysVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
         
         Transaction.callData{r in
             self.transaksi = r.filter{$0.fields.status == 2}
-//
+            //
             if self.kategoriID == "RatingPrice"{
-            //bintang1
-            let totalbintang = self.transaksi.count
-            let bintang1 = self.transaksi.filter{$0.fields.RatingPrice == 1}.count
-            let avgb1 = Float(bintang1)/Float(totalbintang)
-            self.Progressviewb1.setProgress(avgb1, animated: true)
-            self.Labelb1.text = String( self.transaksi.filter{$0.fields.RatingPrice == 1}.count)
-            //bintang2
-            let bintang2 = self.transaksi.filter{$0.fields.RatingPrice == 2}.count
-            let avgb2 = Float(bintang2)/Float(totalbintang)
-            self.Progressviewb2.setProgress(avgb2, animated: true)
-            self.Labelb2.text = String( self.transaksi.filter{$0.fields.RatingPrice == 2}.count)
-            //bintang3
-            let bintang3 = self.transaksi.filter{$0.fields.RatingPrice == 3}.count
-            let avgb3 = Float(bintang3)/Float(totalbintang)
-            self.Progressviewb3.setProgress(avgb3, animated: true)
-            self.Labelb3.text = String( self.transaksi.filter{$0.fields.RatingPrice == 3}.count)
-            //bintang4
-            let bintang4 = self.transaksi.filter{$0.fields.RatingPrice == 4}.count
-            let avgb4 = Float(bintang4)/Float(totalbintang)
-            self.Progressviewb4.setProgress(avgb4, animated: true)
-            self.Labelb4.text = String( self.transaksi.filter{$0.fields.RatingPrice == 4}.count)
-            //bintang5
-            let bintang5 = self.transaksi.filter{$0.fields.RatingPrice == 5}.count
-            let avgb5 = Float(bintang5)/Float(totalbintang)
-            self.Progressviewb5.setProgress(avgb5, animated: true)
-            self.Labelb5.text = String( self.transaksi.filter{$0.fields.RatingPrice == 5}.count)
-            //AVG
-            let avgrate = Float(bintang1+bintang2*2+bintang3*3+bintang4*4+bintang5*5)/Float(totalbintang)
-            self.Avg.text = "\(String(format: "%.01f", avgrate)) / 5"
-            //image rate
-            let idxImage: Int = Int(avgrate * 2) - 2
-            let imageName: String = [
-                "bintang1",
-                "1 setengah",
-                "Bintang2",
-                "2 setengah",
-                "Bintang3",
-                "3 setengah",
-                "Bintang4",
-                "4 setengah",
-                "Bintang5"
-            ][idxImage]
-            let img = UIImage(named: imageName)
-            self.avgRateImg.image = img
-            // total
-            self.totalrate.text = "\(String(totalbintang)) Ratings"
+                //bintang1
+                let totalbintang = self.transaksi.count
+                let bintang1 = self.transaksi.filter{$0.fields.RatingPrice == 1}.count
+                let avgb1 = Float(bintang1)/Float(totalbintang)
+                self.Progressviewb1.setProgress(avgb1, animated: true)
+                self.Labelb1.text = String( self.transaksi.filter{$0.fields.RatingPrice == 1}.count)
+                //bintang2
+                let bintang2 = self.transaksi.filter{$0.fields.RatingPrice == 2}.count
+                let avgb2 = Float(bintang2)/Float(totalbintang)
+                self.Progressviewb2.setProgress(avgb2, animated: true)
+                self.Labelb2.text = String( self.transaksi.filter{$0.fields.RatingPrice == 2}.count)
+                //bintang3
+                let bintang3 = self.transaksi.filter{$0.fields.RatingPrice == 3}.count
+                let avgb3 = Float(bintang3)/Float(totalbintang)
+                self.Progressviewb3.setProgress(avgb3, animated: true)
+                self.Labelb3.text = String( self.transaksi.filter{$0.fields.RatingPrice == 3}.count)
+                //bintang4
+                let bintang4 = self.transaksi.filter{$0.fields.RatingPrice == 4}.count
+                let avgb4 = Float(bintang4)/Float(totalbintang)
+                self.Progressviewb4.setProgress(avgb4, animated: true)
+                self.Labelb4.text = String( self.transaksi.filter{$0.fields.RatingPrice == 4}.count)
+                //bintang5
+                let bintang5 = self.transaksi.filter{$0.fields.RatingPrice == 5}.count
+                let avgb5 = Float(bintang5)/Float(totalbintang)
+                self.Progressviewb5.setProgress(avgb5, animated: true)
+                self.Labelb5.text = String( self.transaksi.filter{$0.fields.RatingPrice == 5}.count)
+                //AVG
+                let avgrate = Float(bintang1+bintang2*2+bintang3*3+bintang4*4+bintang5*5)/Float(totalbintang)
+                self.Avg.text = "\(String(format: "%.01f", avgrate)) / 5"
+                //image rate
+                let idxImage: Int = Int(avgrate * 2) - 2
+                let imageName: String = [
+                    "bintang1",
+                    "1 setengah",
+                    "Bintang2",
+                    "2 setengah",
+                    "Bintang3",
+                    "3 setengah",
+                    "Bintang4",
+                    "4 setengah",
+                    "Bintang5"
+                ][idxImage]
+                let img = UIImage(named: imageName)
+                self.avgRateImg.image = img
+                // total
+                self.totalrate.text = "\(String(totalbintang)) Ratings"
+            }else if self.kategoriID == "RatingProduk"{
+                //bintang1
+                let totalbintang = self.transaksi.count
+                let bintang1 = self.transaksi.filter{$0.fields.RatingProduk == 1}.count
+                let avgb1 = Float(bintang1)/Float(totalbintang)
+                self.Progressviewb1.setProgress(avgb1, animated: true)
+                self.Labelb1.text = String( self.transaksi.filter{$0.fields.RatingProduk == 1}.count)
+                //bintang2
+                let bintang2 = self.transaksi.filter{$0.fields.RatingProduk == 2}.count
+                let avgb2 = Float(bintang2)/Float(totalbintang)
+                self.Progressviewb2.setProgress(avgb2, animated: true)
+                self.Labelb2.text = String( self.transaksi.filter{$0.fields.RatingProduk == 2}.count)
+                //bintang3
+                let bintang3 = self.transaksi.filter{$0.fields.RatingProduk == 3}.count
+                let avgb3 = Float(bintang3)/Float(totalbintang)
+                self.Progressviewb3.setProgress(avgb3, animated: true)
+                self.Labelb3.text = String( self.transaksi.filter{$0.fields.RatingProduk == 3}.count)
+                //bintang4
+                let bintang4 = self.transaksi.filter{$0.fields.RatingProduk == 4}.count
+                let avgb4 = Float(bintang4)/Float(totalbintang)
+                self.Progressviewb4.setProgress(avgb4, animated: true)
+                self.Labelb4.text = String( self.transaksi.filter{$0.fields.RatingProduk == 4}.count)
+                //bintang5
+                let bintang5 = self.transaksi.filter{$0.fields.RatingProduk == 5}.count
+                let avgb5 = Float(bintang5)/Float(totalbintang)
+                self.Progressviewb5.setProgress(avgb5, animated: true)
+                self.Labelb5.text = String( self.transaksi.filter{$0.fields.RatingProduk == 5}.count)
+                //AVG
+                let avgrate = Float(bintang1+bintang2*2+bintang3*3+bintang4*4+bintang5*5)/Float(totalbintang)
+                self.Avg.text = "\(String(format: "%.01f", avgrate)) / 5"
+                //image rate
+                let idxImage: Int = Int(avgrate * 2) - 2
+                let imageName: String = [
+                    "bintang1",
+                    "1 setengah",
+                    "Bintang2",
+                    "2 setengah",
+                    "Bintang3",
+                    "3 setengah",
+                    "Bintang4",
+                    "4 setengah",
+                    "Bintang5"
+                ][idxImage]
+                let img = UIImage(named: imageName)
+                self.avgRateImg.image = img
+                // total
+                self.totalrate.text = "\(String(totalbintang)) Ratings"
+            }else if self.kategoriID == "RatingService"{
+                //bintang1
+                let totalbintang = self.transaksi.count
+                let bintang1 = self.transaksi.filter{$0.fields.RatingService == 1}.count
+                let avgb1 = Float(bintang1)/Float(totalbintang)
+                self.Progressviewb1.setProgress(avgb1, animated: true)
+                self.Labelb1.text = String( self.transaksi.filter{$0.fields.RatingService == 1}.count)
+                //bintang2
+                let bintang2 = self.transaksi.filter{$0.fields.RatingService == 2}.count
+                let avgb2 = Float(bintang2)/Float(totalbintang)
+                self.Progressviewb2.setProgress(avgb2, animated: true)
+                self.Labelb2.text = String( self.transaksi.filter{$0.fields.RatingService == 2}.count)
+                //bintang3
+                let bintang3 = self.transaksi.filter{$0.fields.RatingService == 3}.count
+                let avgb3 = Float(bintang3)/Float(totalbintang)
+                self.Progressviewb3.setProgress(avgb3, animated: true)
+                self.Labelb3.text = String( self.transaksi.filter{$0.fields.RatingService == 3}.count)
+                //bintang4
+                let bintang4 = self.transaksi.filter{$0.fields.RatingService == 4}.count
+                let avgb4 = Float(bintang4)/Float(totalbintang)
+                self.Progressviewb4.setProgress(avgb4, animated: true)
+                self.Labelb4.text = String( self.transaksi.filter{$0.fields.RatingService == 4}.count)
+                //bintang5
+                let bintang5 = self.transaksi.filter{$0.fields.RatingService == 5}.count
+                let avgb5 = Float(bintang5)/Float(totalbintang)
+                self.Progressviewb5.setProgress(avgb5, animated: true)
+                self.Labelb5.text = String( self.transaksi.filter{$0.fields.RatingService == 5}.count)
+                //AVG
+                let avgrate = Float(bintang1+bintang2*2+bintang3*3+bintang4*4+bintang5*5)/Float(totalbintang)
+                self.Avg.text = "\(String(format: "%.01f", avgrate)) / 5"
+                //image rate
+                let idxImage: Int = Int(avgrate * 2) - 2
+                let imageName: String = [
+                    "bintang1",
+                    "1 setengah",
+                    "Bintang2",
+                    "2 setengah",
+                    "Bintang3",
+                    "3 setengah",
+                    "Bintang4",
+                    "4 setengah",
+                    "Bintang5"
+                ][idxImage]
+                let img = UIImage(named: imageName)
+                self.avgRateImg.image = img
+                // total
+                self.totalrate.text = "\(String(totalbintang)) Ratings"
             }
-            else if self.kategoriID == "RatingProduk"{
-            //bintang1
-            let totalbintang = self.transaksi.count
-            let bintang1 = self.transaksi.filter{$0.fields.RatingProduk == 1}.count
-            let avgb1 = Float(bintang1)/Float(totalbintang)
-            self.Progressviewb1.setProgress(avgb1, animated: true)
-            self.Labelb1.text = String( self.transaksi.filter{$0.fields.RatingProduk == 1}.count)
-            //bintang2
-            let bintang2 = self.transaksi.filter{$0.fields.RatingProduk == 2}.count
-            let avgb2 = Float(bintang2)/Float(totalbintang)
-            self.Progressviewb2.setProgress(avgb2, animated: true)
-            self.Labelb2.text = String( self.transaksi.filter{$0.fields.RatingProduk == 2}.count)
-            //bintang3
-            let bintang3 = self.transaksi.filter{$0.fields.RatingProduk == 3}.count
-            let avgb3 = Float(bintang3)/Float(totalbintang)
-            self.Progressviewb3.setProgress(avgb3, animated: true)
-            self.Labelb3.text = String( self.transaksi.filter{$0.fields.RatingProduk == 3}.count)
-            //bintang4
-            let bintang4 = self.transaksi.filter{$0.fields.RatingProduk == 4}.count
-            let avgb4 = Float(bintang4)/Float(totalbintang)
-            self.Progressviewb4.setProgress(avgb4, animated: true)
-            self.Labelb4.text = String( self.transaksi.filter{$0.fields.RatingProduk == 4}.count)
-            //bintang5
-            let bintang5 = self.transaksi.filter{$0.fields.RatingProduk == 5}.count
-            let avgb5 = Float(bintang5)/Float(totalbintang)
-            self.Progressviewb5.setProgress(avgb5, animated: true)
-            self.Labelb5.text = String( self.transaksi.filter{$0.fields.RatingProduk == 5}.count)
-            //AVG
-            let avgrate = Float(bintang1+bintang2*2+bintang3*3+bintang4*4+bintang5*5)/Float(totalbintang)
-            self.Avg.text = "\(String(format: "%.01f", avgrate)) / 5"
-            //image rate
-            let idxImage: Int = Int(avgrate * 2) - 2
-            let imageName: String = [
-                "bintang1",
-                "1 setengah",
-                "Bintang2",
-                "2 setengah",
-                "Bintang3",
-                "3 setengah",
-                "Bintang4",
-                "4 setengah",
-                "Bintang5"
-            ][idxImage]
-            let img = UIImage(named: imageName)
-            self.avgRateImg.image = img
-            // total
-            self.totalrate.text = "\(String(totalbintang)) Ratings"
-           }
-           else if self.kategoriID == "RatingService"{
-            //bintang1
-            let totalbintang = self.transaksi.count
-            let bintang1 = self.transaksi.filter{$0.fields.RatingService == 1}.count
-            let avgb1 = Float(bintang1)/Float(totalbintang)
-            self.Progressviewb1.setProgress(avgb1, animated: true)
-            self.Labelb1.text = String( self.transaksi.filter{$0.fields.RatingService == 1}.count)
-            //bintang2
-            let bintang2 = self.transaksi.filter{$0.fields.RatingService == 2}.count
-            let avgb2 = Float(bintang2)/Float(totalbintang)
-            self.Progressviewb2.setProgress(avgb2, animated: true)
-            self.Labelb2.text = String( self.transaksi.filter{$0.fields.RatingService == 2}.count)
-            //bintang3
-            let bintang3 = self.transaksi.filter{$0.fields.RatingService == 3}.count
-            let avgb3 = Float(bintang3)/Float(totalbintang)
-            self.Progressviewb3.setProgress(avgb3, animated: true)
-            self.Labelb3.text = String( self.transaksi.filter{$0.fields.RatingService == 3}.count)
-            //bintang4
-            let bintang4 = self.transaksi.filter{$0.fields.RatingService == 4}.count
-            let avgb4 = Float(bintang4)/Float(totalbintang)
-            self.Progressviewb4.setProgress(avgb4, animated: true)
-            self.Labelb4.text = String( self.transaksi.filter{$0.fields.RatingService == 4}.count)
-            //bintang5
-            let bintang5 = self.transaksi.filter{$0.fields.RatingService == 5}.count
-            let avgb5 = Float(bintang5)/Float(totalbintang)
-            self.Progressviewb5.setProgress(avgb5, animated: true)
-            self.Labelb5.text = String( self.transaksi.filter{$0.fields.RatingService == 5}.count)
-            //AVG
-            let avgrate = Float(bintang1+bintang2*2+bintang3*3+bintang4*4+bintang5*5)/Float(totalbintang)
-            self.Avg.text = "\(String(format: "%.01f", avgrate)) / 5"
-            //image rate
-            let idxImage: Int = Int(avgrate * 2) - 2
-            let imageName: String = [
-                "bintang1",
-                "1 setengah",
-                "Bintang2",
-                "2 setengah",
-                "Bintang3",
-                "3 setengah",
-                "Bintang4",
-                "4 setengah",
-                "Bintang5"
-            ][idxImage]
-            let img = UIImage(named: imageName)
-            self.avgRateImg.image = img
-            // total
-            self.totalrate.text = "\(String(totalbintang)) Ratings"
+            self.rating = 5
+            self.filter()
         }
-            
-            
         
-    }
-
         tableViewDailys.delegate=self
         tableViewDailys.dataSource=self
-
-        
     }
- 
+    
     
     @IBAction func didChangeSegment(_ sender: Any) {
-      switch ratingsegmen.selectedSegmentIndex {
-          case 0:
-              rating = 5
-              filter()
-          case 1:
-              rating = 4
-              filter()
-          case 2:
-              rating = 3
-              filter()
-          case 3:
-              rating = 2
-              filter()
-          case 4:
-              rating = 1
-              filter()
-          default:
-              break
-      }
+        switch ratingsegmen.selectedSegmentIndex {
+        case 0:
+            rating = 5
+            filter()
+        case 1:
+            rating = 4
+            filter()
+        case 2:
+            rating = 3
+            filter()
+        case 3:
+            rating = 2
+            filter()
+        case 4:
+            rating = 1
+            filter()
+        default:
+            break
+        }
     }
     func filter(){
         
-    
-       if kategoriID == "RatingPrice" {
+        
+        if kategoriID == "RatingPrice" {
             filtereddata = transaksi.filter{$0.fields.RatingPrice == rating}
         }
         else if kategoriID == "RatingProduk"{
