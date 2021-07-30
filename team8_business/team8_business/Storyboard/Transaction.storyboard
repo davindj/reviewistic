@@ -415,16 +415,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="51J-eg-wOW">
-                                                    <rect key="frame" x="20" y="0.0" width="364.5" height="48"/>
+                                                    <rect key="frame" x="30" y="10" width="344.5" height="28"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xwY-Fl-rXD">
-                                                            <rect key="frame" x="0.0" y="0.0" width="182.5" height="48"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="172.5" height="28"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R4f-d1-wuE">
-                                                            <rect key="frame" x="182.5" y="0.0" width="182" height="48"/>
+                                                            <rect key="frame" x="172.5" y="0.0" width="172" height="28"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="waI-WP-EqL"/>
                                                             </constraints>
@@ -437,10 +437,10 @@
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="51J-eg-wOW" secondAttribute="bottom" id="Chu-ZO-5G4"/>
-                                                <constraint firstItem="51J-eg-wOW" firstAttribute="top" secondItem="VCi-6L-rOk" secondAttribute="top" id="FEm-w3-wqP"/>
-                                                <constraint firstItem="51J-eg-wOW" firstAttribute="leading" secondItem="VCi-6L-rOk" secondAttribute="leading" constant="20" id="UL2-KO-ieW"/>
-                                                <constraint firstAttribute="trailing" secondItem="51J-eg-wOW" secondAttribute="trailing" id="k9v-0T-ixa"/>
+                                                <constraint firstAttribute="bottom" secondItem="51J-eg-wOW" secondAttribute="bottom" constant="10" id="Chu-ZO-5G4"/>
+                                                <constraint firstItem="51J-eg-wOW" firstAttribute="top" secondItem="VCi-6L-rOk" secondAttribute="top" constant="10" id="FEm-w3-wqP"/>
+                                                <constraint firstItem="51J-eg-wOW" firstAttribute="leading" secondItem="VCi-6L-rOk" secondAttribute="leading" constant="30" id="UL2-KO-ieW"/>
+                                                <constraint firstAttribute="trailing" secondItem="51J-eg-wOW" secondAttribute="trailing" constant="10" id="k9v-0T-ixa"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
