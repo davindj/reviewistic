@@ -33,7 +33,19 @@ class TransactionViewModel {
     var idTrans: String { transObj.fields.NomorTransaksi }
     var noTransactionDetail: String { "Order Number \(self.noTransaction)" }
     var noTransaction: String { "#\(transObj.fields.NomorTransaksi)" }
-    var review: String { transObj.fields.Review }
+    var review: String {
+        if status == .BarcodeNotGenerated{
+            return "Barcode belum digenerate, silahkan generate dahulu untuk menerima review"
+        }else if status == .BarcodeGenerated{
+            return "Belum ada review"
+        }else{
+            return transObj.fields.Review
+        }
+    }
+    var ratingPrice: String { "\(transObj.fields.RatingPrice)" }
+    var ratingProduct: String { "\(transObj.fields.RatingProduk)" }
+    var ratingService: String { "\(transObj.fields.RatingService)" }
+    
     // utk button
     var btnText: String {
         let dictText: Dictionary<TransactionStatus, String> = [
