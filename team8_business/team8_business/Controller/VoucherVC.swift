@@ -24,14 +24,12 @@ class VoucherVC: UITableViewController{
         navigationController?.navigationBar.prefersLargeTitles = true
         super.viewDidLoad()
         
-        Voucher.listVoucherToko(id_toko: "2") { r in
+        Voucher.listVoucherToko(id_toko: "1") { r in
             self.listVoucher = r
             self.tableviewControllerVoucher.reloadData()
         }
         tableviewControllerVoucher.dataSource = self       
         tableviewControllerVoucher.delegate = self
-        
-        tableviewControllerVoucher.reloadData()
         
         
         // Uncomment the following line to preserve selection between presentations
