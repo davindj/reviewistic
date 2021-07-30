@@ -31,6 +31,8 @@ class VoucherVC: UITableViewController{
         tableviewControllerVoucher.dataSource = self       
         tableviewControllerVoucher.delegate = self
         
+        loadDataFromAPI {}
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         

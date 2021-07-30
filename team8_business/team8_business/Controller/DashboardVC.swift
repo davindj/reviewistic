@@ -14,6 +14,9 @@ class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     @IBOutlet weak var lblPriceRating: UILabel!
     @IBOutlet weak var lblServiceRating: UILabel!
     @IBOutlet weak var lblProdukRating: UILabel!
+    @IBOutlet weak var priceView: UIView!
+    @IBOutlet weak var serviceView: UIView!
+    @IBOutlet weak var productView: UIView!
     
     var trans:[Record] = []
     var transDaily:[Record] = []
@@ -34,10 +37,15 @@ class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         tblLatest.delegate=self
         tblLatest.dataSource=self
         
+        priceView.layer.cornerRadius = 10
+        serviceView.layer.cornerRadius = 10
+        productView.layer.cornerRadius = 10
+        
         loadDataFromAPI{}
     }
     
     func loadDataFromAPI(callback: @escaping()->Void){
+        transDaily = []
         let today = Date()
         let formatter1 = DateFormatter()
         formatter1.dateFormat = "yyyy-MM-dd"
