@@ -115,6 +115,7 @@ class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         
         cell.layer.cornerRadius = 10
         cell.layer.borderWidth = 2
+        cell.lblReview.numberOfLines = 5
         
         cell.lblNomorTransaksi.text = "#"+latestReview[indexPath.row].fields.NomorTransaksi
         cell.lblAvgRating.text = String(format: "%.1f", latestReview[indexPath.row].avgrate)

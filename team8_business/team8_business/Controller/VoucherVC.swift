@@ -18,16 +18,12 @@ class VoucherVC: UITableViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Voucher.listVoucherToko() { r in
-            self.listVoucher = r
-            print(self.listVoucher)
-            self.tableviewControllerVoucher.reloadData()
-        }
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action:  #selector(refreshTrigger), for: .valueChanged)
+        tableviewControllerVoucher.refreshControl = refreshControl
+        
         tableviewControllerVoucher.dataSource = self       
         tableviewControllerVoucher.delegate = self
-        
-        tableviewControllerVoucher.reloadData()
-        
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -35,6 +31,23 @@ class VoucherVC: UITableViewController{
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    func loadDataFromAPI(callback: @escaping()->Void){
+        Voucher.listVoucherToko() { r in
+            self.listVoucher = r
+            print(self.listVoucher)
+            self.tableviewControllerVoucher.reloadData()
+        }
+        callback()
+    }
+    
+    
+    @objc func refreshTrigger(){
+        loadDataFromAPI{
+            self.tableviewControllerVoucher.refreshControl?.endRefreshing()
+        }
+    }
+    
     
     // MARK: - Table view data source
     

@@ -103,15 +103,14 @@ class ReviewVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         // Navigation Item
         self.navigationItem.title = "All Review"
         
-        Transaction.callData { r in
-            self.transaksi = r.filter{$0.fields.status == 2}
-            self.kategoriID = "KategoriAll"
-            self.filter()
-        }
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action:  #selector(refreshTrigger), for: .valueChanged)
+        table_view.refreshControl = refreshControl
         
         table_view.delegate=self
         table_view.dataSource=self
         
+        loadDataFromAPI {}
         // Do any additional setup after loading the view.
     }
 
@@ -185,6 +184,21 @@ class ReviewVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         table_view.reloadData()
         
+    }
+    func loadDataFromAPI(callback: @escaping()->Void){
+        Transaction.callData { r in
+            self.transaksi = r.filter{$0.fields.status == 2}
+            self.kategoriID = "KategoriAll"
+            self.filter()
+        }
+        callback()
+    }
+    
+    
+    @objc func refreshTrigger(){
+        loadDataFromAPI{
+            self.table_view.refreshControl?.endRefreshing()
+        }
     }
    
    
