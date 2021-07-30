@@ -7,12 +7,12 @@
 
 import UIKit
 
-struct TempTransaction {
-    let id: String
-}
-
-class TransactionVC: UITableViewController {
+class TransactionVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+    @IBOutlet var tableView: UITableView!
+    @IBOutlet var searchBar: UISearchBar!
+    
     var transactions: [TransactionViewModel] = []
+    var filteredTransactions: [TransactionViewModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,8 +23,26 @@ class TransactionVC: UITableViewController {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action:  #selector(refreshTrigger), for: .valueChanged)
         self.tableView.refreshControl = refreshControl
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        
+        searchBar.delegate = self
         
         loadDataFromAPI {}
+    }
+
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        filterText()
+    }
+    
+    func filterText(){
+        let searchString = searchBar.text ?? ""
+        if !searchString.isEmpty{
+            filteredTransactions = transactions.filter{ $0.noTransaction.contains(searchString) }
+        }else{
+            filteredTransactions = transactions
+        }
+        self.tableView.reloadData()
     }
     
     func loadDataFromAPI(callback: @escaping()->Void){
@@ -34,12 +52,12 @@ class TransactionVC: UITableViewController {
                 print(toko_id)
                 self.transactions = data.filter{ "\($0.fields.id_toko)" == toko_id }
                                         .map{ TransactionViewModel(transaction: $0) }
-                self.tableView.reloadData()
+                self.filterText()
             }catch{ // Ketika toko tidak ditemukan
                 print("Error unhandled")
             }
+            callback()
         }
-        callback()
     }
     
     
@@ -50,18 +68,18 @@ class TransactionVC: UITableViewController {
     }
 
     // MARK: - Table view data source
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return transactions.count
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return filteredTransactions.count
     }
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "transaction", for: indexPath)
-        let transaction = transactions[indexPath.row]
+        let transaction = filteredTransactions[indexPath.row]
         cell.textLabel?.text = transaction.noTransaction
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let transaction = transactions[indexPath.row]
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let transaction = filteredTransactions[indexPath.row]
         if let vc = self.storyboard?.instantiateViewController(identifier: "DetailTransaction") as? DetailTransactionVC {
             vc.transactionVM = transaction
             navigationController?.pushViewController(vc, animated: true)
