@@ -123,7 +123,9 @@
                                     <constraint firstAttribute="width" constant="160" id="xEs-29-TEG"/>
                                 </constraints>
                                 <color key="tintColor" name="Secondary1"/>
-                                <state key="normal" title="Generate Barcode"/>
+                                <state key="normal" title="Generate Barcode">
+                                    <color key="titleColor" name="Secondary1"/>
+                                </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="10"/>
                                 </userDefinedRuntimeAttributes>
@@ -430,7 +432,9 @@
                                                                 <constraint firstAttribute="height" constant="20" id="waI-WP-EqL"/>
                                                             </constraints>
                                                             <color key="tintColor" name="Secondary1"/>
-                                                            <state key="normal" title="Button"/>
+                                                            <state key="normal" title="Button">
+                                                                <color key="titleColor" name="Secondary1"/>
+                                                            </state>
                                                             <connections>
                                                                 <action selector="btnTapped:" destination="4jU-Qf-QsZ" eventType="touchUpInside" id="lup-G4-Kah"/>
                                                             </connections>
@@ -480,7 +484,7 @@
         <image name="bag.fill" catalog="system" width="128" height="128"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
         <namedColor name="Orange1">
-            <color red="0.97254901960784312" green="0.81960784313725488" blue="0.47450980392156861" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.97299998998641968" green="0.81999999284744263" blue="0.47499999403953552" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Secondary1">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
