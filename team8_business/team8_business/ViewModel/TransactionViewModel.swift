@@ -58,9 +58,9 @@ class TransactionViewModel {
     }
     var btnColor: UIColor {
         let dictColor: Dictionary<TransactionStatus, UIColor> = [
-            .BarcodeNotGenerated: .systemIndigo,
-            .BarcodeGenerated: .systemGreen,
-            .Reviewed: .systemGreen
+            .BarcodeNotGenerated: UIColor(named: "Orange1")!,
+            .BarcodeGenerated: UIColor(named: "Orange2")!,
+            .Reviewed: UIColor(named: "Orange2")!
         ]
         let color = dictColor[self.status]!
         return color

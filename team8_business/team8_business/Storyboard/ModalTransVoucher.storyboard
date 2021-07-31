@@ -46,11 +46,11 @@
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HEP-n3-FNh">
                                 <rect key="frame" x="20" y="802" width="374" height="40"/>
-                                <color key="backgroundColor" red="0.36183978719999998" green="0.48921112210000001" blue="0.95992916819999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" name="Orange1"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="KpF-Y7-lVx"/>
                                 </constraints>
-                                <color key="tintColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                <color key="tintColor" name="Secondary1"/>
                                 <state key="normal" title="Generate">
                                     <color key="titleShadowColor" name="AccentColor"/>
                                 </state>
@@ -106,9 +106,12 @@
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="secondarySystemGroupedBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="Orange1">
+            <color red="0.97254901960784312" green="0.81960784313725488" blue="0.47450980392156861" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Secondary1">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
