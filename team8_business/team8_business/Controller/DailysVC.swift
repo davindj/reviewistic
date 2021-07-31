@@ -25,13 +25,15 @@ class DailysVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
     @IBOutlet weak var totalrate: UILabel!
     var transaksi:[Record] = []
     var filtereddata: [Record] = []
+    var latestReview:[Record] = []
+    var transDaily:[Record] = []
     var kategoriID = ""
     var rating = 0
     let cellSpacingHeight: CGFloat = 10
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         tableView.separatorStyle = .none
-        return 1
+        return latestReview.count
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
@@ -45,14 +47,16 @@ class DailysVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
-        return filtereddata.count
+        return latestReview.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "transaksiCellDailys", for: indexPath) as! tableviewcell
         
         
-        let trans = filtereddata[indexPath.section]
+        let trans = latestReview[indexPath.section]
+        
+        
         cell.transaksiID.text = trans.fields.NomorTransaksi
         cell.komentar.text = trans.fields.Review
         
@@ -84,13 +88,21 @@ class DailysVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
     @IBOutlet weak var tableViewDailys:UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        let today = Date()
+        let formatter1 = DateFormatter()
+        formatter1.dateFormat = "yyyy-MM-dd"
+        print(formatter1.string(from: today))
+        
         
         // Navigation Item
         self.navigationItem.title = kategoriID
         
         Transaction.callData{r in
             self.transaksi = r.filter{$0.fields.status == 2}
-            //
+            
+            self.transaksi = r.filter{$0.date == formatter1.string(from: today)}
+            
+          
             if self.kategoriID == "RatingPrice"{
                 //bintang1
                 let totalbintang = self.transaksi.count
@@ -264,16 +276,21 @@ class DailysVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
         }
     }
     func filter(){
-        
+        let today = Date()
+        let formatter1 = DateFormatter()
+        formatter1.dateFormat = "yyyy-MM-dd"
         
         if kategoriID == "RatingPrice" {
             filtereddata = transaksi.filter{$0.fields.RatingPrice == rating}
+            latestReview = filtereddata.filter{$0.date == formatter1.string(from: today)}
         }
         else if kategoriID == "RatingProduk"{
             filtereddata = transaksi.filter{$0.fields.RatingProduk == rating}
+            latestReview = filtereddata.filter{$0.date == formatter1.string(from: today)}
         }
         else if kategoriID == "RatingService"{
             filtereddata = transaksi.filter{$0.fields.RatingService == rating}
+            latestReview = filtereddata.filter{$0.date == formatter1.string(from: today)}
         }
         
         tableViewDailys.reloadData()
