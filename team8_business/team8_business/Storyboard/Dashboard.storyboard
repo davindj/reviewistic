@@ -37,7 +37,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Based on x reviews" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ytn-k4-xdM">
                                 <rect key="frame" x="20" y="138" width="124" height="17"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <color key="textColor" systemColor="opaqueSeparatorColor"/>
+                                <color key="textColor" systemColor="secondaryLabelColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daily Summary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e4g-6z-gN3">
@@ -237,8 +237,8 @@
                                 <rect key="frame" x="20" y="165" width="100" height="100"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lPd-10-rSr">
-                                        <rect key="frame" x="29" y="8" width="39" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="29" y="8" width="42" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <color key="textColor" systemColor="systemBackgroundColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -250,6 +250,7 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o6f-LW-ERc">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                        <fontDescription key="fontDescription" type="system" weight="black" pointSize="15"/>
                                         <connections>
                                             <action selector="priceBtnTapped:" destination="enI-NO-502" eventType="touchUpInside" id="at0-yY-vez"/>
                                         </connections>
@@ -284,13 +285,14 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Service" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dpu-Lx-sXM">
-                                        <rect key="frame" x="22" y="8" width="57" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="22" y="8" width="61.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <color key="textColor" systemColor="systemBackgroundColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZEI-Tx-9d4">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <connections>
                                             <action selector="serviceBtnTapped:" destination="enI-NO-502" eventType="touchUpInside" id="0tm-Qh-4A9"/>
                                         </connections>
@@ -325,13 +327,14 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVM-PD-tAl">
-                                        <rect key="frame" x="19" y="8" width="60.5" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="19" y="8" width="65" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <color key="textColor" systemColor="systemBackgroundColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="88t-qV-SRD">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <connections>
                                             <action selector="productBtnTapped:" destination="enI-NO-502" eventType="touchUpInside" id="JeF-wn-c7B"/>
                                         </connections>
@@ -387,6 +390,9 @@
                         <outlet property="lblProdukRating" destination="3UP-tc-MiD" id="Upl-iQ-Uuo"/>
                         <outlet property="lblRevNum" destination="Ytn-k4-xdM" id="F08-hd-oTF"/>
                         <outlet property="lblServiceRating" destination="2G3-fD-BZz" id="tyt-W1-vpI"/>
+                        <outlet property="priceView" destination="8Nu-Nh-uAv" id="siF-HS-cfb"/>
+                        <outlet property="productView" destination="wGY-Ha-75P" id="mML-z4-NN9"/>
+                        <outlet property="serviceView" destination="z9d-Wq-JAq" id="Hcb-VR-bR7"/>
                         <outlet property="tblLatest" destination="j4F-UV-PgK" id="swv-kt-zys"/>
                     </connections>
                 </viewController>
@@ -401,8 +407,8 @@
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

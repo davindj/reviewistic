@@ -14,6 +14,9 @@ class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     @IBOutlet weak var lblPriceRating: UILabel!
     @IBOutlet weak var lblServiceRating: UILabel!
     @IBOutlet weak var lblProdukRating: UILabel!
+    @IBOutlet weak var priceView: UIView!
+    @IBOutlet weak var serviceView: UIView!
+    @IBOutlet weak var productView: UIView!
     
     var trans:[Record] = []
     var transDaily:[Record] = []
@@ -34,10 +37,15 @@ class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         tblLatest.delegate=self
         tblLatest.dataSource=self
         
+        priceView.layer.cornerRadius = 10
+        serviceView.layer.cornerRadius = 10
+        productView.layer.cornerRadius = 10
+        
         loadDataFromAPI{}
     }
     
     func loadDataFromAPI(callback: @escaping()->Void){
+        transDaily = []
         let today = Date()
         let formatter1 = DateFormatter()
         formatter1.dateFormat = "yyyy-MM-dd"
@@ -127,6 +135,17 @@ class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
             
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let record = latestReview[indexPath.row]
+        let transaction = TransactionViewModel(transaction: record)
+        
+        let storyboard = UIStoryboard(name: "Transaction", bundle: nil)
+        if let vc = storyboard.instantiateViewController(identifier: "DetailTransaction") as? DetailTransactionVC{
+            vc.transactionVM = transaction
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     @IBAction func seeAllClick(_ sender: Any) {

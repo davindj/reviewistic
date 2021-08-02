@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -46,17 +47,18 @@
                             </textField>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="meK-Wu-wFv">
                                 <rect key="frame" x="20" y="212" width="374" height="44"/>
+                                <color key="tintColor" name="Orange2"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="kUd-p6-IOj"/>
                                 </constraints>
                             </datePicker>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RjF-Yy-ZX1">
                                 <rect key="frame" x="20" y="369" width="374" height="40"/>
-                                <color key="backgroundColor" red="0.36183978719999998" green="0.48921112210000001" blue="0.95992916819999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" name="Orange1"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="xji-NP-JhX"/>
                                 </constraints>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" name="Secondary1"/>
                                 <state key="normal" title="Create Voucher"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="10"/>
@@ -121,6 +123,15 @@
         </scene>
     </scenes>
     <resources>
+        <namedColor name="Orange1">
+            <color red="0.97254901960784312" green="0.81960784313725488" blue="0.47450980392156861" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Orange2">
+            <color red="0.9137254901960784" green="0.66666666666666663" blue="0.23137254901960785" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Secondary1">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

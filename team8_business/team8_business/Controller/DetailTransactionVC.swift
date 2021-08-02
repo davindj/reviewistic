@@ -13,6 +13,10 @@ class DetailTransactionVC: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet var reviewResultLabel: UILabel!
     @IBOutlet var barcodeBtn: UIButton!
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var ratingView: UIStackView!
+    @IBOutlet var ratingPriceLabel: UILabel!
+    @IBOutlet var ratingServiceLabel: UILabel!
+    @IBOutlet var ratingProductLabel: UILabel!
     
     // Parameter
     var transactionVM: TransactionViewModel!
@@ -26,12 +30,18 @@ class DetailTransactionVC: UIViewController, UITableViewDelegate, UITableViewDat
         navigationItem.title = "Transaction Detail"
         navigationItem.largeTitleDisplayMode = .always
                 
+        // NoTrans
+        noTransLabel.text = transactionVM.noTransactionDetail
+        
         // Reload button
         updateBtnDisplay()
         
         // Setup Table
         tableView.delegate = self
         tableView.dataSource = self
+        
+        // Setup Review
+        updateReviewDisplay()
         
         loadProducts()
     }
@@ -57,13 +67,23 @@ class DetailTransactionVC: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func updateBtnDisplay(){
-        noTransLabel.text = transactionVM.noTransactionDetail
-        reviewResultLabel.text = transactionVM.review
-        
         // Barcode btn style
         barcodeBtn.setTitle(transactionVM.btnText, for: .normal)
         barcodeBtn.backgroundColor = transactionVM.btnColor
         barcodeBtn.tintColor = .white
+    }
+    
+    func updateReviewDisplay(){
+        reviewResultLabel.text = transactionVM.review
+        
+        // Setup stackview
+        if transactionVM.status == .Reviewed{
+            ratingPriceLabel.text = transactionVM.ratingPrice
+            ratingProductLabel.text = transactionVM.ratingProduct
+            ratingServiceLabel.text = transactionVM.ratingService
+        }else{
+            ratingView.removeFromSuperview()
+        }
     }
     
     @IBAction func barcodeBtnTapped(_ sender: Any) {
@@ -71,6 +91,7 @@ class DetailTransactionVC: UIViewController, UITableViewDelegate, UITableViewDat
             self.present(UIStoryboard.instantiateModalPromo(transaction: transactionVM){
                 self.transactionVM.status = .BarcodeGenerated
                 self.updateBtnDisplay()
+                self.updateReviewDisplay()
                 self.present(UIStoryboard.instantiateModalBarcode(transaction: self.transactionVM),animated: true)
             }, animated: true)
         }else{

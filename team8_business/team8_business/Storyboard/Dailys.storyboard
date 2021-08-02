@@ -74,10 +74,10 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Komentar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PbL-3m-KZX">
-                                                    <rect key="frame" x="30" y="51" width="334" height="40"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Komentar" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PbL-3m-KZX">
+                                                    <rect key="frame" x="30" y="51" width="334" height="80"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="40" id="Rar-ZZ-1BA"/>
+                                                        <constraint firstAttribute="height" constant="80" id="Rar-ZZ-1BA"/>
                                                         <constraint firstAttribute="width" constant="334" id="loO-4f-Mdq"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -85,7 +85,7 @@
                                                     <color key="highlightedColor" systemColor="systemGray4Color"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tanggal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nKA-Kx-MXO">
-                                                    <rect key="frame" x="327" y="101" width="37" height="48"/>
+                                                    <rect key="frame" x="327" y="141" width="37" height="8"/>
                                                     <fontDescription key="fontDescription" type="system" weight="thin" pointSize="10"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -118,6 +118,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="N2a-KW-89t" secondAttribute="trailing" constant="10" id="m9g-sk-DLg"/>
                                                 <constraint firstItem="nKA-Kx-MXO" firstAttribute="top" secondItem="PbL-3m-KZX" secondAttribute="bottom" constant="10" id="tDh-c1-9XB"/>
                                                 <constraint firstAttribute="bottom" secondItem="nKA-Kx-MXO" secondAttribute="bottom" constant="10" id="w4l-iL-du5"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="PbL-3m-KZX" secondAttribute="trailing" constant="10" id="ykI-tO-Y1c"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

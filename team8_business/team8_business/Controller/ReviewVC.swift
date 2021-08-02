@@ -23,8 +23,8 @@ class ReviewVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     let cellSpacingHeight: CGFloat = 10
     
     
-    var rating = 0
-    var kategoriID = ""
+    var rating = 5
+    var kategoriID = "KategoriAll"
     
     
     
@@ -51,7 +51,7 @@ class ReviewVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         if kategoriID == "KategoriAll"{
             let cell_all = tableView.dequeueReusableCell(withIdentifier: "transaksiCellAll", for: indexPath) as! transaksi_cell_all
-            let transAll = filtereddata[indexPath.row]
+            let transAll = filtereddata[indexPath.section]
             
             cell_all.transaksiIDAll.text = transAll.fields.NomorTransaksi
             cell_all.RatingPrice.text = String( transAll.fields.RatingPrice)
@@ -67,7 +67,7 @@ class ReviewVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "transaksicell", for: indexPath) as! transaksi_cell
             
             
-            let trans = filtereddata[indexPath.row]
+            let trans = filtereddata[indexPath.section]
             cell.transaksiID.text = trans.fields.NomorTransaksi
             cell.komentar.text = trans.fields.Review
             
@@ -89,6 +89,17 @@ class ReviewVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             
         }
         
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let record = filtereddata[indexPath.section]
+        let transaction = TransactionViewModel(transaction: record)
+        
+        let storyboard = UIStoryboard(name: "Transaction", bundle: nil)
+        if let vc = storyboard.instantiateViewController(identifier: "DetailTransaction") as? DetailTransactionVC{
+            vc.transactionVM = transaction
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
    
      
@@ -188,7 +199,6 @@ class ReviewVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func loadDataFromAPI(callback: @escaping()->Void){
         Transaction.callData { r in
             self.transaksi = r.filter{$0.fields.status == 2}
-            self.kategoriID = "KategoriAll"
             self.filter()
         }
         callback()
