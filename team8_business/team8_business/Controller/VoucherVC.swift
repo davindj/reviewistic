@@ -159,6 +159,15 @@ class VoucherVC: UITableViewController{
         print("masukoi")
     }
     
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let transaction = listVoucher[indexPath.row]
+//        if let vc = self.storyboard?.instantiateViewController(identifier: "DetailTransaction") as? DetailTransactionVC {
+//            vc.transactionVM = transaction
+//            navigationController?.pushViewController(vc, animated: true)
+//        }
+//    }
+
+    
 }
 
 
