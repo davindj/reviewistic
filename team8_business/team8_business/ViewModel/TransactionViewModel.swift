@@ -29,7 +29,7 @@ class TransactionViewModel {
         ]
         status = dicStatus[transObj.fields.status]!
     }
-    
+    // kalau nambah fields dari model
     var idTrans: String { transObj.fields.NomorTransaksi }
     var noTransactionDetail: String { "Order Number \(self.noTransaction)" }
     var noTransaction: String { "#\(transObj.fields.NomorTransaksi)" }
@@ -42,10 +42,16 @@ class TransactionViewModel {
             return transObj.fields.Review
         }
     }
+    
+    var tanggal: String {"\(transObj.date)"}
+    var waktu: Date {transObj.date2}
+    var avgrate: Double {transObj.avgrate}
     var ratingPrice: String { "\(transObj.fields.RatingPrice)" }
     var ratingProduct: String { "\(transObj.fields.RatingProduk)" }
     var ratingService: String { "\(transObj.fields.RatingService)" }
-    
+    var RProduct : Int{transObj.fields.RatingProduk}
+    var RPrice : Int{transObj.fields.RatingPrice}
+    var RService : Int{transObj.fields.RatingService}
     // utk button
     var btnText: String {
         let dictText: Dictionary<TransactionStatus, String> = [

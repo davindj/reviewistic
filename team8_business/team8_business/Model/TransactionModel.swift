@@ -85,6 +85,39 @@ class Transaction: Codable {
 
         task.resume()
     }
+    
+    static func getAllTrans(voucherID:String, response: @escaping ([Record])->Void ) {
+        var url = URL(string:"")
+        do {
+            //let toko_id = try UserDefaults.standard.getUserId()
+            url = URL(string: "https://api.airtable.com/v0/appP7dMHeW4puOorW/Review?filterByFormula=voucher_id='"+voucherID+"'&api_key=keys9Q3knWNrVr89B")
+        } catch {
+            print(error)
+        }
+        //var recResponse.records
+        
+        //let request = URLRequest(url: url!)
+        let dataTask = URLSession.shared.dataTask(with: url!) {data, _, _ in
+            guard let jsonData = data else {
+                print("fail1")
+                return
+            }
+            do {
+                let decoder = JSONDecoder()
+                let recResponse = try decoder.decode(Records.self, from: jsonData)
+                let records = recResponse.records.sorted{ Int($0.fields.NomorTransaksi)! < Int($1.fields.NomorTransaksi)! }
+                
+                DispatchQueue.main.async {
+                    response(records)
+                }
+                
+                //panggil data disini
+            } catch let jsonError as NSError {
+                print("JSON decode failed: \(jsonError)")
+            }
+        }
+        dataTask.resume()
+    }
 }
 
 class Record: Codable {

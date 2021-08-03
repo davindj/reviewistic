@@ -50,7 +50,7 @@
                                     <segment title="1 ★"/>
                                 </segments>
                                 <connections>
-                                    <action selector="didChangeSegment:" destination="Y6W-OH-hqX" eventType="valueChanged" id="oyE-si-aFT"/>
+                                    <action selector="didChangeSegment:" destination="Y6W-OH-hqX" eventType="valueChanged" id="emI-2q-0bY"/>
                                 </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ugL-18-zH6">

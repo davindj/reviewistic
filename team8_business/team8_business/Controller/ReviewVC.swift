@@ -18,8 +18,8 @@ class ReviewVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
    
-    var transaksi:[Record] = []
-    var filtereddata: [Record] = []
+    var transaksi:[TransactionViewModel] = []
+    var filtereddata: [TransactionViewModel] = []
     let cellSpacingHeight: CGFloat = 10
     
     
@@ -53,13 +53,13 @@ class ReviewVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             let cell_all = tableView.dequeueReusableCell(withIdentifier: "transaksiCellAll", for: indexPath) as! transaksi_cell_all
             let transAll = filtereddata[indexPath.section]
             
-            cell_all.transaksiIDAll.text = transAll.fields.NomorTransaksi
-            cell_all.RatingPrice.text = String( transAll.fields.RatingPrice)
-            cell_all.RatingProduk.text = String( transAll.fields.RatingProduk)
-            cell_all.RatingService.text = String( transAll.fields.RatingService)
-            cell_all.tanggalAll.text = String( transAll.date)
-            cell_all.AvgRating.text = String(format: "%.01f", transAll.avgrate)
-            cell_all.komentarAll.text = transAll.fields.Review
+            cell_all.transaksiIDAll.text = transAll.noTransaction
+            cell_all.RatingPrice.text = transAll.ratingPrice
+            cell_all.RatingProduk.text = transAll.ratingProduct
+            cell_all.RatingService.text = transAll.ratingService
+            cell_all.tanggalAll.text = transAll.tanggal
+            
+            cell_all.komentarAll.text = transAll.review
             return cell_all
         }
         else{
@@ -68,18 +68,18 @@ class ReviewVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             
             
             let trans = filtereddata[indexPath.section]
-            cell.transaksiID.text = trans.fields.NomorTransaksi
-            cell.komentar.text = trans.fields.Review
+            cell.transaksiID.text = trans.noTransaction
+            cell.komentar.text = trans.review
             
-            cell.tanggal.text = trans.date
+            cell.tanggal.text = trans.tanggal
             if kategoriID == "RatingPrice" {
-                cell.rating.text = String(trans.fields.RatingPrice)
+                cell.rating.text = trans.ratingPrice
             }
             else if kategoriID == "RatingProduk"{
-                cell.rating.text = String(trans.fields.RatingProduk)
+                cell.rating.text = trans.ratingProduct
             }
             else if kategoriID == "RatingService"{
-                cell.rating.text = String(trans.fields.RatingService)
+                cell.rating.text = trans.ratingService
             }
            
             return cell
@@ -92,9 +92,8 @@ class ReviewVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let record = filtereddata[indexPath.section]
-        let transaction = TransactionViewModel(transaction: record)
-        
+        let transaction = filtereddata[indexPath.section]
+       
         let storyboard = UIStoryboard(name: "Transaction", bundle: nil)
         if let vc = storyboard.instantiateViewController(identifier: "DetailTransaction") as? DetailTransactionVC{
             vc.transactionVM = transaction
@@ -181,16 +180,20 @@ class ReviewVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
         if kategoriID == "KategoriAll" {
            
-            filtereddata = transaksi.filter{Int($0.avgrate.rounded()) == rating}
+            filtereddata = transaksi.filter{
+                $0.transObj.fields.RatingPrice == rating ||
+                $0.transObj.fields.RatingProduk == rating ||
+                $0.transObj.fields.RatingService == rating
+            }
         }
         else if kategoriID == "RatingPrice" {
-            filtereddata = transaksi.filter{$0.fields.RatingPrice == rating}
+            filtereddata = transaksi.filter{$0.transObj.fields.RatingPrice == rating}
         }
         else if kategoriID == "RatingProduk"{
-            filtereddata = transaksi.filter{$0.fields.RatingProduk == rating}
+            filtereddata = transaksi.filter{$0.transObj.fields.RatingProduk == rating}
         }
         else if kategoriID == "RatingService"{
-            filtereddata = transaksi.filter{$0.fields.RatingService == rating}
+            filtereddata = transaksi.filter{$0.transObj.fields.RatingService == rating}
         }
         
         table_view.reloadData()
@@ -198,7 +201,13 @@ class ReviewVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     func loadDataFromAPI(callback: @escaping()->Void){
         Transaction.callData { r in
-            self.transaksi = r.filter{$0.fields.status == 2}
+            let arr = r.filter{$0.fields.status == 2}
+            for record in 1...arr.count{
+                let viewmodel = TransactionViewModel(transaction: arr[record-1])
+                self.transaksi.append(viewmodel)
+            }
+            
+          
             self.filter()
         }
         callback()
@@ -228,7 +237,11 @@ class transaksi_cell: UITableViewCell {
         super.awakeFromNib()
         Celltransaksi.layer.cornerRadius = 10
     }
+    
+       
    
+    
+    
 }
 class transaksi_cell_all: UITableViewCell {
     @IBOutlet weak var transaksiIDAll: UILabel!
