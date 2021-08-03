@@ -30,6 +30,14 @@ class TransactionVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         
         loadDataFromAPI {}
     }
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        self.searchBar.endEditing(true)
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.searchBar.endEditing(true)
+    }
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         filterText()

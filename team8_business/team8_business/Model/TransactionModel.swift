@@ -37,9 +37,10 @@ class Transaction: Codable {
             do {
                 let decoder = JSONDecoder()
                 let recResponse = try decoder.decode(Records.self, from: jsonData)
+                let records = recResponse.records.sorted{ Int($0.fields.NomorTransaksi)! < Int($1.fields.NomorTransaksi)! }
                 
                 DispatchQueue.main.async {
-                    response(recResponse.records)
+                    response(records)
                 }
                 
                 //panggil data disini

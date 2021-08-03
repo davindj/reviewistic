@@ -27,8 +27,6 @@
 		B95F5C7326AFDF17005DF1FA /* DashboardTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95F5C7226AFDF17005DF1FA /* DashboardTC.swift */; };
 		D722EF3326B130D900EE7150 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = D722EF3226B130D900EE7150 /* Image.swift */; };
 		D722EF3526B1D64700EE7150 /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D722EF3426B1D64700EE7150 /* ProductViewModel.swift */; };
-		D722EF3A26B1D73F00EE7150 /* ProductViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D722EF3826B1D73F00EE7150 /* ProductViewCell.swift */; };
-		D722EF3B26B1D73F00EE7150 /* ProductViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D722EF3926B1D73F00EE7150 /* ProductViewCell.xib */; };
 		D7244B8526AEAEE7000D7447 /* AddTransVoucherVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7244B8426AEAEE7000D7447 /* AddTransVoucherVC.swift */; };
 		D7244B8726AEAEF7000D7447 /* AddVoucherVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7244B8626AEAEF7000D7447 /* AddVoucherVC.swift */; };
 		D7447E5826A9447E0082412B /* TransactionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7447E5726A9447E0082412B /* TransactionVC.swift */; };
@@ -92,8 +90,6 @@
 		B95F5C7226AFDF17005DF1FA /* DashboardTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTC.swift; sourceTree = "<group>"; };
 		D722EF3226B130D900EE7150 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		D722EF3426B1D64700EE7150 /* ProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
-		D722EF3826B1D73F00EE7150 /* ProductViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewCell.swift; sourceTree = "<group>"; };
-		D722EF3926B1D73F00EE7150 /* ProductViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductViewCell.xib; sourceTree = "<group>"; };
 		D7244B8426AEAEE7000D7447 /* AddTransVoucherVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransVoucherVC.swift; sourceTree = "<group>"; };
 		D7244B8626AEAEF7000D7447 /* AddVoucherVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVoucherVC.swift; sourceTree = "<group>"; };
 		D7447E5726A9447E0082412B /* TransactionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionVC.swift; sourceTree = "<group>"; };
@@ -160,7 +156,6 @@
 			isa = PBXGroup;
 			children = (
 				D79FD2DB26AA8A0700A079F2 /* ViewModel */,
-				D722EF3726B1D71A00EE7150 /* View */,
 				B92661D626A8234D00ACC9F2 /* Model */,
 				D7C8E93426A7F9DD00956846 /* Shared */,
 				D7C8E93226A7F8D800956846 /* Controller */,
@@ -199,15 +194,6 @@
 				B95F5C6726AEAD15005DF1FA /* VoucherModel.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		D722EF3726B1D71A00EE7150 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				D722EF3826B1D73F00EE7150 /* ProductViewCell.swift */,
-				D722EF3926B1D73F00EE7150 /* ProductViewCell.xib */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		D74EA49026B0092900B1E914 /* Extension */ = {
@@ -385,7 +371,6 @@
 				D7ED5C7026B12EBD00B7DF45 /* ModalBarcode.storyboard in Resources */,
 				D79FD2D826AA7FDD00A079F2 /* Transaction.storyboard in Resources */,
 				4C77DA4B26ABEA3F0041450D /* Voucher.storyboard in Resources */,
-				D722EF3B26B1D73F00EE7150 /* ProductViewCell.xib in Resources */,
 				D7C445EE26AEA96F0013DA28 /* ModalVoucher.storyboard in Resources */,
 				11AD602026B01CDF003D2F84 /* Dailys.storyboard in Resources */,
 				D7C445EC26AEA9670013DA28 /* ModalTransVoucher.storyboard in Resources */,
@@ -434,7 +419,6 @@
 				B926619D26A6A7DF00ACC9F2 /* ReviewVC.swift in Sources */,
 				B92661A326A6A7DF00ACC9F2 /* team8_business.xcdatamodeld in Sources */,
 				B926619926A6A7DF00ACC9F2 /* AppDelegate.swift in Sources */,
-				D722EF3A26B1D73F00EE7150 /* ProductViewCell.swift in Sources */,
 				D7244B8526AEAEE7000D7447 /* AddTransVoucherVC.swift in Sources */,
 				D7244B8726AEAEF7000D7447 /* AddVoucherVC.swift in Sources */,
 				B926619B26A6A7DF00ACC9F2 /* SceneDelegate.swift in Sources */,
@@ -606,14 +590,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = SNDZ43L8ZN;
 				INFOPLIST_FILE = team8_business/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.6.0;
+				MARKETING_VERSION = 0.7.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mc3.team8-business";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -627,14 +611,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = SNDZ43L8ZN;
 				INFOPLIST_FILE = team8_business/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.6.0;
+				MARKETING_VERSION = 0.7.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mc3.team8-business";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

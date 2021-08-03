@@ -119,6 +119,31 @@ class Voucher: Codable {
 
         task.resume()
     }
+    
+    static func delVoucher(airtableid: String, response: @escaping (Bool)->Void ) {
+        let url = URL(string: "https://api.airtable.com/v0/appP7dMHeW4puOorW/Voucher/"+airtableid+"?&api_key=keys9Q3knWNrVr89B")!
+        //var recResponse.records
+        var request = URLRequest(url: url)
+        request.httpMethod = "DELETE"
+        
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        
+        //let request = URLRequest(url: url!)
+        let task = URLSession.shared.dataTask(with: request) { data, _, _ in
+            guard data != nil else {
+                print("fail1")
+                return
+            }
+            do {
+                DispatchQueue.main.async {
+                    response(true)
+                }
+            }
+            
+        }
+        task.resume()
+    }
 }
 
 
