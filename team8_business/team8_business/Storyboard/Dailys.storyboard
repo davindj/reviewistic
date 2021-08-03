@@ -259,7 +259,7 @@
                         <outlet property="avgRateImg" destination="wMv-SK-afa" id="WRP-XX-deq"/>
                         <outlet property="ratingsegmen" destination="mPT-V4-z6R" id="ptq-Jc-eGT"/>
                         <outlet property="tableViewDailys" destination="ugL-18-zH6" id="6dJ-rR-6vv"/>
-                        <outlet property="totalrate" destination="uES-kK-du8" id="hFP-9I-Uxi"/>
+                        <outlet property="totalrate" destination="uES-kK-du8" id="pqx-7U-RNS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -175,10 +175,10 @@ class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         }
     }
     
-    func navigateToDailys(category: String){
+    func navigateToDailys(category:String){
         let storyboard = UIStoryboard(name: "Dailys", bundle: nil)
         let vc = storyboard.instantiateInitialViewController() as! DailysVC
-        vc.kategoriID = category
+        vc.namakategori = category
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
