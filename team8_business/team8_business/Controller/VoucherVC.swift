@@ -15,11 +15,12 @@ class VoucherVC: UITableViewController{
     var listVoucher:[RecordVoucher] = []
     var vouchers: [VoucherViewModel] = []
     
+    
     override func viewDidLoad() {
-        
+        super.viewDidLoad()
         navigationItem.title = "Promo"
         navigationController?.navigationBar.prefersLargeTitles = true
-        super.viewDidLoad()
+        
         
         
         let refreshControl = UIRefreshControl()
@@ -72,7 +73,7 @@ class VoucherVC: UITableViewController{
             //Code I want to do here
             let alert = UIAlertController(title: "Do you want to Delete Promo ?", message: "", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: NSLocalizedString("Delete", comment: "Default action"), style: .default, handler: { _ in
-                              
+                
                 Voucher.delVoucher(airtableid: self.listVoucher[indexPath.row].id){ r in
                     if (r == true) {
                         self.listVoucher.remove(at: indexPath.row)
@@ -90,7 +91,7 @@ class VoucherVC: UITableViewController{
         let swipeActions = UISwipeActionsConfiguration(actions: [contextItem])
         return swipeActions
     }
-        
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableviewvouchercell", for: indexPath) as! tableviewVoucherCell
@@ -163,12 +164,14 @@ class VoucherVC: UITableViewController{
         print("masukoi")
     }
     
-       override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-            if let vc = self.storyboard?.instantiateViewController(identifier: "detailvoucher") as? DetailVoucher {
-                navigationController?.pushViewController(vc, animated: true)
-            }
+        let voucher = listVoucher[indexPath.row]
+        if let vc = self.storyboard?.instantiateViewController(identifier: "detailvoucher") as? DetailVoucher {
+            vc.vouchObj = voucher
+            navigationController?.pushViewController(vc, animated: true)
         }
+    }
 }
 
 

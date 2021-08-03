@@ -8,65 +8,87 @@
 import UIKit
 
 class DetailVoucher: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "tableviewvouchercell", for: indexPath) as! tableviewVoucherCell
-        let voucherAll = listVoucher[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "detailPromo", for: indexPath) as! outletDetailVoucher
+        let listTransVouch = transaksi[indexPath.row]
         
         
-        cell.NamaVoucher.text = voucherAll.fields.nama
-        cell.Keterangan.text = voucherAll.fields.keterangan
-        cell.ExpDate.text = voucherAll.fields.exp_date
-        // Configure the cell...
+        //cell.Status.text = UIImage (systemName: "note.text")
+        cell.noIDTrx.text = "#"+listTransVouch.fields.NomorTransaksi
+        //cell.ExpDate.text = voucherAll.fields.exp_date
+        //Configure the cell...
         
-        
-        cell.viewcell.layer.cornerRadius = 10
         return cell
     }
     
-    
-    @IBOutlet weak var Count: UILabel!
+    var transactionVM: TransactionViewModel!
+    //@IBOutlet weak var Count: UILabel!
     @IBOutlet weak var detailVoucherView: UITableView!
     
+    @IBOutlet weak var vouchID: UILabel!
+    
+    var vouchObj: RecordVoucher!
     var transaksi:[Record] = []
     var listVoucher:[RecordVoucher] = []
-    var vouchers: [VoucherViewModel] = []
+    var vouchers:[VoucherViewModel] = []
+ 
+    let cellSpacingHeight: CGFloat = 10
+    var jumlahVoucher: Int = 0
+    var namaVoucher: String { "\(vouchObj.fields.nama)"}
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = "Transaction using this voucher"
-        navigationController?.navigationBar.titleTextAttributes = [.font: UIFont.systemFont(ofSize: 10)]
+        
+        
         detailVoucherView.delegate = self
         detailVoucherView.dataSource = self
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
         
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        loadDataFromAPI(voucherID: vouchObj.id){
+            //self.Count.text = String(self.transaksi.count)
+            self.jumlahVoucher = self.transaksi.count
+            self.detailVoucherView.reloadData()
+            self.navigationItem.title = "Voucher Used :  \(self.jumlahVoucher)"
+            self.navigationController?.navigationBar.prefersLargeTitles = true
+        }
+        vouchID.text = "Nama Voucher : \(self.namaVoucher)"
+        
     }
     
-    // MARK: - Table view data source
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+            let headerView = UIView()
+            headerView.backgroundColor = UIColor.clear
+            return headerView
+        }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return transaksi.count
     }
     
-    func loadDataFromAPI(callback: @escaping()->Void){
-        Transaction.callData { r in
+    func loadDataFromAPI(voucherID: String, callback: @escaping()->Void){
+        Transaction.getAllTrans(voucherID: voucherID) { r in
             self.transaksi = r.filter{$0.fields.status == 2}
+            callback()
         }
-        callback()
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let trans = transaksi[indexPath.row]
+        let transactionVM = TransactionViewModel(transaction: trans)
+        
+        let storyboard = UIStoryboard(name: "Transaction", bundle: nil)
+        if let vc = storyboard.instantiateViewController(identifier: "DetailTransaction") as? DetailTransactionVC{
+            vc.transactionVM = transactionVM
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
+    }
     /*
-     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-     let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+     let cell = tableView.dequeueReusableCell(withIdentifier: "detailPromo", for: indexPath) as! outletDetailVoucher
      
      // Configure the cell...
      
@@ -121,4 +143,9 @@ class DetailVoucher: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     
     
+}
+
+class outletDetailVoucher: UITableViewCell{
+    @IBOutlet weak var Status: UILabel!
+    @IBOutlet weak var noIDTrx: UILabel!
 }
