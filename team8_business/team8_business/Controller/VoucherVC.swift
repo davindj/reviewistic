@@ -72,9 +72,14 @@ class VoucherVC: UITableViewController{
             //Code I want to do here
             let alert = UIAlertController(title: "Do you want to Delete Promo ?", message: "", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: NSLocalizedString("Delete", comment: "Default action"), style: .default, handler: { _ in
-                self.listVoucher.remove(at: indexPath.row)
-                self.tableView.deleteRows(at: [indexPath], with: .fade)
-                NSLog("The \"OK\" alert occured.")
+                              
+                Voucher.delVoucher(airtableid: self.listVoucher[indexPath.row].id){ r in
+                    if (r == true) {
+                        self.listVoucher.remove(at: indexPath.row)
+                        self.tableView.deleteRows(at: [indexPath], with: .fade)
+                        print("kehapus oi")
+                    }
+                }
             }))
             alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "Default action"), style: .default, handler: { _ in
                 self.tableviewControllerVoucher.reloadData()
@@ -85,8 +90,7 @@ class VoucherVC: UITableViewController{
         let swipeActions = UISwipeActionsConfiguration(actions: [contextItem])
         return swipeActions
     }
-    
-    
+        
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableviewvouchercell", for: indexPath) as! tableviewVoucherCell
@@ -159,15 +163,12 @@ class VoucherVC: UITableViewController{
         print("masukoi")
     }
     
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let transaction = listVoucher[indexPath.row]
-//        if let vc = self.storyboard?.instantiateViewController(identifier: "DetailTransaction") as? DetailTransactionVC {
-//            vc.transactionVM = transaction
-//            navigationController?.pushViewController(vc, animated: true)
-//        }
-//    }
-
-    
+       override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+            if let vc = self.storyboard?.instantiateViewController(identifier: "detailvoucher") as? DetailVoucher {
+                navigationController?.pushViewController(vc, animated: true)
+            }
+        }
 }
 
 
@@ -176,4 +177,5 @@ class tableviewVoucherCell: UITableViewCell{
     @IBOutlet weak var Keterangan: UILabel!
     @IBOutlet weak var ExpDate: UILabel!
     @IBOutlet weak var viewcell: UIView!
+    
 }
