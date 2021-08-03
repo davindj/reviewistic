@@ -57,7 +57,7 @@ class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         var avgProdukRating :Int = 0
         
         var date1 = Date(timeIntervalSinceReferenceDate: -123456789.0)
-        var date2 = Date(timeIntervalSinceReferenceDate: -123456789.0)
+        var waktu = Date(timeIntervalSinceReferenceDate: -123456789.0)
         var date3 = Date(timeIntervalSinceReferenceDate: -123456789.0)
         
         Transaction.callData( response: {r in
@@ -69,26 +69,26 @@ class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
             
             for re in self.trans {
                 //array harian
-                if (re.status == 2) {
-                    if (formatter1.string(from: today) == re.date) {
+                if (re.status == .Reviewed) {
+                    if (formatter1.string(from: today) == re.tanggal) {
                         self.transDaily.append(re)
                         print("kepindah")
                     }
                     //array latest
-                    if (date1 < re.date2) {
-                        date3 = date2
-                        date2 = date1
-                        date1 = re.date2
+                    if (date1 < re.waktu) {
+                        date3 = waktu
+                        waktu = date1
+                        date1 = re.waktu
                         self.latestReview[2] = self.latestReview[1]
                         self.latestReview[1] = self.latestReview[0]
                         self.latestReview[0] = re
-                    } else if (date2 < re.date2) {
-                        date3 = date2
-                        date2 = re.date2
+                    } else if (waktu < re.waktu) {
+                        date3 = waktu
+                        waktu = re.waktu
                         self.latestReview[2] = self.latestReview[1]
                         self.latestReview[1] = re
-                    } else if (date3 < re.date2) {
-                        date3 = re.date2
+                    } else if (date3 < re.waktu) {
+                        date3 = re.waktu
                         self.latestReview[2] = re
                     }
                     print(date1)
@@ -96,9 +96,9 @@ class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
             }
             //Untuk rata-rata harian
             if (self.transDaily.count > 0) {
-                avgPriceRating = self.transDaily.reduce(0, {result,currentelement in return result+currentelement.fields.RatingPrice}) / self.transDaily.count
-                avgServiceRating = self.transDaily.reduce(0, {$0+$1.fields.RatingService}) / self.transDaily.count
-                avgProdukRating = self.transDaily.reduce(0) {$0+$1.fields.RatingProduk} / self.transDaily.count
+                avgPriceRating = self.transDaily.reduce(0, {result,currentelement in return result+currentelement.RPrice}) / self.transDaily.count
+                avgServiceRating = self.transDaily.reduce(0, {$0+$1.RService}) / self.transDaily.count
+                avgProdukRating = self.transDaily.reduce(0) {$0+$1.RProduct} / self.transDaily.count
                 
                 self.lblRevNum.text = "Based on "+String(self.transDaily.count)+" reviews"
                 self.lblPriceRating.text = String(avgPriceRating)
@@ -128,21 +128,21 @@ class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         cell.layer.borderWidth = 2
         cell.lblReview.numberOfLines = 5
         
-        cell.lblNomorTransaksi.text = "#"+latestReview[indexPath.row].fields.NomorTransaksi
+        cell.lblNomorTransaksi.text = latestReview[indexPath.row].noTransaction
         cell.lblAvgRating.text = String(format: "%.1f", latestReview[indexPath.row].avgrate)
-        cell.lblReview.text = latestReview[indexPath.row].fields.Review
-        cell.lblPriceR.text = String(latestReview[indexPath.row].fields.RatingPrice)
-        cell.lblServiceR.text = String(latestReview[indexPath.row].fields.RatingService)
-        cell.lblProductR.text = String(latestReview[indexPath.row].fields.RatingProduk)
-        cell.lblCreatedTime.text = latestReview[indexPath.row].date2.toString(format: "dd-MM-yyyy")
+        cell.lblReview.text = latestReview[indexPath.row].review
+        cell.lblPriceR.text = latestReview[indexPath.row].ratingPrice
+        cell.lblServiceR.text = latestReview[indexPath.row].ratingService
+        cell.lblProductR.text = latestReview[indexPath.row].ratingProduct
+        cell.lblCreatedTime.text = latestReview[indexPath.row].waktu.toString(format: "dd-MM-yyyy")
             
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let record = latestReview[indexPath.row]
-        let transaction = TransactionViewModel(transaction: record)
+        let transaction = latestReview[indexPath.row]
+        //let transaction = TransactionViewModel(transaction: record)
         
         let storyboard = UIStoryboard(name: "Transaction", bundle: nil)
         if let vc = storyboard.instantiateViewController(identifier: "DetailTransaction") as? DetailTransactionVC{

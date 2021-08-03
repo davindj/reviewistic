@@ -155,10 +155,10 @@ class DailysVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
                 if self.kategoriID == "RatingProduk"{
                    
                     for bin in 1...5 {
-                        let bintang = self.filtereddata.filter{$0.Rproduct == bin}.count
+                        let bintang = self.filtereddata.filter{$0.RProduct == bin}.count
                         let avg = Float(bintang)/Float(totalbintang)
                         arrProgressView[bin-1]?.setProgress(avg, animated: true)
-                        arrLabel[bin-1]?.text = String(self.filtereddata.filter{$0.Rproduct == bin}.count)
+                        arrLabel[bin-1]?.text = String(self.filtereddata.filter{$0.RProduct == bin}.count)
                         let avgrate = Float(bintang*bin)/Float(totalbintang)
                         self.Avg.text = "\(String(format: "%.01f", avgrate)) / 5"
                         
@@ -265,7 +265,7 @@ class DailysVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
             filtereddata = filtereddata.filter{$0.transObj.date == formatter1.string(from: today)}
         }
         else if kategoriID == "RatingProduk"{
-            filtereddata = transaksi.filter{$0.Rproduct == rating}
+            filtereddata = transaksi.filter{$0.RProduct == rating}
             filtereddata = filtereddata.filter{$0.transObj.date == formatter1.string(from: today)}
         }
         else if kategoriID == "RatingService"{

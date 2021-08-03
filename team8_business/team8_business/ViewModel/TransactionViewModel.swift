@@ -44,10 +44,12 @@ class TransactionViewModel {
     }
     
     var tanggal: String {"\(transObj.date)"}
+    var waktu: Date {transObj.date2}
+    var avgrate: Double {transObj.avgrate}
     var ratingPrice: String { "\(transObj.fields.RatingPrice)" }
     var ratingProduct: String { "\(transObj.fields.RatingProduk)" }
     var ratingService: String { "\(transObj.fields.RatingService)" }
-    var Rproduct : Int{transObj.fields.RatingProduk}
+    var RProduct : Int{transObj.fields.RatingProduk}
     var RPrice : Int{transObj.fields.RatingPrice}
     var RService : Int{transObj.fields.RatingService}
     // utk button
