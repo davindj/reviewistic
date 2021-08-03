@@ -14,11 +14,17 @@ enum TransactionStatus{
     case Reviewed
     case Unknown
 }
+enum Kategori {
+    case Price
+    case Product
+    case Service
+    case All
+}
 
 class TransactionViewModel {
     let transObj: Record
     var status: TransactionStatus
-    
+ 
     init(transaction: Record){
         self.transObj = transaction
         
@@ -30,6 +36,33 @@ class TransactionViewModel {
         status = dicStatus[transObj.fields.status]!
     }
     // kalau nambah fields dari model
+    static func filter(arrtrans: [TransactionViewModel], kategori: Kategori, rating: Int) -> [TransactionViewModel] {
+        var filtered: [TransactionViewModel] = []
+        if kategori == .Price {
+            filtered = arrtrans.filter{$0.RPrice == rating}
+             
+        }
+        else if kategori == .Product{
+            filtered = arrtrans.filter{$0.Rproduct == rating}
+           
+        }
+        else if kategori == .Service{
+            filtered = arrtrans.filter{$0.RService == rating}
+            
+        }
+        else if kategori == .All{
+            filtered = arrtrans.filter{
+                $0.RPrice == rating ||
+                $0.Rproduct == rating ||
+                $0.RService == rating
+            }
+            
+        }
+        
+        
+        
+        return filtered
+    }
     var idTrans: String { transObj.fields.NomorTransaksi }
     var noTransactionDetail: String { "Order Number \(self.noTransaction)" }
     var noTransaction: String { "#\(transObj.fields.NomorTransaksi)" }
@@ -42,7 +75,7 @@ class TransactionViewModel {
             return transObj.fields.Review
         }
     }
-    
+
     var tanggal: String {"\(transObj.date)"}
     var ratingPrice: String { "\(transObj.fields.RatingPrice)" }
     var ratingProduct: String { "\(transObj.fields.RatingProduk)" }

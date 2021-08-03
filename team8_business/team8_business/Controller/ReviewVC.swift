@@ -13,43 +13,43 @@ class ReviewVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var ratingsegmen: UISegmentedControl!
     @IBOutlet weak var KriteriaSegmen: UISegmentedControl!
-//    let date = Calendar.current.date(byAdding: .day, value: -1, to: deadline.date)!
-//    let dateComponents = Calendar.current.dateComponents([.year,.month,.day,.hour,.minute,], from: date)
+    //    let date = Calendar.current.date(byAdding: .day, value: -1, to: deadline.date)!
+    //    let dateComponents = Calendar.current.dateComponents([.year,.month,.day,.hour,.minute,], from: date)
     
     
-   
+    
     var transaksi:[TransactionViewModel] = []
     var filtereddata: [TransactionViewModel] = []
     let cellSpacingHeight: CGFloat = 10
     
     
     var rating = 5
-    var kategoriID = "KategoriAll"
+    var kategori: Kategori = .All
     
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         tableView.separatorStyle = .none
         return 1
-      
+        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
-            return filtereddata.count
+        return filtereddata.count
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return cellSpacingHeight
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-            let headerView = UIView()
-            headerView.backgroundColor = UIColor.clear
-            return headerView
-        }
+        let headerView = UIView()
+        headerView.backgroundColor = UIColor.clear
+        return headerView
+    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if kategoriID == "KategoriAll"{
+        if kategori == .All{
             let cell_all = tableView.dequeueReusableCell(withIdentifier: "transaksiCellAll", for: indexPath) as! transaksi_cell_all
             let transAll = filtereddata[indexPath.section]
             
@@ -63,7 +63,7 @@ class ReviewVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             return cell_all
         }
         else{
-       
+            
             let cell = tableView.dequeueReusableCell(withIdentifier: "transaksicell", for: indexPath) as! transaksi_cell
             
             
@@ -72,16 +72,16 @@ class ReviewVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             cell.komentar.text = trans.review
             
             cell.tanggal.text = trans.tanggal
-            if kategoriID == "RatingPrice" {
+            if kategori == .Price {
                 cell.rating.text = trans.ratingPrice
             }
-            else if kategoriID == "RatingProduk"{
+            else if kategori == .Product{
                 cell.rating.text = trans.ratingProduct
             }
-            else if kategoriID == "RatingService"{
+            else if kategori == .Service{
                 cell.rating.text = trans.ratingService
             }
-           
+            
             return cell
             
             
@@ -93,15 +93,15 @@ class ReviewVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let transaction = filtereddata[indexPath.section]
-       
+        
         let storyboard = UIStoryboard(name: "Transaction", bundle: nil)
         if let vc = storyboard.instantiateViewController(identifier: "DetailTransaction") as? DetailTransactionVC{
             vc.transactionVM = transaction
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
-   
-     
+    
+    
     
     @IBOutlet weak var table_view: UITableView!
     
@@ -123,78 +123,53 @@ class ReviewVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         loadDataFromAPI {}
         // Do any additional setup after loading the view.
     }
-
     
     
     
-   @IBAction func Segmentkriteria(_ sender: Any) {
-    switch KriteriaSegmen.selectedSegmentIndex {
+    
+    @IBAction func Segmentkriteria(_ sender: Any) {
+        switch KriteriaSegmen.selectedSegmentIndex {
         case 0:
-            kategoriID = "KategoriAll"
-            filter()
+            kategori = .All
         case 1:
-            kategoriID = "RatingPrice"
+            kategori = .Price
+        case 2:
+            kategori = .Product
             
-            filter()
-        case 2:
-            kategoriID = "RatingProduk"
-           
-            filter()
         case 3:
-            kategoriID = "RatingService"
-           
-            filter()
-       default:
-           break
-        
-    }
-   }
-    
-    
-    
-  @IBAction func didChangeSegment(_ sender: Any) {
-    switch ratingsegmen.selectedSegmentIndex {
-        case 0:
-            rating = 5
-            filter()
-        case 1:
-            print("case1")
-            rating = 4
-            filter()
-        case 2:
-            rating = 3
-            filter()
-        case 3:
-            rating = 2
-            filter()
-        case 4:
-            rating = 1
-            filter()
+            kategori = .Service
+            
+            
         default:
             break
+            
+        }
+        filter()
     }
-  }
-
-    func filter(){
-        
     
-        if kategoriID == "KategoriAll" {
-           
-            filtereddata = transaksi.filter{
-                $0.transObj.fields.RatingPrice == rating ||
-                $0.transObj.fields.RatingProduk == rating ||
-                $0.transObj.fields.RatingService == rating
-            }
+    
+    
+    @IBAction func didChangeSegment(_ sender: Any) {
+        
+        switch ratingsegmen.selectedSegmentIndex {
+        case 0:
+            rating = 5
+        case 1:
+            rating = 4
+        case 2:
+            rating = 3
+        case 3:
+            rating = 2
+        case 4:
+            rating = 1
+        default:
+            break
         }
-        else if kategoriID == "RatingPrice" {
-            filtereddata = transaksi.filter{$0.transObj.fields.RatingPrice == rating}
-        }
-        else if kategoriID == "RatingProduk"{
-            filtereddata = transaksi.filter{$0.transObj.fields.RatingProduk == rating}
-        }
-        else if kategoriID == "RatingService"{
-            filtereddata = transaksi.filter{$0.transObj.fields.RatingService == rating}
-        }
+        filter()
+    }
+    
+    func filter(){
+        filtereddata = TransactionViewModel.filter(arrtrans: transaksi, kategori: self.kategori, rating: self.rating)
         
         table_view.reloadData()
         
@@ -207,7 +182,7 @@ class ReviewVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 self.transaksi.append(viewmodel)
             }
             
-          
+            
             self.filter()
         }
         callback()
@@ -219,13 +194,13 @@ class ReviewVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             self.table_view.refreshControl?.endRefreshing()
         }
     }
-   
-   
+    
+    
     // 1. ambil data dari variable
     // 2. filter berdasarkan segmen yang aktif
     // 3. tampilkan data sementara yang udah di filter
     
-
+    
 }
 class transaksi_cell: UITableViewCell {
     @IBOutlet weak var transaksiID: UILabel!
@@ -238,16 +213,16 @@ class transaksi_cell: UITableViewCell {
         Celltransaksi.layer.cornerRadius = 10
     }
     
-       
-   
+    
+    
     
     
 }
 class transaksi_cell_all: UITableViewCell {
     @IBOutlet weak var transaksiIDAll: UILabel!
-   
+    
     @IBOutlet weak var komentarAll: UILabel!
-   
+    
     @IBOutlet weak var Stackview: UIStackView!
     @IBOutlet weak var RatingPrice: UILabel!
     @IBOutlet weak var RatingProduk: UILabel!
@@ -258,10 +233,10 @@ class transaksi_cell_all: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-       
+        
         Cellview.layer.cornerRadius = 10
         Stackview.layer.cornerRadius = 5
     }
-
-    }
+    
+}
 
