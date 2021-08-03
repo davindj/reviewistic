@@ -125,7 +125,7 @@ class DailysVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
                     arrLabel[bin-1]?.text = String(self.filtereddata.filter{$0.RPrice == bin}.count)
                     let avgrate = Float(bintang*bin)/Float(totalbintang)
                     self.Avg.text = "\(String(format: "%.01f", avgrate)) / 5"
-                    
+                    self.totalrate.text = "Total Rating: \(String(self.filtereddata.count))"
                     var imageName: String = ""
                     if (avgrate <= 1)  {
                         imageName = "0"
@@ -160,7 +160,7 @@ class DailysVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
                     arrLabel[bin-1]?.text = String(self.filtereddata.filter{$0.Rproduct == bin}.count)
                     let avgrate = Float(bintang*bin)/Float(totalbintang)
                     self.Avg.text = "\(String(format: "%.01f", avgrate)) / 5"
-                    
+                    self.totalrate.text = "Total Rating: \(String(self.filtereddata.count))"
                     var imageName: String = ""
                     if (avgrate <= 1)  {
                         imageName = "0"
@@ -194,7 +194,7 @@ class DailysVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
                     arrLabel[bin-1]?.text = String(self.filtereddata.filter{$0.RService == bin}.count)
                     let avgrate = Float(bintang*bin)/Float(totalbintang)
                     self.Avg.text = "\(String(format: "%.01f", avgrate)) / 5"
-                    
+                    self.totalrate.text = "Total Rating: \(String(self.filtereddata.count))"
                     var imageName: String = ""
                     if (avgrate <= 1)  {
                         imageName = "0"

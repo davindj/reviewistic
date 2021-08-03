@@ -123,10 +123,6 @@ class ReviewVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         loadDataFromAPI {}
         // Do any additional setup after loading the view.
     }
-    
-    
-    
-    
     @IBAction func Segmentkriteria(_ sender: Any) {
         switch KriteriaSegmen.selectedSegmentIndex {
         case 0:
@@ -135,20 +131,13 @@ class ReviewVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             kategori = .Price
         case 2:
             kategori = .Product
-            
         case 3:
             kategori = .Service
-            
-            
         default:
             break
-            
         }
         filter()
     }
-    
-    
-    
     @IBAction func didChangeSegment(_ sender: Any) {
         
         switch ratingsegmen.selectedSegmentIndex {
@@ -212,17 +201,10 @@ class transaksi_cell: UITableViewCell {
         super.awakeFromNib()
         Celltransaksi.layer.cornerRadius = 10
     }
-    
-    
-    
-    
-    
 }
 class transaksi_cell_all: UITableViewCell {
     @IBOutlet weak var transaksiIDAll: UILabel!
-    
     @IBOutlet weak var komentarAll: UILabel!
-    
     @IBOutlet weak var Stackview: UIStackView!
     @IBOutlet weak var RatingPrice: UILabel!
     @IBOutlet weak var RatingProduk: UILabel!
