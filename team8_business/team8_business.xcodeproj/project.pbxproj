@@ -10,6 +10,7 @@
 		114F27D826A97EDA00462A4C /* Review.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 114F27D726A97EDA00462A4C /* Review.storyboard */; };
 		11AD602026B01CDF003D2F84 /* Dailys.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11AD601F26B01CDF003D2F84 /* Dailys.storyboard */; };
 		11AD602626B06D21003D2F84 /* DailysVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AD602526B06D21003D2F84 /* DailysVC.swift */; };
+		4C23D82D26B928D30060D0DE /* DetailVoucher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23D82C26B928D30060D0DE /* DetailVoucher.swift */; };
 		4C77DA4B26ABEA3F0041450D /* Voucher.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C77DA4A26ABEA3F0041450D /* Voucher.storyboard */; };
 		4C77DA4F26AEA58C0041450D /* VoucherVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C77DA4E26AEA58C0041450D /* VoucherVC.swift */; };
 		B926619926A6A7DF00ACC9F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B926619826A6A7DF00ACC9F2 /* AppDelegate.swift */; };
@@ -66,6 +67,7 @@
 		114F27D726A97EDA00462A4C /* Review.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Review.storyboard; sourceTree = "<group>"; };
 		11AD601F26B01CDF003D2F84 /* Dailys.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dailys.storyboard; sourceTree = "<group>"; };
 		11AD602526B06D21003D2F84 /* DailysVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailysVC.swift; sourceTree = "<group>"; };
+		4C23D82C26B928D30060D0DE /* DetailVoucher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVoucher.swift; sourceTree = "<group>"; };
 		4C77DA4A26ABEA3F0041450D /* Voucher.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Voucher.storyboard; sourceTree = "<group>"; };
 		4C77DA4E26AEA58C0041450D /* VoucherVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoucherVC.swift; sourceTree = "<group>"; };
 		B926619526A6A7DF00ACC9F2 /* team8_business.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = team8_business.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -222,6 +224,7 @@
 			children = (
 				D7447E5726A9447E0082412B /* TransactionVC.swift */,
 				D7447E5926A9453F0082412B /* DetailTransactionVC.swift */,
+				4C23D82C26B928D30060D0DE /* DetailVoucher.swift */,
 				11AD602526B06D21003D2F84 /* DailysVC.swift */,
 				4C77DA4E26AEA58C0041450D /* VoucherVC.swift */,
 				B926619C26A6A7DF00ACC9F2 /* ReviewVC.swift */,
@@ -419,6 +422,7 @@
 				B926619D26A6A7DF00ACC9F2 /* ReviewVC.swift in Sources */,
 				B92661A326A6A7DF00ACC9F2 /* team8_business.xcdatamodeld in Sources */,
 				B926619926A6A7DF00ACC9F2 /* AppDelegate.swift in Sources */,
+				4C23D82D26B928D30060D0DE /* DetailVoucher.swift in Sources */,
 				D7244B8526AEAEE7000D7447 /* AddTransVoucherVC.swift in Sources */,
 				D7244B8726AEAEF7000D7447 /* AddVoucherVC.swift in Sources */,
 				B926619B26A6A7DF00ACC9F2 /* SceneDelegate.swift in Sources */,

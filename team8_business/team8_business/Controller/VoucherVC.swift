@@ -9,20 +9,19 @@ import UIKit
 import SwiftUI
 
 class VoucherVC: UITableViewController{
-        
+    
     @IBOutlet var tableviewControllerVoucher: UITableView!
     
     var listVoucher:[RecordVoucher] = []
-    var filteredData: [RecordVoucher] = []
     var vouchers: [VoucherViewModel] = []
     
-    var successCallback: ((RecordVoucher)->Void)!
     
     override func viewDidLoad() {
-        
+        super.viewDidLoad()
         navigationItem.title = "Promo"
         navigationController?.navigationBar.prefersLargeTitles = true
-        super.viewDidLoad()
+        
+        
         
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action:  #selector(refreshTrigger), for: .valueChanged)
@@ -65,52 +64,50 @@ class VoucherVC: UITableViewController{
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
+        
         return listVoucher.count
     }
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-      let contextItem = UIContextualAction(style: .destructive, title: "Delete") {  (contextualAction, view, boolValue) in
-          //Code I want to do here
-        let alert = UIAlertController(title: "Do you want to Delete Promo ?", message: "", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Delete", comment: "Default action"), style: .default, handler: { _ in
-            self.listVoucher.remove(at: indexPath.row)
-            self.tableView.deleteRows(at: [indexPath], with: .fade)
-        NSLog("The \"OK\" alert occured.")
-        }))
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "Default action"), style: .default, handler: { _ in
-            self.tableviewControllerVoucher.reloadData()
-        NSLog("Cancel delete promo")
-        }))
-        self.present(alert, animated: true, completion: nil)
-        
-        
-        
-      }
-      let swipeActions = UISwipeActionsConfiguration(actions: [contextItem])
-        
-        
-
-      return swipeActions
-  }
+        let contextItem = UIContextualAction(style: .destructive, title: "Delete") {  (contextualAction, view, boolValue) in
+            //Code I want to do here
+            let alert = UIAlertController(title: "Do you want to Delete Promo ?", message: "", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Delete", comment: "Default action"), style: .default, handler: { _ in
+                
+                Voucher.delVoucher(airtableid: self.listVoucher[indexPath.row].id){ r in
+                    if (r == true) {
+                        self.listVoucher.remove(at: indexPath.row)
+                        self.tableView.deleteRows(at: [indexPath], with: .fade)
+                        print("kehapus oi")
+                    }
+                }
+            }))
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "Default action"), style: .default, handler: { _ in
+                self.tableviewControllerVoucher.reloadData()
+                NSLog("Cancel delete promo")
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
+        let swipeActions = UISwipeActionsConfiguration(actions: [contextItem])
+        return swipeActions
+    }
     
-    
-     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableviewvouchercell", for: indexPath) as! tableviewVoucherCell
         let voucherAll = listVoucher[indexPath.row]
         
-    
+        
         cell.NamaVoucher.text = voucherAll.fields.nama
         cell.Keterangan.text = voucherAll.fields.keterangan
         cell.ExpDate.text = voucherAll.fields.exp_date
         // Configure the cell...
-     
+        
         
         cell.viewcell.layer.cornerRadius = 10
-     return cell
-     }
-
+        return cell
+    }
+    
     
     /*
      // Override to support conditional editing of the table view.
@@ -159,7 +156,7 @@ class VoucherVC: UITableViewController{
     
     @IBAction func tambahVoucher(_ sender: Any) {
         let vc1 = UIStoryboard.instantiateModalVoucher{ recordVouchervs in
-         // setelah tambah voucher
+            // setelah tambah voucher
             self.listVoucher.append(recordVouchervs)
             self.tableviewControllerVoucher.reloadData()
         }
@@ -167,6 +164,14 @@ class VoucherVC: UITableViewController{
         print("masukoi")
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let voucher = listVoucher[indexPath.row]
+        if let vc = self.storyboard?.instantiateViewController(identifier: "detailvoucher") as? DetailVoucher {
+            vc.vouchObj = voucher
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
 }
 
 
@@ -175,4 +180,5 @@ class tableviewVoucherCell: UITableViewCell{
     @IBOutlet weak var Keterangan: UILabel!
     @IBOutlet weak var ExpDate: UILabel!
     @IBOutlet weak var viewcell: UIView!
+    
 }
