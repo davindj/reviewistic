@@ -36,6 +36,17 @@ class TransactionViewModel {
         status = dicStatus[transObj.fields.status]!
     }
     // kalau nambah fields dari model
+    static func filterToday(arrtrans: [TransactionViewModel]) -> [TransactionViewModel]
+    {
+        var filtered: [TransactionViewModel] = []
+        let today = Date()
+        let formatter1 = DateFormatter()
+        formatter1.dateFormat = "yyyy-MM-dd"
+        filtered = arrtrans.filter{$0.transObj.date == formatter1.string(from: today)}
+        
+        return filtered
+        
+    }
     static func filter(arrtrans: [TransactionViewModel], kategori: Kategori, rating: Int) -> [TransactionViewModel] {
         var filtered: [TransactionViewModel] = []
         if kategori == .Price {

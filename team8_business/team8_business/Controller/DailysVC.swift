@@ -27,7 +27,8 @@ class DailysVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
     var filtereddata: [TransactionViewModel] = []
     var latestReview:[TransactionViewModel] = []
     var transDaily:[TransactionViewModel] = []
-    var kategoriID = ""
+    var kategori: Kategori = .Price
+    var namakategori: String = ""
     var rating = 0
     let cellSpacingHeight: CGFloat = 10
     
@@ -61,13 +62,13 @@ class DailysVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
         cell.komentar.text = trans.review
         
         cell.tanggal.text = trans.tanggal
-        if kategoriID == "RatingPrice" {
+        if kategori == .Price {
             cell.rating.text = String(trans.ratingPrice)
         }
-        else if kategoriID == "RatingProduk"{
+        else if kategori == .Product{
             cell.rating.text = String(trans.ratingProduct)
         }
-        else if kategoriID == "RatingService"{
+        else if kategori == .Service{
             cell.rating.text = String(trans.ratingService)
         }
         
@@ -84,26 +85,24 @@ class DailysVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
-    
+
     @IBOutlet weak var tableViewDailys:UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        let today = Date()
-        let formatter1 = DateFormatter()
-        formatter1.dateFormat = "yyyy-MM-dd"
-        print(formatter1.string(from: today))
+        
         
         
         // Navigation Item
-        self.navigationItem.title = kategoriID
+        self.navigationItem.title = namakategori
         
         Transaction.callData{r in
             let arr = r.filter{$0.fields.status == 2}
-            let tanggal = r.filter{$0.date == formatter1.string(from: today)}
+            
             for record in 1...arr.count{
                 let viewmodel = TransactionViewModel(transaction: arr[record-1])
                 self.transaksi.append(viewmodel)
             }
+            self.transaksi = TransactionViewModel.filterToday(arrtrans: self.transaksi)
             
             let totalbintang = self.filtereddata.count <= 0 ? 1 : self.filtereddata.count
             let arrProgressView = [self.Progressviewb1,
@@ -117,8 +116,8 @@ class DailysVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
                             self.Labelb4,
                             self.Labelb5]
             //price
-            if self.kategoriID == "RatingPrice"{
-               
+            if self.kategori == .Price{
+                
                 for bin in 1...5 {
                     let bintang = self.filtereddata.filter{$0.RPrice == bin}.count
                     let avg = Float(bintang)/Float(totalbintang)
@@ -133,7 +132,7 @@ class DailysVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
                     }
                     else{
                         let idxImage: Int = Int(avgrate * 2) - 2
-                    
+                        
                         imageName = [
                             "bintang1",
                             "1 setengah",
@@ -151,90 +150,86 @@ class DailysVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
                 }
                 
             }
-           
-                if self.kategoriID == "RatingProduk"{
-                   
-                    for bin in 1...5 {
-                        let bintang = self.filtereddata.filter{$0.Rproduct == bin}.count
-                        let avg = Float(bintang)/Float(totalbintang)
-                        arrProgressView[bin-1]?.setProgress(avg, animated: true)
-                        arrLabel[bin-1]?.text = String(self.filtereddata.filter{$0.Rproduct == bin}.count)
-                        let avgrate = Float(bintang*bin)/Float(totalbintang)
-                        self.Avg.text = "\(String(format: "%.01f", avgrate)) / 5"
-                        
-                        var imageName: String = ""
-                        if (avgrate <= 1)  {
-                            imageName = "0"
-                        }
-                        else{
-                            let idxImage: Int = Int(avgrate * 2) - 2
-                        
-                            imageName = [
-                                "bintang1",
-                                "1 setengah",
-                                "Bintang2",
-                                "2 setengah",
-                                "Bintang3",
-                                "3 setengah",
-                                "Bintang4",
-                                "4 setengah",
-                                "Bintang5"
-                            ][idxImage]
-                        }
-                        let img = UIImage(named: imageName)
-                        self.avgRateImg.image = img
-                    }
+            
+            if self.kategori == .Product{
+                
+                for bin in 1...5 {
+                    let bintang = self.filtereddata.filter{$0.Rproduct == bin}.count
+                    let avg = Float(bintang)/Float(totalbintang)
+                    arrProgressView[bin-1]?.setProgress(avg, animated: true)
+                    arrLabel[bin-1]?.text = String(self.filtereddata.filter{$0.Rproduct == bin}.count)
+                    let avgrate = Float(bintang*bin)/Float(totalbintang)
+                    self.Avg.text = "\(String(format: "%.01f", avgrate)) / 5"
                     
-                }
-                    if self.kategoriID == "RatingService"{
-                       
-                        for bin in 1...5 {
-                            let bintang = self.filtereddata.filter{$0.RService == bin}.count
-                            let avg = Float(bintang)/Float(totalbintang)
-                            arrProgressView[bin-1]?.setProgress(avg, animated: true)
-                            arrLabel[bin-1]?.text = String(self.filtereddata.filter{$0.RService == bin}.count)
-                            let avgrate = Float(bintang*bin)/Float(totalbintang)
-                            self.Avg.text = "\(String(format: "%.01f", avgrate)) / 5"
-                            
-                            var imageName: String = ""
-                            if (avgrate <= 1)  {
-                                imageName = "0"
-                            }
-                            else{
-                                let idxImage: Int = Int(avgrate * 2) - 2
-                            
-                                imageName = [
-                                    "bintang1",
-                                    "1 setengah",
-                                    "Bintang2",
-                                    "2 setengah",
-                                    "Bintang3",
-                                    "3 setengah",
-                                    "Bintang4",
-                                    "4 setengah",
-                                    "Bintang5"
-                                ][idxImage]
-                            }
-                            let img = UIImage(named: imageName)
-                            self.avgRateImg.image = img
-                        }
-                        
+                    var imageName: String = ""
+                    if (avgrate <= 1)  {
+                        imageName = "0"
                     }
-
-                //AVG
+                    else{
+                        let idxImage: Int = Int(avgrate * 2) - 2
+                        
+                        imageName = [
+                            "bintang1",
+                            "1 setengah",
+                            "Bintang2",
+                            "2 setengah",
+                            "Bintang3",
+                            "3 setengah",
+                            "Bintang4",
+                            "4 setengah",
+                            "Bintang5"
+                        ][idxImage]
+                    }
+                    let img = UIImage(named: imageName)
+                    self.avgRateImg.image = img
+                }
                 
+            }
+            if self.kategori == .Service{
                 
-              
-                        self.rating = 5
-                        self.filter()
+                for bin in 1...5 {
+                    let bintang = self.filtereddata.filter{$0.RService == bin}.count
+                    let avg = Float(bintang)/Float(totalbintang)
+                    arrProgressView[bin-1]?.setProgress(avg, animated: true)
+                    arrLabel[bin-1]?.text = String(self.filtereddata.filter{$0.RService == bin}.count)
+                    let avgrate = Float(bintang*bin)/Float(totalbintang)
+                    self.Avg.text = "\(String(format: "%.01f", avgrate)) / 5"
+                    
+                    var imageName: String = ""
+                    if (avgrate <= 1)  {
+                        imageName = "0"
+                    }
+                    else{
+                        let idxImage: Int = Int(avgrate * 2) - 2
+                        
+                        imageName = [
+                            "bintang1",
+                            "1 setengah",
+                            "Bintang2",
+                            "2 setengah",
+                            "Bintang3",
+                            "3 setengah",
+                            "Bintang4",
+                            "4 setengah",
+                            "Bintang5"
+                        ][idxImage]
+                    }
+                    let img = UIImage(named: imageName)
+                    self.avgRateImg.image = img
+                }
+                
+            }
+            
+            self.rating = 5
+            self.filter()
         }
         
-                   tableViewDailys.delegate=self
-                  tableViewDailys.dataSource=self
+        tableViewDailys.delegate=self
+        tableViewDailys.dataSource=self
     }
     
     
-         @IBAction func didChangeSegment(_ sender: Any) {
+    @IBAction func didChangeSegment(_ sender: Any) {
         switch ratingsegmen.selectedSegmentIndex {
         case 0:
             rating = 5
@@ -256,41 +251,30 @@ class DailysVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
         }
     }
     func filter(){
-        let today = Date()
-        let formatter1 = DateFormatter()
-        formatter1.dateFormat = "yyyy-MM-dd"
         
-        if kategoriID == "RatingPrice" {
-            filtereddata = transaksi.filter{$0.RPrice == rating}
-            filtereddata = filtereddata.filter{$0.transObj.date == formatter1.string(from: today)}
-        }
-        else if kategoriID == "RatingProduk"{
-            filtereddata = transaksi.filter{$0.Rproduct == rating}
-            filtereddata = filtereddata.filter{$0.transObj.date == formatter1.string(from: today)}
-        }
-        else if kategoriID == "RatingService"{
-            filtereddata = transaksi.filter{$0.RService == rating}
-            filtereddata = filtereddata.filter{$0.transObj.date == formatter1.string(from: today)}
-        }
+        
+        filtereddata = TransactionViewModel.filter(arrtrans: transaksi, kategori: self.kategori, rating: self.rating)
+        
         
         tableViewDailys.reloadData()
         
     }
     
     
-}
-
-
-class tableviewcell: UITableViewCell {
     
-    @IBOutlet weak var transaksiID: UILabel!
-    @IBOutlet weak var komentar: UILabel!
-    @IBOutlet weak var rating: UILabel!
-    @IBOutlet weak var tanggal: UILabel!
-    @IBOutlet weak var Celltransaksi: UIView!
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        Celltransaksi.layer.cornerRadius = 5
+    
+    
+    class tableviewcell: UITableViewCell {
         
+        @IBOutlet weak var transaksiID: UILabel!
+        @IBOutlet weak var komentar: UILabel!
+        @IBOutlet weak var rating: UILabel!
+        @IBOutlet weak var tanggal: UILabel!
+        @IBOutlet weak var Celltransaksi: UIView!
+        override func awakeFromNib() {
+            super.awakeFromNib()
+            Celltransaksi.layer.cornerRadius = 5
+            
+        }
     }
 }
