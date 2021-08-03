@@ -19,9 +19,9 @@ class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     @IBOutlet weak var productView: UIView!
     @IBOutlet weak var borderView: UIView!
     
-    var trans:[Record] = []
-    var transDaily:[Record] = []
-    var latestReview:[Record] = []
+    var trans:[TransactionViewModel] = []
+    var transDaily:[TransactionViewModel] = []
+    var latestReview:[TransactionViewModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,13 +61,15 @@ class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         var date3 = Date(timeIntervalSinceReferenceDate: -123456789.0)
         
         Transaction.callData( response: {r in
-            self.trans = r
-            self.latestReview = r
+            self.trans = r.map{
+                TransactionViewModel.init(transaction: $0)
+            }
+            self.latestReview = self.trans
             self.tblLatest.reloadData()
             
             for re in self.trans {
                 //array harian
-                if (re.fields.status == 2) {
+                if (re.status == 2) {
                     if (formatter1.string(from: today) == re.date) {
                         self.transDaily.append(re)
                         print("kepindah")
