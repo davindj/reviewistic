@@ -42,16 +42,22 @@ class Produk: Codable {
 }
 
 class RecordProduk: Codable {
-   let id: String
-   let fields: Produk
-   let createdTime : String
+    let id: String
+    let fields: Produk
+    let createdTime : String
+    
+    init(id: String, fields: Produk, createdTime: String){
+        self.id = id
+        self.fields = fields
+        self.createdTime = createdTime
+    }
 }
 
 struct RecordsProduk: Codable {
-   var records: [RecordProduk]
+    var records: [RecordProduk] = []
     
-    init() {
-        records = []
+    init(records: [RecordProduk]) {
+        self.records = records
     }
 }
 
