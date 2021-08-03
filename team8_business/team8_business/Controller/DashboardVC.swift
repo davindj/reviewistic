@@ -17,6 +17,7 @@ class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     @IBOutlet weak var priceView: UIView!
     @IBOutlet weak var serviceView: UIView!
     @IBOutlet weak var productView: UIView!
+    @IBOutlet weak var borderView: UIView!
     
     var trans:[Record] = []
     var transDaily:[Record] = []
