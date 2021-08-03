@@ -154,10 +154,10 @@ class DailysVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
             if self.kategori == .Product{
                 
                 for bin in 1...5 {
-                    let bintang = self.filtereddata.filter{$0.Rproduct == bin}.count
+                    let bintang = self.filtereddata.filter{$0.RProduct == bin}.count
                     let avg = Float(bintang)/Float(totalbintang)
                     arrProgressView[bin-1]?.setProgress(avg, animated: true)
-                    arrLabel[bin-1]?.text = String(self.filtereddata.filter{$0.Rproduct == bin}.count)
+                    arrLabel[bin-1]?.text = String(self.filtereddata.filter{$0.RProduct == bin}.count)
                     let avgrate = Float(bintang*bin)/Float(totalbintang)
                     self.Avg.text = "\(String(format: "%.01f", avgrate)) / 5"
                     self.totalrate.text = "Total Rating: \(String(self.filtereddata.count))"
@@ -255,18 +255,6 @@ class DailysVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
         
         filtereddata = TransactionViewModel.filter(arrtrans: transaksi, kategori: self.kategori, rating: self.rating)
         
-        if kategoriID == "RatingPrice" {
-            filtereddata = transaksi.filter{$0.RPrice == rating}
-            filtereddata = filtereddata.filter{$0.transObj.date == formatter1.string(from: today)}
-        }
-        else if kategoriID == "RatingProduk"{
-            filtereddata = transaksi.filter{$0.RProduct == rating}
-            filtereddata = filtereddata.filter{$0.transObj.date == formatter1.string(from: today)}
-        }
-        else if kategoriID == "RatingService"{
-            filtereddata = transaksi.filter{$0.RService == rating}
-            filtereddata = filtereddata.filter{$0.transObj.date == formatter1.string(from: today)}
-        }
         
         tableViewDailys.reloadData()
         

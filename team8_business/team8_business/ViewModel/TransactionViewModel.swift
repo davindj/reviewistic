@@ -54,7 +54,7 @@ class TransactionViewModel {
              
         }
         else if kategori == .Product{
-            filtered = arrtrans.filter{$0.Rproduct == rating}
+            filtered = arrtrans.filter{$0.RProduct == rating}
            
         }
         else if kategori == .Service{
@@ -64,7 +64,7 @@ class TransactionViewModel {
         else if kategori == .All{
             filtered = arrtrans.filter{
                 $0.RPrice == rating ||
-                $0.Rproduct == rating ||
+                $0.RProduct == rating ||
                 $0.RService == rating
             }
             
