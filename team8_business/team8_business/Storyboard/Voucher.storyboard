@@ -16,8 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="10" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eVV-DV-Jdc">
-                                <rect key="frame" x="20" y="67" width="374" height="795"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="never" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="10" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eVV-DV-Jdc">
+                                <rect key="frame" x="20" y="75" width="374" height="700"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="detailPromo" rowHeight="71" id="VzL-25-HCK" customClass="outletDetailVoucher" customModule="team8_business" customModuleProvider="target">
@@ -71,7 +71,7 @@
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bjs-Yo-hhl">
-                                <rect key="frame" x="20" y="36" width="42" height="21"/>
+                                <rect key="frame" x="20" y="44" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -82,9 +82,9 @@
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="eVV-DV-Jdc" secondAttribute="trailing" constant="20" id="42B-Ei-FIm"/>
                             <constraint firstItem="bjs-Yo-hhl" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="L6l-Hj-Kp0"/>
-                            <constraint firstItem="bjs-Yo-hhl" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="topMargin" constant="-8" id="YYb-H9-0cx"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="eVV-DV-Jdc" secondAttribute="bottom" constant="87" id="Sfx-Q4-5kn"/>
+                            <constraint firstItem="bjs-Yo-hhl" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="topMargin" id="YYb-H9-0cx"/>
                             <constraint firstItem="eVV-DV-Jdc" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="j3K-lL-WcD"/>
-                            <constraint firstItem="eVV-DV-Jdc" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="oHF-Ro-1Re"/>
                             <constraint firstItem="eVV-DV-Jdc" firstAttribute="top" secondItem="bjs-Yo-hhl" secondAttribute="bottom" constant="10" id="yUC-qn-oTd"/>
                         </constraints>
                     </view>
@@ -104,8 +104,8 @@
                 <navigationController id="0u9-Ai-8NY" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Promos" image="tag.fill" catalog="system" id="sHJ-Ao-CRP"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vpk-LR-QPo">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="vpk-LR-QPo">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>

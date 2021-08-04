@@ -50,8 +50,13 @@ class DetailVoucher: UIViewController, UITableViewDelegate, UITableViewDataSourc
             //self.Count.text = String(self.transaksi.count)
             self.jumlahVoucher = self.transaksi.count
             self.detailVoucherView.reloadData()
-            self.navigationItem.title = "Voucher Used :  \(self.jumlahVoucher)"
-            self.navigationController?.navigationBar.prefersLargeTitles = true
+            DispatchQueue.main.async {
+                self.navigationItem.title = "Voucher Used :  \(self.jumlahVoucher)"
+                self.navigationController?.navigationBar.sizeToFit()
+                self.navigationController?.navigationBar.prefersLargeTitles = true
+                self.navigationItem.largeTitleDisplayMode = .automatic
+                
+            }
         }
         vouchID.text = "Nama Voucher : \(self.namaVoucher)"
         
