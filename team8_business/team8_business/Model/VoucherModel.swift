@@ -15,11 +15,11 @@ class Voucher: Codable {
     let id_toko: String
     
     init(Id_Voucher:String, Nama: String, Exp_Date:String, Keterangan:String, Id_Toko:String) {
-        id_voucher = Id_Voucher
-        nama = Nama
-        exp_date = Exp_Date
-        keterangan = Keterangan
-        id_toko = Id_Toko
+        self.id_voucher = Id_Voucher
+        self.nama = Nama
+        self.exp_date = Exp_Date
+        self.keterangan = Keterangan
+        self.id_toko = Id_Toko
     }
     
     static func listVoucherToko(response: @escaping ([RecordVoucher])->Void ) {
@@ -148,15 +148,17 @@ class Voucher: Codable {
 
 
 class RecordVoucher: Codable {
-   let id: String
-   let fields: Voucher
-   let createdTime : String
+    let id: String
+    let fields: Voucher
+    let createdTime : String
+    
+    init(id: String, fields: Voucher, createdTime: String){
+        self.id = id
+        self.fields = fields
+        self.createdTime = createdTime
+    }
 }
 
 struct RecordsVoucher: Codable {
    var records: [RecordVoucher]
-    
-    init() {
-        records = []
-    }
 }

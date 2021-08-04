@@ -14,11 +14,17 @@ enum TransactionStatus{
     case Reviewed
     case Unknown
 }
+enum Kategori {
+    case Price
+    case Product
+    case Service
+    case All
+}
 
 class TransactionViewModel {
     let transObj: Record
     var status: TransactionStatus
-    
+ 
     init(transaction: Record){
         self.transObj = transaction
         
@@ -30,6 +36,44 @@ class TransactionViewModel {
         status = dicStatus[transObj.fields.status]!
     }
     // kalau nambah fields dari model
+    static func filterToday(arrtrans: [TransactionViewModel]) -> [TransactionViewModel]
+    {
+        var filtered: [TransactionViewModel] = []
+        let today = Date()
+        let formatter1 = DateFormatter()
+        formatter1.dateFormat = "yyyy-MM-dd"
+        filtered = arrtrans.filter{$0.transObj.date == formatter1.string(from: today)}
+        
+        return filtered
+        
+    }
+    static func filter(arrtrans: [TransactionViewModel], kategori: Kategori, rating: Int) -> [TransactionViewModel] {
+        var filtered: [TransactionViewModel] = []
+        if kategori == .Price {
+            filtered = arrtrans.filter{$0.RPrice == rating}
+             
+        }
+        else if kategori == .Product{
+            filtered = arrtrans.filter{$0.RProduct == rating}
+           
+        }
+        else if kategori == .Service{
+            filtered = arrtrans.filter{$0.RService == rating}
+            
+        }
+        else if kategori == .All{
+            filtered = arrtrans.filter{
+                $0.RPrice == rating ||
+                $0.RProduct == rating ||
+                $0.RService == rating
+            }
+            
+        }
+        
+        
+        
+        return filtered
+    }
     var idTrans: String { transObj.fields.NomorTransaksi }
     var noTransactionDetail: String { "Order Number \(self.noTransaction)" }
     var noTransaction: String { "#\(transObj.fields.NomorTransaksi)" }
@@ -42,7 +86,7 @@ class TransactionViewModel {
             return transObj.fields.Review
         }
     }
-    
+
     var tanggal: String {"\(transObj.date)"}
     var waktu: Date {transObj.date2}
     var avgrate: Double {transObj.avgrate}

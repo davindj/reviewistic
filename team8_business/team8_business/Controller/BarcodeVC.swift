@@ -16,7 +16,7 @@ class BarcodeVC: UIViewController {
 
         if let trans = transaction{
             navigationItem.title = "Barcode \(trans.noTransaction)"
-            let url = "https://example.com?t=\(trans.idTrans)"
+            let url = "https://example.com?t=\(trans.transObj.id)"
             barcodeImageView.image = UIImage.generateBarcode(content: url)
         }
     }

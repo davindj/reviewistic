@@ -10,12 +10,29 @@ import Foundation
 class Transaction: Codable {
     var NomorTransaksi: String = ""
     let Review: String
-        
     let RatingPrice: Int
     let RatingProduk: Int
     let RatingService: Int
     let status: Int
     let id_toko: Int
+    
+    init(
+        nomorTransaksi: String,
+        review: String,
+        ratingPrice: Int,
+        ratingProduk: Int,
+        ratingService: Int,
+        status: Int,
+        idToko: Int
+    ){
+        self.NomorTransaksi = nomorTransaksi
+        self.Review = review
+        self.RatingPrice = ratingPrice
+        self.RatingProduk = ratingProduk
+        self.RatingService = ratingService
+        self.status = status
+        self.id_toko = idToko
+    }
     
     
     static func callData(response: @escaping ([Record])->Void ) {
@@ -152,16 +169,14 @@ class Record: Codable {
         return average
     }
    
-    
-}
-
-struct Records: Codable {
-    
-   var records: [Record]
-    
-    init() {
-        records = []
+    init(id: String, fields: Transaction, createdTime: String){
+        self.id = id
+        self.fields = fields
+        self.createdTime = createdTime
     }
 }
 
+struct Records: Codable {
+    var records: [Record]
+}
 
