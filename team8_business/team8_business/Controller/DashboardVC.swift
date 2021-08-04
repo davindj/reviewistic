@@ -158,15 +158,15 @@ class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     }
     
     @IBAction func priceBtnTapped(_ sender: Any) {
-        navigateToDailys(category: "RatingPrice")
+        navigateToDailys(kategori: .Price)
     }
     
     @IBAction func serviceBtnTapped(_ sender: Any) {
-        navigateToDailys(category: "RatingService")
+        navigateToDailys(kategori: .Service)
     }
     
     @IBAction func productBtnTapped(_ sender: Any) {
-        navigateToDailys(category: "RatingProduk")
+        navigateToDailys(kategori: .Product)
     }
     
     @objc func refreshTrigger(){
@@ -175,10 +175,10 @@ class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         }
     }
     
-    func navigateToDailys(category:String){
+    func navigateToDailys(kategori: Kategori){
         let storyboard = UIStoryboard(name: "Dailys", bundle: nil)
         let vc = storyboard.instantiateInitialViewController() as! DailysVC
-        vc.namakategori = category
+        vc.kategori = kategori
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
