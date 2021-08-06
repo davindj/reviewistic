@@ -74,7 +74,7 @@ class Transaction: Codable {
         
         
         let jsonData = try? JSONSerialization.data(withJSONObject: json)
-
+        
         // create post request
         let url = URL(string: "https://api.airtable.com/v0/appP7dMHeW4puOorW/Review/"+airtableid+"?api_key=keys9Q3knWNrVr89B")!
         
@@ -83,10 +83,10 @@ class Transaction: Codable {
         
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
-
+        
         // insert json data to the request
         request.httpBody = jsonData
-
+        
         let task = URLSession.shared.dataTask(with: request) { data, _, _ in
             guard data != nil else {
                 print("fail1")
@@ -99,7 +99,7 @@ class Transaction: Codable {
             }
             
         }
-
+        
         task.resume()
     }
     
@@ -138,18 +138,26 @@ class Transaction: Codable {
 }
 
 class Record: Codable {
-   let id: String
-   let fields: Transaction
-   let createdTime : String
-   var date: String{
-            let index = createdTime.index(createdTime.startIndex, offsetBy: 10)
-            let mySubstring = createdTime.prefix(upTo: index)
-            
+    let id: String
+    let fields: Transaction
+    let createdTime : String
+    
+    init(id: String, fields: Transaction, createdTime: String){
+        self.id = id
+        self.fields = fields
+        self.createdTime = createdTime
+    }
+    
+    var date: String{
+        let index = createdTime.index(createdTime.startIndex, offsetBy: 10)
+        let mySubstring = createdTime.prefix(upTo: index)
+        
         return String(mySubstring)
     }
+    
     var date2: Date {
         let isoDate = createdTime
-
+        
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
@@ -159,7 +167,6 @@ class Record: Codable {
         let finalDate = calendar.date(from:components)!
         return finalDate
     }
-  
     
     var avgrate: Double{
         let array = [fields.RatingService,fields.RatingProduk,fields.RatingPrice]
@@ -167,12 +174,6 @@ class Record: Codable {
             return $0 + Double($1)/Double(array.count)
         }
         return average
-    }
-   
-    init(id: String, fields: Transaction, createdTime: String){
-        self.id = id
-        self.fields = fields
-        self.createdTime = createdTime
     }
 }
 

@@ -14,6 +14,14 @@ class Produk: Codable {
     let harga_produk: Int
     let qty_produk: Int
     
+    init(nomorTransaksi: String, id: String, nama: String, harga: Int, qty: Int){
+        self.NomorTransaksi = nomorTransaksi
+        self.id_produk = id
+        self.nama_produk = nama
+        self.harga_produk = harga
+        self.qty_produk = qty
+    }
+    
     static func listProdukTransaksi(nomorTransaksi:String , response: @escaping ([RecordProduk])->Void ) {
         let url = URL(string: "https://api.airtable.com/v0/appP7dMHeW4puOorW/Transaksi?filterByFormula=NomorTransaksi="+nomorTransaksi+"&api_key=keys9Q3knWNrVr89B")
         //var recResponse.records
