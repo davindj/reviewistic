@@ -26,11 +26,10 @@ class Voucher: Codable {
         var url = URL(string:"")
         do {
             let toko_id = try UserDefaults.standard.getUserId()
-            url = URL(string: "https://api.airtable.com/v0/appP7dMHeW4puOorW/Voucher?filterByFormula=id_toko="+toko_id+"&api_key=keys9Q3knWNrVr89B")
+            url = URL.getAllVouchersByStoreId(storeId: toko_id)!
         } catch {
             print(error)
         }
-        //let request = URLRequest(url: url!)
         let dataTask = URLSession.shared.dataTask(with: url!) {data, _, _ in
             guard let jsonData = data else {
                 print("fail1")
@@ -53,10 +52,8 @@ class Voucher: Codable {
     }
     
     static func getVoucher(id_voucher: String, response: @escaping ([RecordVoucher])->Void ) {
-        let url = URL(string: "https://api.airtable.com/v0/appP7dMHeW4puOorW/Voucher?filterByFormula=id_voucher="+id_voucher+"&api_key=keys9Q3knWNrVr89B")
-        //var recResponse.records
+        let url = URL.getAllVouchersByVoucherId(voucherId: id_voucher)
         
-        //let request = URLRequest(url: url!)
         let dataTask = URLSession.shared.dataTask(with: url!) {data, _, _ in
             guard let jsonData = data else {
                 print("fail1")
@@ -81,13 +78,21 @@ class Voucher: Codable {
     static func insVoucher(nama: String, exp_date: String, keterangan:String, id_toko:String, response: @escaping (RecordVoucher)->Void ) {
         // prepare json data
         let uuid = UUID().uuidString
-        let json = [ "fields": ["id_voucher":uuid, "nama":nama, "exp_date": exp_date, "keterangan": keterangan, "id_toko": id_toko]]
+        let json = [
+            "fields": [
+                "id_voucher": uuid,
+                "nama": nama,
+                "exp_date": exp_date,
+                "keterangan": keterangan,
+                "id_toko": id_toko
+            ]
+        ]
         
         
         let jsonData = try? JSONSerialization.data(withJSONObject: json)
 
         // create post request
-        let url = URL(string: "https://api.airtable.com/v0/appP7dMHeW4puOorW/Voucher?api_key=keys9Q3knWNrVr89B")!
+        let url = URL.insertVoucher()!
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -121,15 +126,13 @@ class Voucher: Codable {
     }
     
     static func delVoucher(airtableid: String, response: @escaping (Bool)->Void ) {
-        let url = URL(string: "https://api.airtable.com/v0/appP7dMHeW4puOorW/Voucher/"+airtableid+"?&api_key=keys9Q3knWNrVr89B")!
-        //var recResponse.records
+        let url = URL.deleteVoucher(airtableId: airtableid)!
         var request = URLRequest(url: url)
         request.httpMethod = "DELETE"
         
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         
-        //let request = URLRequest(url: url!)
         let task = URLSession.shared.dataTask(with: request) { data, _, _ in
             guard data != nil else {
                 print("fail1")
