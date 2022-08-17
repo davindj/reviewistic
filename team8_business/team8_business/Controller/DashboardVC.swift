@@ -46,73 +46,32 @@ class DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     }
     
     func loadDataFromAPI(callback: @escaping()->Void){
-        transDaily = []
-        let today = Date()
-        let formatter1 = DateFormatter()
-        formatter1.dateFormat = "yyyy-MM-dd"
-        print(formatter1.string(from: today))
+        guard let storeId = try? UserDefaults.standard.getUserId() else { return }
         
-        var avgPriceRating :Int = 0
-        var avgServiceRating :Int = 0
-        var avgProdukRating :Int = 0
-        
-        var date1 = Date(timeIntervalSinceReferenceDate: -123456789.0)
-        var waktu = Date(timeIntervalSinceReferenceDate: -123456789.0)
-        var date3 = Date(timeIntervalSinceReferenceDate: -123456789.0)
-        
-        Transaction.callData( response: {r in
-            self.trans = r.map{
-                TransactionViewModel.init(transaction: $0)
-            }
-            self.latestReview = self.trans
-            self.tblLatest.reloadData()
+        Transaction.getAllReviewedTransactionsByStoreId(storeId: storeId){r in
+            self.trans = r.map{ TransactionViewModel.init(transaction: $0) }
+            self.latestReview = Array(self.trans.sorted{ $0.waktu < $1.waktu }.prefix(3)) // 3 first element for latest review
             
-            for re in self.trans {
-                //array harian
-                if (re.status == .Reviewed) {
-                    if (formatter1.string(from: today) == re.tanggal) {
-                        self.transDaily.append(re)
-                        print("kepindah")
-                    }
-                    //array latest
-                    if (date1 < re.waktu) {
-                        date3 = waktu
-                        waktu = date1
-                        date1 = re.waktu
-                        self.latestReview[2] = self.latestReview[1]
-                        self.latestReview[1] = self.latestReview[0]
-                        self.latestReview[0] = re
-                    } else if (waktu < re.waktu) {
-                        date3 = waktu
-                        waktu = re.waktu
-                        self.latestReview[2] = self.latestReview[1]
-                        self.latestReview[1] = re
-                    } else if (date3 < re.waktu) {
-                        date3 = re.waktu
-                        self.latestReview[2] = re
-                    }
-                    print(date1)
-                }
-            }
-            //Untuk rata-rata harian
-            if (self.transDaily.count > 0) {
-                avgPriceRating = self.transDaily.reduce(0, {result,currentelement in return result+currentelement.RPrice}) / self.transDaily.count
-                avgServiceRating = self.transDaily.reduce(0, {$0+$1.RService}) / self.transDaily.count
-                avgProdukRating = self.transDaily.reduce(0) {$0+$1.RProduct} / self.transDaily.count
-                
-                self.lblRevNum.text = "Based on "+String(self.transDaily.count)+" reviews"
-                self.lblPriceRating.text = String(avgPriceRating)
-                self.lblServiceRating.text = String(avgServiceRating)
-                self.lblProdukRating.text = String(avgProdukRating)
-            } else {
+            // Rata - rata
+            if (self.trans.isEmpty) {
                 self.lblRevNum.text = "No reviews"
                 self.lblPriceRating.text = "0"
                 self.lblServiceRating.text = "0"
                 self.lblProdukRating.text = "0"
+            } else {
+                let avgPriceRating = self.trans.reduce(0){$0+$1.RPrice} / self.trans.count
+                let avgServiceRating = self.trans.reduce(0){$0+$1.RService} / self.trans.count
+                let avgProdukRating = self.trans.reduce(0){$0+$1.RProduct} / self.trans.count
+                
+                self.lblRevNum.text = "Based on "+String(self.trans.count)+" reviews"
+                self.lblPriceRating.text = String(avgPriceRating)
+                self.lblServiceRating.text = String(avgServiceRating)
+                self.lblProdukRating.text = String(avgProdukRating)
             }
-            // Panggil Callback
+            self.tblLatest.reloadData()
+            
             callback()
-        })
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -94,23 +94,18 @@ class DailysVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
         
         // Navigation Item
         if kategori == .Price{
-            self.navigationItem.title = "Review Price"
+            self.navigationItem.title = "Price Review"
         }
         else if kategori == .Product{
-            self.navigationItem.title = "Review Produk"
+            self.navigationItem.title = "Product Review"
         }
         else if kategori == .Service{
-            self.navigationItem.title = "Review Service"
+            self.navigationItem.title = "Service Review"
         }
         
-        Transaction.callData{r in
-            let arr = r.filter{$0.fields.status == 2}
-            
-            for record in 1...arr.count{
-                let viewmodel = TransactionViewModel(transaction: arr[record-1])
-                self.transaksi.append(viewmodel)
-            }
-            self.transaksi = TransactionViewModel.filterToday(arrtrans: self.transaksi)
+        guard let storeId = try? UserDefaults.standard.getUserId() else { return }
+        Transaction.getAllReviewedTransactionsByStoreId(storeId: storeId){ arr in
+            self.transaksi = arr.map{ TransactionViewModel(transaction: $0) }
             
             let totalbintang = self.transaksi.count <= 0 ? 1 : self.transaksi.count
             self.filtereddata = self.transaksi
@@ -209,13 +204,8 @@ class DailysVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
         }
     }
     func filter(){
-        
-        
         filtereddata = TransactionViewModel.filter(arrtrans: transaksi, kategori: self.kategori, rating: self.rating)
-        
-        
         tableViewDailys.reloadData()
-        
     }
     
 }

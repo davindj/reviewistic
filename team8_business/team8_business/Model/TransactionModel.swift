@@ -117,6 +117,30 @@ class Transaction: Codable {
         }
         dataTask.resume()
     }
+    
+    static func getAllReviewedTransactionsByStoreId(storeId: String, response: @escaping ([Record])->Void ) {
+        let url = URL.getAllReviewedTransactionsByStoreId(storeId: storeId)
+        let dataTask = URLSession.shared.dataTask(with: url!) {data, _, _ in
+            guard let jsonData = data else {
+                print("fail1")
+                return
+            }
+            do {
+                let decoder = JSONDecoder()
+                let recResponse = try decoder.decode(Records.self, from: jsonData)
+                let records = recResponse.records.sorted{ Int($0.fields.NomorTransaksi)! < Int($1.fields.NomorTransaksi)! }
+                
+                DispatchQueue.main.async {
+                    response(records)
+                }
+                
+                //panggil data disini
+            } catch let jsonError as NSError {
+                print("JSON decode failed: \(jsonError)")
+            }
+        }
+        dataTask.resume()
+    }
 }
 
 class Record: Codable {

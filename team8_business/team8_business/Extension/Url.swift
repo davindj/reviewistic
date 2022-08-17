@@ -35,6 +35,9 @@ extension URL{
     static func getAllTransactionsByStoreId(storeId: String) -> URL?{
         return URL(string: "\(AIRTABLE_URL)/Transaksi?api_key=\(AIRTABLE_API_KEY)&filterByFormula='id_toko=\(storeId)'")
     }
+    static func getAllReviewedTransactionsByStoreId(storeId: String) -> URL?{
+        return URL(string: "\(AIRTABLE_URL)/Transaksi?api_key=\(AIRTABLE_API_KEY)&filterByFormula=AND(id_toko='\(storeId)',status=2)")
+    }
     static func patchTransaction(transactionId: String) -> URL?{
         return URL(string: "\(AIRTABLE_URL)/Transaksi/\(transactionId)?api_key=\(AIRTABLE_API_KEY)")
     }
