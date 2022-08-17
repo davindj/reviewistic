@@ -92,7 +92,7 @@ class AddTransVoucherVC: UIViewController, UITableViewDelegate, UITableViewDataS
         let voucher = vouchers[selectedIdx]
         Transaction.updateReviewStatus(airtableid: transaction.transObj.id,
                                        voucherid: voucher.recVoucher.id,
-                                       status: 2)
+                                       status: TransactionStatus.BarcodeGenerated.rawValue)
         { isSuccess in
             self.dismiss(animated: true){
                 self.successCallback()

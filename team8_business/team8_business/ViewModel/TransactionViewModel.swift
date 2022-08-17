@@ -8,11 +8,11 @@
 import Foundation
 import UIKit
 
-enum TransactionStatus{
-    case BarcodeNotGenerated
-    case BarcodeGenerated
-    case Reviewed
-    case Unknown
+enum TransactionStatus: Int{
+    case BarcodeNotGenerated = 0
+    case BarcodeGenerated = 1
+    case Reviewed = 2
+    case Unknown = -1
 }
 enum Kategori {
     case Price
