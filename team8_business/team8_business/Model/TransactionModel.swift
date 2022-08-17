@@ -8,7 +8,7 @@
 import Foundation
 
 class Transaction: Codable {
-    var NomorTransaksi: String = ""
+    let NomorTransaksi: String
     let Review: String
     let RatingPrice: Int
     let RatingProduk: Int
@@ -36,16 +36,10 @@ class Transaction: Codable {
     
     
     static func callData(response: @escaping ([Record])->Void ) {
-        var url = URL(string:"")
-        do {
-            let toko_id = try UserDefaults.standard.getUserId()
-            url = URL(string: "https://api.airtable.com/v0/appP7dMHeW4puOorW/Review?filterByFormula=id_toko="+toko_id+"&api_key=keys9Q3knWNrVr89B")
-        } catch {
-            print(error)
-        }
-        //var recResponse.records
+        guard let toko_id = try? UserDefaults.standard.getUserId() else { return }
+        print(toko_id)
+        let url = URL.getAllTransactionsByStoreId(storeId: toko_id)
         
-        //let request = URLRequest(url: url!)
         let dataTask = URLSession.shared.dataTask(with: url!) {data, _, _ in
             guard let jsonData = data else {
                 print("fail1")
@@ -69,14 +63,11 @@ class Transaction: Codable {
     }
     
     static func updateReviewStatus(airtableid:String, voucherid:String, status:Int, response: @escaping (Bool)->Void ) {
-        
         let json = [ "fields": ["status":status, "voucher_id":voucherid]]
-        
-        
         let jsonData = try? JSONSerialization.data(withJSONObject: json)
         
         // create post request
-        let url = URL(string: "https://api.airtable.com/v0/appP7dMHeW4puOorW/Review/"+airtableid+"?api_key=keys9Q3knWNrVr89B")!
+        let url = URL.patchTransaction(transactionId: airtableid)!
         
         var request = URLRequest(url: url)
         request.httpMethod = "PATCH"
@@ -104,16 +95,7 @@ class Transaction: Codable {
     }
     
     static func getAllTrans(voucherID:String, response: @escaping ([Record])->Void ) {
-        var url = URL(string:"")
-        do {
-            //let toko_id = try UserDefaults.standard.getUserId()
-            url = URL(string: "https://api.airtable.com/v0/appP7dMHeW4puOorW/Review?filterByFormula=voucher_id='"+voucherID+"'&api_key=keys9Q3knWNrVr89B")
-        } catch {
-            print(error)
-        }
-        //var recResponse.records
-        
-        //let request = URLRequest(url: url!)
+        let url = URL.getAllTransactionsByVoucherId(voucherId: voucherID)
         let dataTask = URLSession.shared.dataTask(with: url!) {data, _, _ in
             guard let jsonData = data else {
                 print("fail1")

@@ -23,11 +23,9 @@ class Produk: Codable {
     }
     
     static func listProdukTransaksi(nomorTransaksi:String , response: @escaping ([RecordProduk])->Void ) {
-        let url = URL(string: "https://api.airtable.com/v0/appP7dMHeW4puOorW/Transaksi?filterByFormula=NomorTransaksi="+nomorTransaksi+"&api_key=keys9Q3knWNrVr89B")
-        //var recResponse.records
-        
-        //let request = URLRequest(url: url!)
-        let dataTask = URLSession.shared.dataTask(with: url!) {data, _, _ in
+        let url = URL.getAllTransactionDetails(transactionId: nomorTransaksi)!
+
+        let dataTask = URLSession.shared.dataTask(with: url) {data, _, _ in
             guard let jsonData = data else {
                 print("fail1")
                 return
