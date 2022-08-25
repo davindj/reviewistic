@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0u9-Ai-8NY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0u9-Ai-8NY">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,7 +12,7 @@
         <!--Detail Promo-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="detailvoucher" id="Y6W-OH-hqX" customClass="DetailVoucher" customModule="team8_business" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="detailvoucher" id="Y6W-OH-hqX" customClass="DetailVoucher" customModule="reviewistic" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -20,15 +21,15 @@
                                 <rect key="frame" x="20" y="75" width="374" height="700"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="detailPromo" rowHeight="71" id="VzL-25-HCK" customClass="outletDetailVoucher" customModule="team8_business" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.5" width="374" height="71"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="detailPromo" rowHeight="71" id="VzL-25-HCK" customClass="outletDetailVoucher" customModule="reviewistic" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="374" height="71"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VzL-25-HCK" id="6b0-bG-x1K">
-                                            <rect key="frame" x="0.0" y="0.0" width="344.5" height="71"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="345.5" height="71"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ycM-Oz-4W4">
-                                                    <rect key="frame" x="8" y="8" width="328.5" height="55"/>
+                                                    <rect key="frame" x="8" y="8" width="329.5" height="55"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="noIDTrans" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F2r-Tr-1a3">
                                                             <rect key="frame" x="8" y="8" width="77" height="17"/>
@@ -37,7 +38,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5pT-Po-pMd">
-                                                            <rect key="frame" x="320.5" y="8" width="0.0" height="17"/>
+                                                            <rect key="frame" x="321.5" y="8" width="0.0" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -119,14 +120,14 @@
         <!--Voucher-->
         <scene sceneID="JHj-p1-yCW">
             <objects>
-                <tableViewController id="KXS-Kh-IGB" customClass="VoucherVC" customModule="team8_business" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="KXS-Kh-IGB" customClass="VoucherVC" customModule="reviewistic" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="92" sectionHeaderHeight="28" sectionFooterHeight="28" id="3Kq-ZP-4OW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableviewvouchercell" rowHeight="92" id="L1f-oM-LkJ" customClass="tableviewVoucherCell" customModule="team8_business">
-                                <rect key="frame" x="0.0" y="24.5" width="414" height="92"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableviewvouchercell" rowHeight="92" id="L1f-oM-LkJ" customClass="tableviewVoucherCell" customModule="reviewistic" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="92"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="L1f-oM-LkJ" id="AC7-Gf-Cr2">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="92"/>

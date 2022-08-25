@@ -180,5 +180,4 @@ class tableviewVoucherCell: UITableViewCell{
     @IBOutlet weak var Keterangan: UILabel!
     @IBOutlet weak var ExpDate: UILabel!
     @IBOutlet weak var viewcell: UIView!
-    
 }
