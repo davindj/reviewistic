@@ -18,8 +18,8 @@
 		B926619D26A6A7DF00ACC9F2 /* ReviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B926619C26A6A7DF00ACC9F2 /* ReviewVC.swift */; };
 		B92661A526A6A7DF00ACC9F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B92661A426A6A7DF00ACC9F2 /* Assets.xcassets */; };
 		B92661A826A6A7DF00ACC9F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B92661A626A6A7DF00ACC9F2 /* LaunchScreen.storyboard */; };
-		B92661B326A6A7DF00ACC9F2 /* team8_businessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92661B226A6A7DF00ACC9F2 /* team8_businessTests.swift */; };
-		B92661BE26A6A7DF00ACC9F2 /* team8_businessUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92661BD26A6A7DF00ACC9F2 /* team8_businessUITests.swift */; };
+		B92661B326A6A7DF00ACC9F2 /* reviewistic_businessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92661B226A6A7DF00ACC9F2 /* reviewistic_businessTests.swift */; };
+		B92661BE26A6A7DF00ACC9F2 /* reviewistic_businessUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92661BD26A6A7DF00ACC9F2 /* reviewistic_businessUITests.swift */; };
 		B92661D826A8235E00ACC9F2 /* TransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92661D726A8235E00ACC9F2 /* TransactionModel.swift */; };
 		B95F5C5426AAB0A7005DF1FA /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B95F5C5326AAB0A7005DF1FA /* Dashboard.storyboard */; };
 		B95F5C5926AD1A4A005DF1FA /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95F5C5826AD1A4A005DF1FA /* DashboardVC.swift */; };
@@ -78,10 +78,10 @@
 		B92661A726A6A7DF00ACC9F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B92661A926A6A7DF00ACC9F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B92661AE26A6A7DF00ACC9F2 /* reviewisticTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = reviewisticTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B92661B226A6A7DF00ACC9F2 /* team8_businessTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = team8_businessTests.swift; sourceTree = "<group>"; };
+		B92661B226A6A7DF00ACC9F2 /* reviewistic_businessTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reviewistic_businessTests.swift; sourceTree = "<group>"; };
 		B92661B426A6A7DF00ACC9F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B92661B926A6A7DF00ACC9F2 /* reviewisticUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = reviewisticUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B92661BD26A6A7DF00ACC9F2 /* team8_businessUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = team8_businessUITests.swift; sourceTree = "<group>"; };
+		B92661BD26A6A7DF00ACC9F2 /* reviewistic_businessUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reviewistic_businessUITests.swift; sourceTree = "<group>"; };
 		B92661BF26A6A7DF00ACC9F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B92661D726A8235E00ACC9F2 /* TransactionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionModel.swift; sourceTree = "<group>"; };
 		B95F5C5326AAB0A7005DF1FA /* Dashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
@@ -172,7 +172,7 @@
 		B92661B126A6A7DF00ACC9F2 /* reviewistic_businessTests */ = {
 			isa = PBXGroup;
 			children = (
-				B92661B226A6A7DF00ACC9F2 /* team8_businessTests.swift */,
+				B92661B226A6A7DF00ACC9F2 /* reviewistic_businessTests.swift */,
 				B92661B426A6A7DF00ACC9F2 /* Info.plist */,
 			);
 			path = reviewistic_businessTests;
@@ -181,7 +181,7 @@
 		B92661BC26A6A7DF00ACC9F2 /* reviewistic_businessUITests */ = {
 			isa = PBXGroup;
 			children = (
-				B92661BD26A6A7DF00ACC9F2 /* team8_businessUITests.swift */,
+				B92661BD26A6A7DF00ACC9F2 /* reviewistic_businessUITests.swift */,
 				B92661BF26A6A7DF00ACC9F2 /* Info.plist */,
 			);
 			path = reviewistic_businessUITests;
@@ -433,7 +433,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B92661B326A6A7DF00ACC9F2 /* team8_businessTests.swift in Sources */,
+				B92661B326A6A7DF00ACC9F2 /* reviewistic_businessTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,7 +441,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B92661BE26A6A7DF00ACC9F2 /* team8_businessUITests.swift in Sources */,
+				B92661BE26A6A7DF00ACC9F2 /* reviewistic_businessUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -637,7 +637,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SNDZ43L8ZN;
-				INFOPLIST_FILE = team8_businessTests/Info.plist;
+				INFOPLIST_FILE = reviewistic_businessTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -659,7 +659,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SNDZ43L8ZN;
-				INFOPLIST_FILE = team8_businessTests/Info.plist;
+				INFOPLIST_FILE = reviewistic_businessTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -680,7 +680,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SNDZ43L8ZN;
-				INFOPLIST_FILE = team8_businessUITests/Info.plist;
+				INFOPLIST_FILE = reviewistic_businessUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -700,7 +700,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SNDZ43L8ZN;
-				INFOPLIST_FILE = team8_businessUITests/Info.plist;
+				INFOPLIST_FILE = reviewistic_businessUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
