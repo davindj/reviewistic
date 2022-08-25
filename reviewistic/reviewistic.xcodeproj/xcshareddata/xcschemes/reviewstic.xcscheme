@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B926619426A6A7DF00ACC9F2"
-               BuildableName = "team8_business.app"
-               BlueprintName = "team8_business"
-               ReferencedContainer = "container:team8_business.xcodeproj">
+               BuildableName = "reviewistic.app"
+               BlueprintName = "reviewistic"
+               ReferencedContainer = "container:reviewistic.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,9 +34,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B92661AD26A6A7DF00ACC9F2"
-               BuildableName = "team8_businessTests.xctest"
-               BlueprintName = "team8_businessTests"
-               ReferencedContainer = "container:team8_business.xcodeproj">
+               BuildableName = "reviewisticTests.xctest"
+               BlueprintName = "reviewisticTests"
+               ReferencedContainer = "container:reviewistic.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -44,9 +44,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B92661B826A6A7DF00ACC9F2"
-               BuildableName = "team8_businessUITests.xctest"
-               BlueprintName = "team8_businessUITests"
-               ReferencedContainer = "container:team8_business.xcodeproj">
+               BuildableName = "reviewisticUITests.xctest"
+               BlueprintName = "reviewisticUITests"
+               ReferencedContainer = "container:reviewistic.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -66,9 +66,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B926619426A6A7DF00ACC9F2"
-            BuildableName = "team8_business.app"
-            BlueprintName = "team8_business"
-            ReferencedContainer = "container:team8_business.xcodeproj">
+            BuildableName = "reviewistic.app"
+            BlueprintName = "reviewistic"
+            ReferencedContainer = "container:reviewistic.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <EnvironmentVariables>
@@ -95,9 +95,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B926619426A6A7DF00ACC9F2"
-            BuildableName = "team8_business.app"
-            BlueprintName = "team8_business"
-            ReferencedContainer = "container:team8_business.xcodeproj">
+            BuildableName = "reviewistic.app"
+            BlueprintName = "reviewistic"
+            ReferencedContainer = "container:reviewistic.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

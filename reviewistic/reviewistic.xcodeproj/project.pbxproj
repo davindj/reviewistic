@@ -16,7 +16,6 @@
 		B926619926A6A7DF00ACC9F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B926619826A6A7DF00ACC9F2 /* AppDelegate.swift */; };
 		B926619B26A6A7DF00ACC9F2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B926619A26A6A7DF00ACC9F2 /* SceneDelegate.swift */; };
 		B926619D26A6A7DF00ACC9F2 /* ReviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B926619C26A6A7DF00ACC9F2 /* ReviewVC.swift */; };
-		B92661A326A6A7DF00ACC9F2 /* team8_business.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B92661A126A6A7DF00ACC9F2 /* team8_business.xcdatamodeld */; };
 		B92661A526A6A7DF00ACC9F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B92661A426A6A7DF00ACC9F2 /* Assets.xcassets */; };
 		B92661A826A6A7DF00ACC9F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B92661A626A6A7DF00ACC9F2 /* LaunchScreen.storyboard */; };
 		B92661B326A6A7DF00ACC9F2 /* team8_businessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92661B226A6A7DF00ACC9F2 /* team8_businessTests.swift */; };
@@ -71,18 +70,17 @@
 		4C23D82C26B928D30060D0DE /* DetailVoucher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVoucher.swift; sourceTree = "<group>"; };
 		4C77DA4A26ABEA3F0041450D /* Voucher.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Voucher.storyboard; sourceTree = "<group>"; };
 		4C77DA4E26AEA58C0041450D /* VoucherVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoucherVC.swift; sourceTree = "<group>"; };
-		B926619526A6A7DF00ACC9F2 /* team8_business.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = team8_business.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B926619526A6A7DF00ACC9F2 /* reviewistic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = reviewistic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B926619826A6A7DF00ACC9F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B926619A26A6A7DF00ACC9F2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B926619C26A6A7DF00ACC9F2 /* ReviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewVC.swift; sourceTree = "<group>"; };
-		B92661A226A6A7DF00ACC9F2 /* team8_business.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = team8_business.xcdatamodel; sourceTree = "<group>"; };
 		B92661A426A6A7DF00ACC9F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B92661A726A6A7DF00ACC9F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B92661A926A6A7DF00ACC9F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B92661AE26A6A7DF00ACC9F2 /* team8_businessTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = team8_businessTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B92661AE26A6A7DF00ACC9F2 /* reviewisticTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = reviewisticTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B92661B226A6A7DF00ACC9F2 /* team8_businessTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = team8_businessTests.swift; sourceTree = "<group>"; };
 		B92661B426A6A7DF00ACC9F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B92661B926A6A7DF00ACC9F2 /* team8_businessUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = team8_businessUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B92661B926A6A7DF00ACC9F2 /* reviewisticUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = reviewisticUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B92661BD26A6A7DF00ACC9F2 /* team8_businessUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = team8_businessUITests.swift; sourceTree = "<group>"; };
 		B92661BF26A6A7DF00ACC9F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B92661D726A8235E00ACC9F2 /* TransactionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionModel.swift; sourceTree = "<group>"; };
@@ -139,9 +137,9 @@
 		B926618C26A6A7DF00ACC9F2 = {
 			isa = PBXGroup;
 			children = (
-				B926619726A6A7DF00ACC9F2 /* team8_business */,
-				B92661B126A6A7DF00ACC9F2 /* team8_businessTests */,
-				B92661BC26A6A7DF00ACC9F2 /* team8_businessUITests */,
+				B926619726A6A7DF00ACC9F2 /* reviewistic */,
+				B92661B126A6A7DF00ACC9F2 /* reviewistic_businessTests */,
+				B92661BC26A6A7DF00ACC9F2 /* reviewistic_businessUITests */,
 				B926619626A6A7DF00ACC9F2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -149,14 +147,14 @@
 		B926619626A6A7DF00ACC9F2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B926619526A6A7DF00ACC9F2 /* team8_business.app */,
-				B92661AE26A6A7DF00ACC9F2 /* team8_businessTests.xctest */,
-				B92661B926A6A7DF00ACC9F2 /* team8_businessUITests.xctest */,
+				B926619526A6A7DF00ACC9F2 /* reviewistic.app */,
+				B92661AE26A6A7DF00ACC9F2 /* reviewisticTests.xctest */,
+				B92661B926A6A7DF00ACC9F2 /* reviewisticUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B926619726A6A7DF00ACC9F2 /* team8_business */ = {
+		B926619726A6A7DF00ACC9F2 /* reviewistic */ = {
 			isa = PBXGroup;
 			children = (
 				D79FD2DB26AA8A0700A079F2 /* ViewModel */,
@@ -167,27 +165,26 @@
 				D74EA49026B0092900B1E914 /* Extension */,
 				B92661A426A6A7DF00ACC9F2 /* Assets.xcassets */,
 				B92661A926A6A7DF00ACC9F2 /* Info.plist */,
-				B92661A126A6A7DF00ACC9F2 /* team8_business.xcdatamodeld */,
 			);
-			path = team8_business;
+			path = reviewistic;
 			sourceTree = "<group>";
 		};
-		B92661B126A6A7DF00ACC9F2 /* team8_businessTests */ = {
+		B92661B126A6A7DF00ACC9F2 /* reviewistic_businessTests */ = {
 			isa = PBXGroup;
 			children = (
 				B92661B226A6A7DF00ACC9F2 /* team8_businessTests.swift */,
 				B92661B426A6A7DF00ACC9F2 /* Info.plist */,
 			);
-			path = team8_businessTests;
+			path = reviewistic_businessTests;
 			sourceTree = "<group>";
 		};
-		B92661BC26A6A7DF00ACC9F2 /* team8_businessUITests */ = {
+		B92661BC26A6A7DF00ACC9F2 /* reviewistic_businessUITests */ = {
 			isa = PBXGroup;
 			children = (
 				B92661BD26A6A7DF00ACC9F2 /* team8_businessUITests.swift */,
 				B92661BF26A6A7DF00ACC9F2 /* Info.plist */,
 			);
-			path = team8_businessUITests;
+			path = reviewistic_businessUITests;
 			sourceTree = "<group>";
 		};
 		B92661D626A8234D00ACC9F2 /* Model */ = {
@@ -269,9 +266,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B926619426A6A7DF00ACC9F2 /* team8_business */ = {
+		B926619426A6A7DF00ACC9F2 /* reviewistic */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B92661C226A6A7DF00ACC9F2 /* Build configuration list for PBXNativeTarget "team8_business" */;
+			buildConfigurationList = B92661C226A6A7DF00ACC9F2 /* Build configuration list for PBXNativeTarget "reviewistic" */;
 			buildPhases = (
 				B926619126A6A7DF00ACC9F2 /* Sources */,
 				B926619226A6A7DF00ACC9F2 /* Frameworks */,
@@ -281,14 +278,14 @@
 			);
 			dependencies = (
 			);
-			name = team8_business;
+			name = reviewistic;
 			productName = team8_business;
-			productReference = B926619526A6A7DF00ACC9F2 /* team8_business.app */;
+			productReference = B926619526A6A7DF00ACC9F2 /* reviewistic.app */;
 			productType = "com.apple.product-type.application";
 		};
-		B92661AD26A6A7DF00ACC9F2 /* team8_businessTests */ = {
+		B92661AD26A6A7DF00ACC9F2 /* reviewisticTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B92661C526A6A7DF00ACC9F2 /* Build configuration list for PBXNativeTarget "team8_businessTests" */;
+			buildConfigurationList = B92661C526A6A7DF00ACC9F2 /* Build configuration list for PBXNativeTarget "reviewisticTests" */;
 			buildPhases = (
 				B92661AA26A6A7DF00ACC9F2 /* Sources */,
 				B92661AB26A6A7DF00ACC9F2 /* Frameworks */,
@@ -299,14 +296,14 @@
 			dependencies = (
 				B92661B026A6A7DF00ACC9F2 /* PBXTargetDependency */,
 			);
-			name = team8_businessTests;
+			name = reviewisticTests;
 			productName = team8_businessTests;
-			productReference = B92661AE26A6A7DF00ACC9F2 /* team8_businessTests.xctest */;
+			productReference = B92661AE26A6A7DF00ACC9F2 /* reviewisticTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		B92661B826A6A7DF00ACC9F2 /* team8_businessUITests */ = {
+		B92661B826A6A7DF00ACC9F2 /* reviewisticUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B92661C826A6A7DF00ACC9F2 /* Build configuration list for PBXNativeTarget "team8_businessUITests" */;
+			buildConfigurationList = B92661C826A6A7DF00ACC9F2 /* Build configuration list for PBXNativeTarget "reviewisticUITests" */;
 			buildPhases = (
 				B92661B526A6A7DF00ACC9F2 /* Sources */,
 				B92661B626A6A7DF00ACC9F2 /* Frameworks */,
@@ -317,9 +314,9 @@
 			dependencies = (
 				B92661BB26A6A7DF00ACC9F2 /* PBXTargetDependency */,
 			);
-			name = team8_businessUITests;
+			name = reviewisticUITests;
 			productName = team8_businessUITests;
-			productReference = B92661B926A6A7DF00ACC9F2 /* team8_businessUITests.xctest */;
+			productReference = B92661B926A6A7DF00ACC9F2 /* reviewisticUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -344,7 +341,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B926619026A6A7DF00ACC9F2 /* Build configuration list for PBXProject "team8_business" */;
+			buildConfigurationList = B926619026A6A7DF00ACC9F2 /* Build configuration list for PBXProject "reviewistic" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -357,9 +354,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B926619426A6A7DF00ACC9F2 /* team8_business */,
-				B92661AD26A6A7DF00ACC9F2 /* team8_businessTests */,
-				B92661B826A6A7DF00ACC9F2 /* team8_businessUITests */,
+				B926619426A6A7DF00ACC9F2 /* reviewistic */,
+				B92661AD26A6A7DF00ACC9F2 /* reviewisticTests */,
+				B92661B826A6A7DF00ACC9F2 /* reviewisticUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -424,7 +421,6 @@
 				B926619D26A6A7DF00ACC9F2 /* ReviewVC.swift in Sources */,
 				D74EA48F26B0003600B1E914 /* VoucherViewModel.swift in Sources */,
 				B926619D26A6A7DF00ACC9F2 /* ReviewVC.swift in Sources */,
-				B92661A326A6A7DF00ACC9F2 /* team8_business.xcdatamodeld in Sources */,
 				B926619926A6A7DF00ACC9F2 /* AppDelegate.swift in Sources */,
 				4C23D82D26B928D30060D0DE /* DetailVoucher.swift in Sources */,
 				D7244B8526AEAEE7000D7447 /* AddTransVoucherVC.swift in Sources */,
@@ -454,12 +450,12 @@
 /* Begin PBXTargetDependency section */
 		B92661B026A6A7DF00ACC9F2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B926619426A6A7DF00ACC9F2 /* team8_business */;
+			target = B926619426A6A7DF00ACC9F2 /* reviewistic */;
 			targetProxy = B92661AF26A6A7DF00ACC9F2 /* PBXContainerItemProxy */;
 		};
 		B92661BB26A6A7DF00ACC9F2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B926619426A6A7DF00ACC9F2 /* team8_business */;
+			target = B926619426A6A7DF00ACC9F2 /* reviewistic */;
 			targetProxy = B92661BA26A6A7DF00ACC9F2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -600,13 +596,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = SNDZ43L8ZN;
-				INFOPLIST_FILE = team8_business/Info.plist;
+				INFOPLIST_FILE = reviewistic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.8.1;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.mc3.team8-business";
+				PRODUCT_BUNDLE_IDENTIFIER = com.macrosoft.reviewistic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -621,13 +617,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = SNDZ43L8ZN;
-				INFOPLIST_FILE = team8_business/Info.plist;
+				INFOPLIST_FILE = reviewistic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.8.1;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.mc3.team8-business";
+				PRODUCT_BUNDLE_IDENTIFIER = com.macrosoft.reviewistic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -652,7 +648,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/team8_business.app/team8_business";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/reviewistic.app/reviewistic";
 			};
 			name = Debug;
 		};
@@ -674,7 +670,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/team8_business.app/team8_business";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/reviewistic.app/reviewistic";
 			};
 			name = Release;
 		};
@@ -721,7 +717,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B926619026A6A7DF00ACC9F2 /* Build configuration list for PBXProject "team8_business" */ = {
+		B926619026A6A7DF00ACC9F2 /* Build configuration list for PBXProject "reviewistic" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B92661C026A6A7DF00ACC9F2 /* Debug */,
@@ -730,7 +726,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B92661C226A6A7DF00ACC9F2 /* Build configuration list for PBXNativeTarget "team8_business" */ = {
+		B92661C226A6A7DF00ACC9F2 /* Build configuration list for PBXNativeTarget "reviewistic" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B92661C326A6A7DF00ACC9F2 /* Debug */,
@@ -739,7 +735,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B92661C526A6A7DF00ACC9F2 /* Build configuration list for PBXNativeTarget "team8_businessTests" */ = {
+		B92661C526A6A7DF00ACC9F2 /* Build configuration list for PBXNativeTarget "reviewisticTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B92661C626A6A7DF00ACC9F2 /* Debug */,
@@ -748,7 +744,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B92661C826A6A7DF00ACC9F2 /* Build configuration list for PBXNativeTarget "team8_businessUITests" */ = {
+		B92661C826A6A7DF00ACC9F2 /* Build configuration list for PBXNativeTarget "reviewisticUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B92661C926A6A7DF00ACC9F2 /* Debug */,
@@ -758,19 +754,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		B92661A126A6A7DF00ACC9F2 /* team8_business.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				B92661A226A6A7DF00ACC9F2 /* team8_business.xcdatamodel */,
-			);
-			currentVersion = B92661A226A6A7DF00ACC9F2 /* team8_business.xcdatamodel */;
-			path = team8_business.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = B926618D26A6A7DF00ACC9F2 /* Project object */;
 }
